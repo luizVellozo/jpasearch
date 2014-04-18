@@ -1,0 +1,9 @@
+language: java
+branches:
+  only:
+  - master
+install:
+- mvn install -DskipTests
+script: mvn verify
+after_success:
+- mvn verify jacoco:report coveralls:jacoco

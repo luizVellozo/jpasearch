@@ -321,7 +321,6 @@
         </executions>
         <configuration>
           <message>Create website for ${project.artifactId} v${project.version}</message>
-          <path>${project.artifactId}</path>
           <merge>true</merge>
           <server>github</server>
         </configuration>

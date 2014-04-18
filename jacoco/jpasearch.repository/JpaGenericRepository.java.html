@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>JpaGenericRepository.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository</a> &gt; <span class="el_source">JpaGenericRepository.java</span></div><h1>JpaGenericRepository.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 20143, jpasearch
+ *
+ * This file is part of jpasearch.
+ *
+ * jpasearch is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * jpasearch is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+package jpasearch.repository;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import javax.persistence.metamodel.Attribute;
+
+import jpasearch.domain.Identifiable;
+import jpasearch.repository.query.SearchBuilder;
+import jpasearch.repository.query.SearchParameters;
+import jpasearch.repository.util.BySelectorUtil;
+import jpasearch.repository.util.JpaUtil;
+import jpasearch.repository.util.MetamodelUtil;
+import jpasearch.repository.util.OrderByUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * JPA 2 Generic DAO with find by example/range/pattern and CRUD support.
+ */
+public abstract class JpaGenericRepository&lt;E extends Identifiable&lt;PK&gt;, PK extends Serializable&gt; implements GenericRepository&lt;E, PK&gt; {
+
+<span class="fc" id="L56">    private final Logger logger = LoggerFactory.getLogger(getClass());</span>
+
+    private BySelectorUtil bySelectorUtil;
+    private OrderByUtil orderByUtil;
+    private JpaUtil jpaUtil;
+    private MetamodelUtil metamodelUtil;
+
+    private EntityManager entityManager;
+
+    private final Class&lt;E&gt; type;
+    protected String cacheRegion;
+
+    /**
+     * This constructor needs the real type of the generic type E so it can be
+     * passed to the {@link EntityManager}.
+     */
+<span class="fc" id="L72">    public JpaGenericRepository(Class&lt;E&gt; type) {</span>
+<span class="fc" id="L73">        this.type = type;</span>
+<span class="fc" id="L74">    }</span>
+
+    public final Class&lt;E&gt; getType() {
+<span class="nc" id="L77">        return type;</span>
+    }
+
+    @Override
+    public List&lt;E&gt; find(SearchParameters&lt;E&gt; sp) {
+<span class="fc" id="L82">        checkNotNull(sp, &quot;The searchParameters cannot be null&quot;);</span>
+<span class="fc" id="L83">        CriteriaBuilder builder = entityManager.getCriteriaBuilder();</span>
+<span class="fc" id="L84">        CriteriaQuery&lt;E&gt; criteriaQuery = builder.createQuery(type);</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">        if (sp.isUseDistinct()) {</span>
+<span class="nc" id="L86">            criteriaQuery.distinct(true);</span>
+        }
+<span class="fc" id="L88">        Root&lt;E&gt; root = criteriaQuery.from(type);</span>
+
+        // predicate
+<span class="fc" id="L91">        Predicate predicate = getPredicate(criteriaQuery, root, builder, sp);</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">        if (predicate != null) {</span>
+<span class="fc" id="L93">            criteriaQuery = criteriaQuery.where(predicate);</span>
+        }
+
+        // fetches
+<span class="fc" id="L97">        jpaUtil.fetches(sp, root);</span>
+
+        // order by
+<span class="fc" id="L100">        criteriaQuery.orderBy(orderByUtil.buildJpaOrders(sp.getOrders(), root, builder));</span>
+
+<span class="fc" id="L102">        TypedQuery&lt;E&gt; typedQuery = entityManager.createQuery(criteriaQuery);</span>
+<span class="fc" id="L103">        jpaUtil.applyPagination(typedQuery, sp);</span>
+<span class="fc" id="L104">        List&lt;E&gt; entities = typedQuery.getResultList();</span>
+<span class="fc" id="L105">        logger.trace(&quot;Returned {} elements for {}.&quot;, entities.size(), sp);</span>
+
+<span class="fc" id="L107">        return entities;</span>
+    }
+
+    @Override
+    public long findCount(SearchParameters&lt;E&gt; sp) {
+<span class="nc" id="L112">        checkNotNull(sp, &quot;The searchParameters cannot be null&quot;);</span>
+<span class="nc" id="L113">        CriteriaBuilder builder = entityManager.getCriteriaBuilder();</span>
+
+<span class="nc" id="L115">        CriteriaQuery&lt;Long&gt; criteriaQuery = builder.createQuery(Long.class);</span>
+<span class="nc" id="L116">        Root&lt;E&gt; root = criteriaQuery.from(type);</span>
+
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (sp.isUseDistinct()) {</span>
+<span class="nc" id="L119">            criteriaQuery = criteriaQuery.select(builder.countDistinct(root));</span>
+        } else {
+<span class="nc" id="L121">            criteriaQuery = criteriaQuery.select(builder.count(root));</span>
+        }
+
+        // predicate
+<span class="nc" id="L125">        Predicate predicate = getPredicate(criteriaQuery, root, builder, sp);</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        if (predicate != null) {</span>
+<span class="nc" id="L127">            criteriaQuery = criteriaQuery.where(predicate);</span>
+        }
+
+        // construct order by to fetch or joins if needed
+<span class="nc" id="L131">        orderByUtil.buildJpaOrders(sp.getOrders(), root, builder);</span>
+
+<span class="nc" id="L133">        TypedQuery&lt;Long&gt; typedQuery = entityManager.createQuery(criteriaQuery);</span>
+
+<span class="nc" id="L135">        return typedQuery.getSingleResult().longValue();</span>
+    }
+
+    @Override
+    public &lt;T&gt; List&lt;T&gt; findProperty(Class&lt;T&gt; propertyType, SearchParameters&lt;E&gt; sp, Attribute&lt;?, ?&gt;... attributes) {
+<span class="nc" id="L140">        checkNotNull(sp, &quot;The searchParameters cannot be null&quot;);</span>
+<span class="nc" id="L141">        CriteriaBuilder builder = entityManager.getCriteriaBuilder();</span>
+<span class="nc" id="L142">        CriteriaQuery&lt;T&gt; criteriaQuery = builder.createQuery(propertyType);</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (sp.isUseDistinct()) {</span>
+<span class="nc" id="L144">            criteriaQuery.distinct(true);</span>
+        }
+<span class="nc" id="L146">        Root&lt;E&gt; root = criteriaQuery.from(type);</span>
+<span class="nc" id="L147">        Path&lt;T&gt; path = jpaUtil.getPath(root, Arrays.asList(attributes));</span>
+<span class="nc" id="L148">        criteriaQuery.select(path);</span>
+
+        // predicate
+<span class="nc" id="L151">        Predicate predicate = getPredicate(criteriaQuery, root, builder, sp);</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">        if (predicate != null) {</span>
+<span class="nc" id="L153">            criteriaQuery = criteriaQuery.where(predicate);</span>
+        }
+
+        // fetches
+<span class="nc" id="L157">        jpaUtil.fetches(sp, root);</span>
+
+        // order by
+        // we do not want to follow order by specified in search parameters
+<span class="nc" id="L161">        criteriaQuery.orderBy(builder.asc(path));</span>
+
+<span class="nc" id="L163">        TypedQuery&lt;T&gt; typedQuery = entityManager.createQuery(criteriaQuery);</span>
+<span class="nc" id="L164">        jpaUtil.applyPagination(typedQuery, sp);</span>
+<span class="nc" id="L165">        List&lt;T&gt; entities = typedQuery.getResultList();</span>
+<span class="nc" id="L166">        logger.debug(&quot;Returned {} elements for {}.&quot;, entities.size(), sp);</span>
+
+<span class="nc" id="L168">        return entities;</span>
+    }
+
+    @Override
+    public long findPropertyCount(SearchParameters&lt;E&gt; sp, Attribute&lt;?, ?&gt;... attributes) {
+<span class="nc" id="L173">        checkNotNull(sp, &quot;The searchParameters cannot be null&quot;);</span>
+<span class="nc" id="L174">        CriteriaBuilder builder = entityManager.getCriteriaBuilder();</span>
+<span class="nc" id="L175">        CriteriaQuery&lt;Long&gt; criteriaQuery = builder.createQuery(Long.class);</span>
+<span class="nc" id="L176">        Root&lt;E&gt; root = criteriaQuery.from(type);</span>
+<span class="nc" id="L177">        Path&lt;?&gt; path = jpaUtil.getPath(root, Arrays.asList(attributes));</span>
+
+<span class="nc bnc" id="L179" title="All 2 branches missed.">        if (sp.isUseDistinct()) {</span>
+<span class="nc" id="L180">            criteriaQuery = criteriaQuery.select(builder.countDistinct(path));</span>
+        } else {
+<span class="nc" id="L182">            criteriaQuery = criteriaQuery.select(builder.count(path));</span>
+        }
+
+        // predicate
+<span class="nc" id="L186">        Predicate predicate = getPredicate(criteriaQuery, root, builder, sp);</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">        if (predicate != null) {</span>
+<span class="nc" id="L188">            criteriaQuery = criteriaQuery.where(predicate);</span>
+        }
+
+        // construct order by to fetch or joins if needed
+<span class="nc" id="L192">        orderByUtil.buildJpaOrders(sp.getOrders(), root, builder);</span>
+
+<span class="nc" id="L194">        TypedQuery&lt;Long&gt; typedQuery = entityManager.createQuery(criteriaQuery);</span>
+<span class="nc" id="L195">        return typedQuery.getSingleResult().longValue();</span>
+    }
+
+    @Override
+    public E findUnique(SearchParameters&lt;E&gt; sp) {
+<span class="nc" id="L200">        E result = findUniqueOrNone(sp);</span>
+
+<span class="nc bnc" id="L202" title="All 2 branches missed.">        if (result == null) {</span>
+<span class="nc" id="L203">            throw new NoResultException(&quot;Developper: You expected 1 result but we found none !&quot;);</span>
+        }
+
+<span class="nc" id="L206">        return result;</span>
+    }
+
+    @Override
+    public E findUniqueOrNone(SearchParameters&lt;E&gt; sp) {
+        // this code is an optimization to prevent using a count
+<span class="nc" id="L212">        List&lt;E&gt; results = find(new SearchBuilder&lt;E&gt;(sp).paginate(0, 2).build());</span>
+
+<span class="nc bnc" id="L214" title="All 4 branches missed.">        if ((results == null) || results.isEmpty()) {</span>
+<span class="nc" id="L215">            return null;</span>
+        }
+
+<span class="nc bnc" id="L218" title="All 2 branches missed.">        if (results.size() &gt; 1) {</span>
+<span class="nc" id="L219">            throw new NonUniqueResultException(&quot;Developper: You expected 1 result but we found more !&quot;);</span>
+        }
+
+<span class="nc" id="L222">        return results.iterator().next();</span>
+    }
+
+    protected &lt;R&gt; Predicate getPredicate(CriteriaQuery&lt;?&gt; criteriaQuery, Root&lt;E&gt; root, CriteriaBuilder builder, SearchParameters&lt;E&gt; sp) {
+<span class="fc" id="L226">        return jpaUtil.andPredicate(builder, //</span>
+                bySearchPredicate(root, builder, sp), //
+                byMandatoryPredicate(criteriaQuery, root, builder, sp));
+    }
+
+    protected &lt;R&gt; Predicate bySearchPredicate(Root&lt;E&gt; root, CriteriaBuilder builder, SearchParameters&lt;E&gt; sp) {
+<span class="fc" id="L232">        return bySelectors(root, builder, sp);</span>
+    }
+
+    protected Predicate bySelectors(Root&lt;E&gt; root, CriteriaBuilder builder, SearchParameters&lt;E&gt; sp) {
+<span class="fc" id="L236">        return bySelectorUtil.bySelectors(root, builder, sp);</span>
+    }
+
+    /**
+     * You may override this method to add a Predicate to the default find
+     * method.
+     */
+    protected &lt;R&gt; Predicate byMandatoryPredicate(CriteriaQuery&lt;?&gt; criteriaQuery, Root&lt;E&gt; root, CriteriaBuilder builder, SearchParameters&lt;E&gt; sp) {
+<span class="fc" id="L244">        return null;</span>
+    }
+
+    // BEANS METHODS
+
+    protected final BySelectorUtil getBySelectorUtil() {
+<span class="nc" id="L250">        return bySelectorUtil;</span>
+    }
+
+    @Inject
+    public final void setBySelectorUtil(BySelectorUtil bySelectorUtil) {
+<span class="fc" id="L255">        this.bySelectorUtil = bySelectorUtil;</span>
+<span class="fc" id="L256">    }</span>
+
+    protected final EntityManager getEntityManager() {
+<span class="fc" id="L259">        return entityManager;</span>
+    }
+
+    @PersistenceContext
+    public final void setEntityManager(EntityManager entityManager) {
+<span class="fc" id="L264">        this.entityManager = entityManager;</span>
+<span class="fc" id="L265">    }</span>
+
+    protected final OrderByUtil getOrderByUtil() {
+<span class="nc" id="L268">        return orderByUtil;</span>
+    }
+
+    @Inject
+    public final void setOrderByUtil(OrderByUtil orderByUtil) {
+<span class="fc" id="L273">        this.orderByUtil = orderByUtil;</span>
+<span class="fc" id="L274">    }</span>
+
+    protected final JpaUtil getJpaUtil() {
+<span class="nc" id="L277">        return jpaUtil;</span>
+    }
+
+    @Inject
+    public final void setJpaUtil(JpaUtil jpaUtil) {
+<span class="fc" id="L282">        this.jpaUtil = jpaUtil;</span>
+<span class="fc" id="L283">    }</span>
+
+    protected final MetamodelUtil getMetamodelUtil() {
+<span class="nc" id="L286">        return metamodelUtil;</span>
+    }
+
+    @Inject
+    public final void setMetamodelUtil(MetamodelUtil metamodelUtil) {
+<span class="fc" id="L291">        this.metamodelUtil = metamodelUtil;</span>
+<span class="fc" id="L292">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

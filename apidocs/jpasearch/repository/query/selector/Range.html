@@ -1,0 +1,641 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>Range (JPA Search 0.1.0-SNAPSHOT API)</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Range (JPA Search 0.1.0-SNAPSHOT API)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Range.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../jpasearch/repository/query/selector/PropertySelector.html" title="class in jpasearch.repository.query.selector"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../jpasearch/repository/query/selector/Selector.html" title="interface in jpasearch.repository.query.selector"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?jpasearch/repository/query/selector/Range.html" target="_top">Frames</a></li>
+<li><a href="Range.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">jpasearch.repository.query.selector</div>
+<h2 title="Class Range" class="title">Class Range&lt;E,D extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&gt;</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>jpasearch.repository.query.selector.Range&lt;E,D&gt;</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>, <a href="../../../../jpasearch/repository/query/selector/Selector.html" title="interface in jpasearch.repository.query.selector">Selector</a>&lt;E,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;E,D&gt;&gt;, <a href="../../../../jpasearch/repository/query/selector/SingleSelector.html" title="interface in jpasearch.repository.query.selector">SingleSelector</a>&lt;E,D,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;E,D&gt;&gt;</dd>
+</dl>
+<hr>
+<br>
+<pre>public class <span class="strong">Range&lt;E,D extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&gt;</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="../../../../jpasearch/repository/query/selector/SingleSelector.html" title="interface in jpasearch.repository.query.selector">SingleSelector</a>&lt;E,D,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;E,D&gt;&gt;</pre>
+<div class="block">Range support for <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a> types.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../serialized-form.html#jpasearch.repository.query.selector.Range">Serialized Form</a></dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#Range(D, D, java.lang.Boolean, jpasearch.repository.query.Path)">Range</a></strong>(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;lowerBound,
+     <a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;higherBound,
+     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;includeNull,
+     <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;path)</code>
+<div class="block">Constructs a new Range.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#Range(D, D, jpasearch.repository.query.Path)">Range</a></strong>(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;lowerBound,
+     <a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;higherBound,
+     <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;path)</code>
+<div class="block">Constructs a new Range.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#Range(jpasearch.repository.query.Path)">Range</a></strong>(<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;path)</code>
+<div class="block">Constructs a new <a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector"><code>Range</code></a> with no boundaries and no restrictions on
+ field's nullability.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#copy()">copy</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#getHigherBound()">getHigherBound</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#getIncludeNull()">getIncludeNull</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#getLowerBound()">getLowerBound</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#getPath()">getPath</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#higherBound(D)">higherBound</a></strong>(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;higherBound)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#includeHigherBound(boolean)">includeHigherBound</a></strong>(boolean&nbsp;includeHigherBound)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#includeLowerBound(boolean)">includeLowerBound</a></strong>(boolean&nbsp;includeLowerBound)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#includeNull(java.lang.Boolean)">includeNull</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;includeNull)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#isBetween()">isBetween</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#isHigherBoundSet()">isHigherBoundSet</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#isIncludeHigherBound()">isIncludeHigherBound</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#isIncludeLowerBound()">isIncludeLowerBound</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#isIncludeNullSet()">isIncludeNullSet</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#isLowerBoundSet()">isLowerBoundSet</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#isSet()">isSet</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#isValid()">isValid</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#lowerBound(D)">lowerBound</a></strong>(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;lowerBound)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#resetRange()">resetRange</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#setHigherBound(D)">setHigherBound</a></strong>(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;higherBound)</code>
+<div class="block">Sets the upper range boundary.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#setIncludeHigherBound(boolean)">setIncludeHigherBound</a></strong>(boolean&nbsp;includeHigherBound)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#setIncludeLowerBound(boolean)">setIncludeLowerBound</a></strong>(boolean&nbsp;includeLowerBound)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#setIncludeNull(java.lang.Boolean)">setIncludeNull</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;includeNull)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/Range.html#setLowerBound(D)">setLowerBound</a></strong>(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;lowerBound)</code>
+<div class="block">Sets the lower range boundary.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="Range(jpasearch.repository.query.Path)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>Range</h4>
+<pre>public&nbsp;Range(<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;path)</pre>
+<div class="block">Constructs a new <a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector"><code>Range</code></a> with no boundaries and no restrictions on
+ field's nullability.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>path</code> - the path to the attribute of an existing entity.</dd></dl>
+</li>
+</ul>
+<a name="Range(java.lang.Comparable,java.lang.Comparable,jpasearch.repository.query.Path)">
+<!--   -->
+</a><a name="Range(D, D, jpasearch.repository.query.Path)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>Range</h4>
+<pre>public&nbsp;Range(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;lowerBound,
+     <a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;higherBound,
+     <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;path)</pre>
+<div class="block">Constructs a new Range.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>lowerBound</code> - the lower boundary of this range. Null means no lower
+            boundary.</dd><dd><code>higherBound</code> - the upper boundary of this range. Null means no upper
+            boundary.</dd><dd><code>path</code> - the path to the attribute of an existing entity.</dd></dl>
+</li>
+</ul>
+<a name="Range(java.lang.Comparable,java.lang.Comparable,java.lang.Boolean,jpasearch.repository.query.Path)">
+<!--   -->
+</a><a name="Range(D, D, java.lang.Boolean, jpasearch.repository.query.Path)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Range</h4>
+<pre>public&nbsp;Range(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;lowerBound,
+     <a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;higherBound,
+     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;includeNull,
+     <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;path)</pre>
+<div class="block">Constructs a new Range.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>lowerBound</code> - the lower boundary of this range. Null means no lower
+            boundary.</dd><dd><code>higherBound</code> - the upper boundary of this range. Null means no upper
+            boundary.</dd><dd><code>includeNull</code> - tells whether null should be filtered out or not.</dd><dd><code>path</code> - the path to the attribute of an existing entity.</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="copy()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>copy</h4>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;copy()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../jpasearch/repository/query/selector/Selector.html#copy()">copy</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../jpasearch/repository/query/selector/Selector.html" title="interface in jpasearch.repository.query.selector">Selector</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&gt;&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getPath()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPath</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPath()</pre>
+</li>
+</ul>
+<a name="getLowerBound()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLowerBound</h4>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;getLowerBound()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the lower range boundary or null for unbound lower range.</dd></dl>
+</li>
+</ul>
+<a name="setLowerBound(java.lang.Comparable)">
+<!--   -->
+</a><a name="setLowerBound(D)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLowerBound</h4>
+<pre>public&nbsp;void&nbsp;setLowerBound(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;lowerBound)</pre>
+<div class="block">Sets the lower range boundary. Accepts null for unbound lower range.</div>
+</li>
+</ul>
+<a name="lowerBound(java.lang.Comparable)">
+<!--   -->
+</a><a name="lowerBound(D)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>lowerBound</h4>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;lowerBound(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;lowerBound)</pre>
+</li>
+</ul>
+<a name="isLowerBoundSet()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isLowerBoundSet</h4>
+<pre>public&nbsp;boolean&nbsp;isLowerBoundSet()</pre>
+</li>
+</ul>
+<a name="getHigherBound()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHigherBound</h4>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;getHigherBound()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the upper range boundary or null for unbound upper range.</dd></dl>
+</li>
+</ul>
+<a name="higherBound(java.lang.Comparable)">
+<!--   -->
+</a><a name="higherBound(D)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>higherBound</h4>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;higherBound(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;higherBound)</pre>
+</li>
+</ul>
+<a name="setHigherBound(java.lang.Comparable)">
+<!--   -->
+</a><a name="setHigherBound(D)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHigherBound</h4>
+<pre>public&nbsp;void&nbsp;setHigherBound(<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&nbsp;higherBound)</pre>
+<div class="block">Sets the upper range boundary. Accepts null for unbound upper range.</div>
+</li>
+</ul>
+<a name="isHigherBoundSet()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isHigherBoundSet</h4>
+<pre>public&nbsp;boolean&nbsp;isHigherBoundSet()</pre>
+</li>
+</ul>
+<a name="setIncludeNull(java.lang.Boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setIncludeNull</h4>
+<pre>public&nbsp;void&nbsp;setIncludeNull(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;includeNull)</pre>
+</li>
+</ul>
+<a name="includeNull(java.lang.Boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>includeNull</h4>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&lt;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="../../../../jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a>&gt;&nbsp;includeNull(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;includeNull)</pre>
+</li>
+</ul>
+<a name="getIncludeNull()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIncludeNull</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;getIncludeNull()</pre>
+</li>
+</ul>
+<a name="isIncludeNullSet()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isIncludeNullSet</h4>
+<pre>public&nbsp;boolean&nbsp;isIncludeNullSet()</pre>
+</li>
+</ul>
+<a name="isBetween()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isBetween</h4>
+<pre>public&nbsp;boolean&nbsp;isBetween()</pre>
+</li>
+</ul>
+<a name="isSet()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isSet</h4>
+<pre>public&nbsp;boolean&nbsp;isSet()</pre>
+</li>
+</ul>
+<a name="isValid()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isValid</h4>
+<pre>public&nbsp;boolean&nbsp;isValid()</pre>
+</li>
+</ul>
+<a name="resetRange()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resetRange</h4>
+<pre>public&nbsp;void&nbsp;resetRange()</pre>
+</li>
+</ul>
+<a name="isIncludeLowerBound()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isIncludeLowerBound</h4>
+<pre>public&nbsp;boolean&nbsp;isIncludeLowerBound()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>whether lowerBound bound should included or not. Default is true.</dd></dl>
+</li>
+</ul>
+<a name="setIncludeLowerBound(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setIncludeLowerBound</h4>
+<pre>public&nbsp;void&nbsp;setIncludeLowerBound(boolean&nbsp;includeLowerBound)</pre>
+</li>
+</ul>
+<a name="includeLowerBound(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>includeLowerBound</h4>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&nbsp;includeLowerBound(boolean&nbsp;includeLowerBound)</pre>
+</li>
+</ul>
+<a name="isIncludeHigherBound()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isIncludeHigherBound</h4>
+<pre>public&nbsp;boolean&nbsp;isIncludeHigherBound()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>whether higherBound bound should included or not. Default is
+         true.</dd></dl>
+</li>
+</ul>
+<a name="setIncludeHigherBound(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setIncludeHigherBound</h4>
+<pre>public&nbsp;void&nbsp;setIncludeHigherBound(boolean&nbsp;includeHigherBound)</pre>
+</li>
+</ul>
+<a name="includeHigherBound(boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>includeHigherBound</h4>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a>&nbsp;includeHigherBound(boolean&nbsp;includeHigherBound)</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Range.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../jpasearch/repository/query/selector/PropertySelector.html" title="class in jpasearch.repository.query.selector"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../jpasearch/repository/query/selector/Selector.html" title="interface in jpasearch.repository.query.selector"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?jpasearch/repository/query/selector/Range.html" target="_top">Frames</a></li>
+<li><a href="Range.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &#169; 2014 <a href="https://jpasearch.github.io">jpasearch</a>. All rights reserved.</small></p>
+</body>
+</html>

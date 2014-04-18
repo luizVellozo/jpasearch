@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SearchBuilder.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query</a> &gt; <span class="el_source">SearchBuilder.java</span></div><h1>SearchBuilder.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 20143, jpasearch
+ *
+ * This file is part of jpasearch.
+ *
+ * jpasearch is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * jpasearch is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+package jpasearch.repository.query;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import javax.persistence.metamodel.PluralAttribute;
+import javax.persistence.metamodel.SingularAttribute;
+
+import jpasearch.repository.query.builder.DisjunctionSelectorsBuilder;
+import jpasearch.repository.query.builder.FetchBuilder;
+import jpasearch.repository.query.builder.FetchesBuilder;
+import jpasearch.repository.query.builder.OrderByBuilder;
+import jpasearch.repository.query.builder.OrdersByBuilder;
+import jpasearch.repository.query.builder.PaginationBuilder;
+import jpasearch.repository.query.builder.RootSelectorsBuilder;
+import jpasearch.repository.query.builder.SelectorBuilder;
+import jpasearch.repository.query.builder.TermSelectorBuilder;
+import jpasearch.repository.query.selector.Range;
+import jpasearch.repository.query.selector.Selectors;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+/**
+ * @author speralta
+ */
+public class SearchBuilder&lt;FROM&gt; implements Serializable {
+    private static final long serialVersionUID = 201403271745L;
+
+    private final PaginationBuilder&lt;FROM&gt; paginationBuilder;
+    private final OrdersByBuilder&lt;FROM&gt; ordersByBuilder;
+    private final FetchesBuilder&lt;FROM&gt; fetchesBuilder;
+    private final RootSelectorsBuilder&lt;FROM&gt; rootSelectorsBuilder;
+
+    // extra parameters
+    private final Map&lt;String, Object&gt; extraParameters;
+
+    private boolean useDistinct;
+
+<span class="fc" id="L62">    public SearchBuilder() {</span>
+<span class="fc" id="L63">        paginationBuilder = new PaginationBuilder&lt;&gt;(this);</span>
+<span class="fc" id="L64">        ordersByBuilder = new OrdersByBuilder&lt;&gt;(this);</span>
+<span class="fc" id="L65">        fetchesBuilder = new FetchesBuilder&lt;&gt;(this);</span>
+<span class="fc" id="L66">        rootSelectorsBuilder = new RootSelectorsBuilder&lt;&gt;(this);</span>
+<span class="fc" id="L67">        extraParameters = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L68">        useDistinct = false;</span>
+<span class="fc" id="L69">    }</span>
+
+<span class="nc" id="L71">    public SearchBuilder(SearchParameters&lt;FROM&gt; searchParameters) {</span>
+<span class="nc" id="L72">        paginationBuilder = new PaginationBuilder&lt;&gt;(this, searchParameters.getFirstResult(), searchParameters.getMaxResults());</span>
+<span class="nc" id="L73">        ordersByBuilder = new OrdersByBuilder&lt;&gt;(this, searchParameters.getOrders());</span>
+<span class="nc" id="L74">        fetchesBuilder = new FetchesBuilder&lt;&gt;(this, searchParameters.getFetches());</span>
+<span class="nc" id="L75">        rootSelectorsBuilder = new RootSelectorsBuilder&lt;&gt;(this, searchParameters.getSelectors());</span>
+<span class="nc" id="L76">        extraParameters = new HashMap&lt;&gt;(searchParameters.getExtraParameters());</span>
+<span class="nc" id="L77">        useDistinct = searchParameters.isUseDistinct();</span>
+<span class="nc" id="L78">    }</span>
+
+    public SearchParameters&lt;FROM&gt; build() {
+<span class="fc" id="L81">        return new SearchParameters&lt;FROM&gt;(this);</span>
+    }
+
+    // -----------------------------------
+    // Order by support
+    // -----------------------------------
+
+    public &lt;TO&gt; OrderByBuilder&lt;FROM, FROM, TO&gt; orderBy(SingularAttribute&lt;? super FROM, TO&gt; attribute) {
+<span class="nc" id="L89">        return ordersByBuilder.by(attribute);</span>
+    }
+
+    public &lt;TO&gt; OrderByBuilder&lt;FROM, FROM, TO&gt; orderBy(PluralAttribute&lt;? super FROM, ?, TO&gt; attribute) {
+<span class="nc" id="L93">        return ordersByBuilder.by(attribute);</span>
+    }
+
+    public SearchBuilder&lt;FROM&gt; orderBy(OrderByDirection direction, String path, Class&lt;FROM&gt; from) {
+<span class="nc" id="L97">        ordersByBuilder.orderBy(direction, path, from);</span>
+<span class="nc" id="L98">        return this;</span>
+    }
+
+    // -------------------------------------
+    // SearchParameters by selectors support
+    // -------------------------------------
+
+    public &lt;E extends Comparable&lt;? super E&gt;&gt; SearchBuilder&lt;FROM&gt; between(E from, E to, SingularAttribute&lt;? super FROM, E&gt; attribute) {
+<span class="nc" id="L106">        rootSelectorsBuilder.add(new Range&lt;FROM, E&gt;(from, to, new Path&lt;&gt;(attribute)));</span>
+<span class="nc" id="L107">        return this;</span>
+    }
+
+    public &lt;E extends Comparable&lt;? super E&gt;&gt; SearchBuilder&lt;FROM&gt; between(E from, E to, PluralAttribute&lt;? super FROM, ?, E&gt; attribute) {
+<span class="nc" id="L111">        rootSelectorsBuilder.add(new Range&lt;FROM, E&gt;(from, to, new Path&lt;&gt;(attribute)));</span>
+<span class="nc" id="L112">        return this;</span>
+    }
+
+    public TermSelectorBuilder&lt;FROM, SearchBuilder&lt;FROM&gt;, RootSelectorsBuilder&lt;FROM&gt;&gt; fullText(SingularAttribute&lt;? super FROM, String&gt; attribute) {
+<span class="nc" id="L116">        return new TermSelectorBuilder&lt;&gt;(rootSelectorsBuilder, new Path&lt;&gt;(attribute));</span>
+    }
+
+    public &lt;TO&gt; SelectorBuilder&lt;FROM, FROM, TO, RootSelectorsBuilder&lt;FROM&gt;&gt; on(Path&lt;FROM, TO&gt; path) {
+<span class="nc" id="L120">        return rootSelectorsBuilder.on(path);</span>
+    }
+
+    public &lt;TO&gt; SelectorBuilder&lt;FROM, FROM, TO, RootSelectorsBuilder&lt;FROM&gt;&gt; on(SingularAttribute&lt;? super FROM, TO&gt; attribute) {
+<span class="fc" id="L124">        return rootSelectorsBuilder.on(attribute);</span>
+    }
+
+    public &lt;TO&gt; SelectorBuilder&lt;FROM, FROM, TO, RootSelectorsBuilder&lt;FROM&gt;&gt; on(PluralAttribute&lt;? super FROM, ?, TO&gt; attribute) {
+<span class="nc" id="L128">        return rootSelectorsBuilder.on(attribute);</span>
+    }
+
+    public DisjunctionSelectorsBuilder&lt;FROM, RootSelectorsBuilder&lt;FROM&gt;&gt; disjunction() {
+<span class="nc" id="L132">        return rootSelectorsBuilder.disjunction();</span>
+    }
+
+    // -----------------------------------
+    // Pagination support
+    // -----------------------------------
+
+    public SearchBuilder&lt;FROM&gt; paginate(int first, int count) {
+<span class="nc" id="L140">        paginationBuilder.firstResult(first).maxResult(count);</span>
+<span class="nc" id="L141">        return this;</span>
+    }
+
+    // -----------------------------------------
+    // Fetch associated entity using a LEFT Join
+    // -----------------------------------------
+
+    public &lt;TO&gt; FetchBuilder&lt;FROM, FROM, TO&gt; fetch(SingularAttribute&lt;? super FROM, TO&gt; attribute) {
+<span class="nc" id="L149">        return fetchesBuilder.fetch(attribute);</span>
+    }
+
+    public &lt;TO&gt; FetchBuilder&lt;FROM, FROM, TO&gt; fetch(PluralAttribute&lt;? super FROM, ?, TO&gt; attribute) {
+<span class="nc" id="L153">        return fetchesBuilder.fetch(attribute);</span>
+    }
+
+    // -----------------------------------
+    // Extra parameters
+    // -----------------------------------
+
+    /**
+     * add additionnal parameter.
+     */
+    public SearchBuilder&lt;FROM&gt; addExtraParameter(String key, Object o) {
+<span class="nc" id="L164">        extraParameters.put(checkNotNull(key), o);</span>
+<span class="nc" id="L165">        return this;</span>
+    }
+
+    // -----------------------------------
+    // Distinct
+    // -----------------------------------
+
+    public SearchBuilder&lt;FROM&gt; distinct() {
+<span class="nc" id="L173">        useDistinct = true;</span>
+<span class="nc" id="L174">        return this;</span>
+    }
+
+    // BUILDING
+
+    Map&lt;String, Object&gt; getExtraParameters() {
+<span class="fc" id="L180">        return extraParameters;</span>
+    }
+
+    boolean isUseDistinct() {
+<span class="fc" id="L184">        return useDistinct;</span>
+    }
+
+    int getMaxResults() {
+<span class="fc" id="L188">        return paginationBuilder.getMaxResults();</span>
+    }
+
+    int getFirstResult() {
+<span class="fc" id="L192">        return paginationBuilder.getFirstResult();</span>
+    }
+
+    Set&lt;OrderBy&lt;FROM, ?&gt;&gt; getOrders() {
+<span class="fc" id="L196">        return ordersByBuilder.getOrders();</span>
+    }
+
+    Set&lt;Path&lt;FROM, ?&gt;&gt; getFetches() {
+<span class="fc" id="L200">        return fetchesBuilder.getFetches();</span>
+    }
+
+    Selectors&lt;FROM&gt; getSelectors() {
+<span class="fc" id="L204">        return rootSelectorsBuilder.getSelectors();</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L209">        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

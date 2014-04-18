@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TermSelector.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query.selector</a> &gt; <span class="el_source">TermSelector.java</span></div><h1>TermSelector.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 20143, jpasearch
+ *
+ * This file is part of jpasearch.
+ *
+ * jpasearch is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * jpasearch is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+package jpasearch.repository.query.selector;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.persistence.metamodel.SingularAttribute;
+
+import jpasearch.repository.query.Path;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+public class TermSelector&lt;FROM&gt; implements SingleSelector&lt;FROM, String, TermSelector&lt;FROM&gt;&gt; {
+    private static final long serialVersionUID = 201308010800L;
+    private final Path&lt;FROM, String&gt; path;
+<span class="nc" id="L36">    private List&lt;String&gt; selected = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L37">    private boolean orMode = true;</span>
+<span class="nc" id="L38">    private Integer searchSimilarity = 2;</span>
+
+<span class="nc" id="L40">    public TermSelector(SingularAttribute&lt;? super FROM, String&gt; attribute) {</span>
+<span class="nc" id="L41">        path = new Path&lt;FROM, String&gt;(attribute);</span>
+<span class="nc" id="L42">    }</span>
+
+<span class="nc" id="L44">    public TermSelector(Path&lt;FROM, String&gt; path) {</span>
+<span class="nc" id="L45">        this.path = path;</span>
+<span class="nc" id="L46">    }</span>
+
+<span class="nc" id="L48">    private TermSelector(TermSelector&lt;FROM&gt; toCopy) {</span>
+<span class="nc" id="L49">        path = toCopy.path;</span>
+<span class="nc" id="L50">        selected = new ArrayList&lt;&gt;(toCopy.selected);</span>
+<span class="nc" id="L51">        orMode = toCopy.orMode;</span>
+<span class="nc" id="L52">        searchSimilarity = toCopy.searchSimilarity;</span>
+<span class="nc" id="L53">    }</span>
+
+    @Override
+    public TermSelector&lt;FROM&gt; copy() {
+<span class="nc" id="L57">        return new TermSelector&lt;FROM&gt;(this);</span>
+    }
+
+    public String getPath() {
+<span class="nc" id="L61">        return path.getPath();</span>
+    }
+
+    public Integer getSearchSimilarity() {
+<span class="nc" id="L65">        return searchSimilarity;</span>
+    }
+
+    public void setSearchSimilarity(Integer searchSimilarity) {
+<span class="nc" id="L69">        this.searchSimilarity = searchSimilarity;</span>
+<span class="nc" id="L70">    }</span>
+
+    public boolean isOrMode() {
+<span class="nc" id="L73">        return orMode;</span>
+    }
+
+    public void setOrMode(boolean orMode) {
+<span class="nc" id="L77">        this.orMode = orMode;</span>
+<span class="nc" id="L78">    }</span>
+
+    public TermSelector&lt;FROM&gt; or() {
+<span class="nc" id="L81">        setOrMode(true);</span>
+<span class="nc" id="L82">        return this;</span>
+    }
+
+    public TermSelector&lt;FROM&gt; and() {
+<span class="nc" id="L86">        setOrMode(false);</span>
+<span class="nc" id="L87">        return this;</span>
+    }
+
+    /**
+     * Get the possible candidates for property.
+     */
+    public List&lt;String&gt; getSelected() {
+<span class="nc" id="L94">        return selected;</span>
+    }
+
+    public void setSelected(String selected) {
+<span class="nc" id="L98">        this.selected = Arrays.asList(selected);</span>
+<span class="nc" id="L99">    }</span>
+
+    /**
+     * Set the possible candidates for property.
+     */
+    public void setSelected(List&lt;String&gt; selected) {
+<span class="nc" id="L105">        this.selected = selected;</span>
+<span class="nc" id="L106">    }</span>
+
+    public TermSelector&lt;FROM&gt; selected(String... selected) {
+<span class="nc" id="L109">        setSelected(Arrays.asList(selected));</span>
+<span class="nc" id="L110">        return this;</span>
+    }
+
+    public boolean isNotEmpty() {
+<span class="nc bnc" id="L114" title="All 4 branches missed.">        if ((selected == null) || selected.isEmpty()) {</span>
+<span class="nc" id="L115">            return false;</span>
+        }
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        for (String word : selected) {</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">            if (StringUtils.isNotBlank(word)) {</span>
+<span class="nc" id="L119">                return true;</span>
+            }
+<span class="nc" id="L121">        }</span>
+<span class="nc" id="L122">        return false;</span>
+    }
+
+    public void clearSelected() {
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        if (selected != null) {</span>
+<span class="nc" id="L127">            selected.clear();</span>
+        }
+<span class="nc" id="L129">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L133">        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

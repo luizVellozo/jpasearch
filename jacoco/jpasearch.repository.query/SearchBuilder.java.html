@@ -59,14 +59,14 @@ public class SearchBuilder&lt;FROM&gt; implements Serializable {
 
     private boolean useDistinct;
 
-<span class="fc" id="L62">    public SearchBuilder() {</span>
-<span class="fc" id="L63">        paginationBuilder = new PaginationBuilder&lt;&gt;(this);</span>
-<span class="fc" id="L64">        ordersByBuilder = new OrdersByBuilder&lt;&gt;(this);</span>
-<span class="fc" id="L65">        fetchesBuilder = new FetchesBuilder&lt;&gt;(this);</span>
-<span class="fc" id="L66">        rootSelectorsBuilder = new RootSelectorsBuilder&lt;&gt;(this);</span>
-<span class="fc" id="L67">        extraParameters = new HashMap&lt;&gt;();</span>
-<span class="fc" id="L68">        useDistinct = false;</span>
-<span class="fc" id="L69">    }</span>
+<span class="nc" id="L62">    public SearchBuilder() {</span>
+<span class="nc" id="L63">        paginationBuilder = new PaginationBuilder&lt;&gt;(this);</span>
+<span class="nc" id="L64">        ordersByBuilder = new OrdersByBuilder&lt;&gt;(this);</span>
+<span class="nc" id="L65">        fetchesBuilder = new FetchesBuilder&lt;&gt;(this);</span>
+<span class="nc" id="L66">        rootSelectorsBuilder = new RootSelectorsBuilder&lt;&gt;(this);</span>
+<span class="nc" id="L67">        extraParameters = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L68">        useDistinct = false;</span>
+<span class="nc" id="L69">    }</span>
 
 <span class="nc" id="L71">    public SearchBuilder(SearchParameters&lt;FROM&gt; searchParameters) {</span>
 <span class="nc" id="L72">        paginationBuilder = new PaginationBuilder&lt;&gt;(this, searchParameters.getFirstResult(), searchParameters.getMaxResults());</span>
@@ -78,7 +78,7 @@ public class SearchBuilder&lt;FROM&gt; implements Serializable {
 <span class="nc" id="L78">    }</span>
 
     public SearchParameters&lt;FROM&gt; build() {
-<span class="fc" id="L81">        return new SearchParameters&lt;FROM&gt;(this);</span>
+<span class="nc" id="L81">        return new SearchParameters&lt;FROM&gt;(this);</span>
     }
 
     // -----------------------------------
@@ -121,7 +121,7 @@ public class SearchBuilder&lt;FROM&gt; implements Serializable {
     }
 
     public &lt;TO&gt; SelectorBuilder&lt;FROM, FROM, TO, RootSelectorsBuilder&lt;FROM&gt;&gt; on(SingularAttribute&lt;? super FROM, TO&gt; attribute) {
-<span class="fc" id="L124">        return rootSelectorsBuilder.on(attribute);</span>
+<span class="nc" id="L124">        return rootSelectorsBuilder.on(attribute);</span>
     }
 
     public &lt;TO&gt; SelectorBuilder&lt;FROM, FROM, TO, RootSelectorsBuilder&lt;FROM&gt;&gt; on(PluralAttribute&lt;? super FROM, ?, TO&gt; attribute) {
@@ -177,31 +177,31 @@ public class SearchBuilder&lt;FROM&gt; implements Serializable {
     // BUILDING
 
     Map&lt;String, Object&gt; getExtraParameters() {
-<span class="fc" id="L180">        return extraParameters;</span>
+<span class="nc" id="L180">        return extraParameters;</span>
     }
 
     boolean isUseDistinct() {
-<span class="fc" id="L184">        return useDistinct;</span>
+<span class="nc" id="L184">        return useDistinct;</span>
     }
 
     int getMaxResults() {
-<span class="fc" id="L188">        return paginationBuilder.getMaxResults();</span>
+<span class="nc" id="L188">        return paginationBuilder.getMaxResults();</span>
     }
 
     int getFirstResult() {
-<span class="fc" id="L192">        return paginationBuilder.getFirstResult();</span>
+<span class="nc" id="L192">        return paginationBuilder.getFirstResult();</span>
     }
 
     Set&lt;OrderBy&lt;FROM, ?&gt;&gt; getOrders() {
-<span class="fc" id="L196">        return ordersByBuilder.getOrders();</span>
+<span class="nc" id="L196">        return ordersByBuilder.getOrders();</span>
     }
 
     Set&lt;Path&lt;FROM, ?&gt;&gt; getFetches() {
-<span class="fc" id="L200">        return fetchesBuilder.getFetches();</span>
+<span class="nc" id="L200">        return fetchesBuilder.getFetches();</span>
     }
 
     Selectors&lt;FROM&gt; getSelectors() {
-<span class="fc" id="L204">        return rootSelectorsBuilder.getSelectors();</span>
+<span class="nc" id="L204">        return rootSelectorsBuilder.getSelectors();</span>
     }
 
     @Override

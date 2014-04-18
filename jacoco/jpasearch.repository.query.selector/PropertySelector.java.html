@@ -38,18 +38,18 @@ public class PropertySelector&lt;E, F&gt; implements SingleSelector&lt;E, F, Pro
     private static final long serialVersionUID = 201308010800L;
 
     private final Path&lt;E, F&gt; path;
-<span class="pc" id="L41">    private List&lt;F&gt; selected = new ArrayList&lt;&gt;();</span>
-<span class="pc" id="L42">    private SearchMode searchMode = SearchMode.ANYWHERE;</span>
+<span class="nc" id="L41">    private List&lt;F&gt; selected = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L42">    private SearchMode searchMode = SearchMode.ANYWHERE;</span>
     private Boolean notIncludingNull;
-<span class="pc" id="L44">    private boolean orMode = true;</span>
-<span class="pc" id="L45">    private boolean caseSensitive = true;</span>
-<span class="pc" id="L46">    private boolean notMode = false;</span>
+<span class="nc" id="L44">    private boolean orMode = true;</span>
+<span class="nc" id="L45">    private boolean caseSensitive = true;</span>
+<span class="nc" id="L46">    private boolean notMode = false;</span>
 
     @SafeVarargs
-<span class="fc" id="L49">    public PropertySelector(Path&lt;E, F&gt; path, F... values) {</span>
-<span class="fc" id="L50">        this.path = path;</span>
-<span class="fc" id="L51">        selected = new ArrayList&lt;&gt;(Arrays.asList(values));</span>
-<span class="fc" id="L52">    }</span>
+<span class="nc" id="L49">    public PropertySelector(Path&lt;E, F&gt; path, F... values) {</span>
+<span class="nc" id="L50">        this.path = path;</span>
+<span class="nc" id="L51">        selected = new ArrayList&lt;&gt;(Arrays.asList(values));</span>
+<span class="nc" id="L52">    }</span>
 
 <span class="nc" id="L54">    private PropertySelector(PropertySelector&lt;E, F&gt; toCopy) {</span>
 <span class="nc" id="L55">        path = toCopy.path;</span>
@@ -71,7 +71,7 @@ public class PropertySelector&lt;E, F&gt; implements SingleSelector&lt;E, F, Pro
 <span class="nc" id="L71">    }</span>
 
     public String getPath() {
-<span class="fc" id="L74">        return path.getPath();</span>
+<span class="nc" id="L74">        return path.getPath();</span>
     }
 
     public boolean isNotIncludingNullSet() {
@@ -88,7 +88,7 @@ public class PropertySelector&lt;E, F&gt; implements SingleSelector&lt;E, F, Pro
     }
 
     public boolean isCaseSensitive() {
-<span class="fc" id="L91">        return caseSensitive;</span>
+<span class="nc" id="L91">        return caseSensitive;</span>
     }
 
     public PropertySelector&lt;E, F&gt; caseSensitive() {
@@ -105,7 +105,7 @@ public class PropertySelector&lt;E, F&gt; implements SingleSelector&lt;E, F, Pro
      * Get the possible candidates for property.
      */
     public List&lt;F&gt; getSelected() {
-<span class="fc" id="L108">        return selected;</span>
+<span class="nc" id="L108">        return selected;</span>
     }
 
     public PropertySelector&lt;E, F&gt; add(F object) {
@@ -127,7 +127,7 @@ public class PropertySelector&lt;E, F&gt; implements SingleSelector&lt;E, F, Pro
     }
 
     public boolean isNotEmpty() {
-<span class="pc bpc" id="L130" title="2 of 4 branches missed.">        return (selected != null) &amp;&amp; !selected.isEmpty();</span>
+<span class="nc bnc" id="L130" title="All 4 branches missed.">        return (selected != null) &amp;&amp; !selected.isEmpty();</span>
     }
 
     public void clearSelected() {
@@ -145,7 +145,7 @@ public class PropertySelector&lt;E, F&gt; implements SingleSelector&lt;E, F, Pro
     }
 
     public SearchMode getSearchMode() {
-<span class="fc" id="L148">        return searchMode;</span>
+<span class="nc" id="L148">        return searchMode;</span>
     }
 
     /**
@@ -153,16 +153,16 @@ public class PropertySelector&lt;E, F&gt; implements SingleSelector&lt;E, F, Pro
      * It is null by default.
      */
     public void setSearchMode(SearchMode searchMode) {
-<span class="fc" id="L156">        this.searchMode = searchMode;</span>
-<span class="fc" id="L157">    }</span>
+<span class="nc" id="L156">        this.searchMode = searchMode;</span>
+<span class="nc" id="L157">    }</span>
 
     public PropertySelector&lt;E, F&gt; searchMode(SearchMode searchMode) {
-<span class="fc" id="L160">        setSearchMode(searchMode);</span>
-<span class="fc" id="L161">        return this;</span>
+<span class="nc" id="L160">        setSearchMode(searchMode);</span>
+<span class="nc" id="L161">        return this;</span>
     }
 
     public boolean isOrMode() {
-<span class="fc" id="L165">        return orMode;</span>
+<span class="nc" id="L165">        return orMode;</span>
     }
 
     public void setOrMode(boolean orMode) {
@@ -175,7 +175,7 @@ public class PropertySelector&lt;E, F&gt; implements SingleSelector&lt;E, F, Pro
     }
 
     public boolean isNotMode() {
-<span class="fc" id="L178">        return notMode;</span>
+<span class="nc" id="L178">        return notMode;</span>
     }
 
     public void setNotMode(boolean notMode) {

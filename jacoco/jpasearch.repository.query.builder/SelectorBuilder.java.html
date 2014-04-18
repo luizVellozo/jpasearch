@@ -40,10 +40,10 @@ public class SelectorBuilder&lt;F, FROM, TO, B extends SelectorsBuilder&lt;F, ?,
 <span class="nc" id="L40">        this.path = path;</span>
 <span class="nc" id="L41">    }</span>
 
-<span class="fc" id="L43">    public SelectorBuilder(B builder, SingularAttribute&lt;? super F, TO&gt; attribute) {</span>
-<span class="fc" id="L44">        this.builder = builder;</span>
-<span class="fc" id="L45">        this.path = new Path&lt;F, TO&gt;(attribute);</span>
-<span class="fc" id="L46">    }</span>
+<span class="nc" id="L43">    public SelectorBuilder(B builder, SingularAttribute&lt;? super F, TO&gt; attribute) {</span>
+<span class="nc" id="L44">        this.builder = builder;</span>
+<span class="nc" id="L45">        this.path = new Path&lt;F, TO&gt;(attribute);</span>
+<span class="nc" id="L46">    }</span>
 
 <span class="nc" id="L48">    public SelectorBuilder(B builder, PluralAttribute&lt;? super F, ?, TO&gt; attribute) {</span>
 <span class="nc" id="L49">        this.builder = builder;</span>
@@ -62,7 +62,7 @@ public class SelectorBuilder&lt;F, FROM, TO, B extends SelectorsBuilder&lt;F, ?,
 
     @SuppressWarnings(&quot;unchecked&quot;)
     public B equalsTo(TO... values) {
-<span class="fc" id="L65">        return builder.add(new PropertySelector&lt;&gt;(path, values).searchMode(SearchMode.EQUALS));</span>
+<span class="nc" id="L65">        return builder.add(new PropertySelector&lt;&gt;(path, values).searchMode(SearchMode.EQUALS));</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)

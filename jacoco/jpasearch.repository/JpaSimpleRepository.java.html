@@ -28,11 +28,11 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class JpaSimpleRepository&lt;E extends Identifiable&lt;Integer&gt;&gt; extends JpaGenericRepository&lt;E, Integer&gt; implements SimpleRepository&lt;E&gt; {
 
-<span class="fc" id="L31">    private final Logger logger = LoggerFactory.getLogger(getClass());</span>
+<span class="nc" id="L31">    private final Logger logger = LoggerFactory.getLogger(getClass());</span>
 
     public JpaSimpleRepository(Class&lt;E&gt; type) {
-<span class="fc" id="L34">        super(type);</span>
-<span class="fc" id="L35">    }</span>
+<span class="nc" id="L34">        super(type);</span>
+<span class="nc" id="L35">    }</span>
 
     @Override
     public final E getById(Integer id) {
@@ -41,10 +41,10 @@ public abstract class JpaSimpleRepository&lt;E extends Identifiable&lt;Integer&g
 
     @Override
     public final E save(E entity) {
-<span class="fc" id="L44">        E result = getEntityManager().merge(entity);</span>
-<span class="fc" id="L45">        logger.debug(&quot;Entity merged {}.&quot;, result);</span>
-<span class="fc" id="L46">        postSave(entity);</span>
-<span class="fc" id="L47">        return result;</span>
+<span class="nc" id="L44">        E result = getEntityManager().merge(entity);</span>
+<span class="nc" id="L45">        logger.debug(&quot;Entity merged {}.&quot;, result);</span>
+<span class="nc" id="L46">        postSave(entity);</span>
+<span class="nc" id="L47">        return result;</span>
     }
 
     @Override
@@ -59,7 +59,7 @@ public abstract class JpaSimpleRepository&lt;E extends Identifiable&lt;Integer&g
 
     protected void postSave(E entity) {
 
-<span class="fc" id="L62">    }</span>
+<span class="nc" id="L62">    }</span>
 
     protected void postDelete(E entity) {
 

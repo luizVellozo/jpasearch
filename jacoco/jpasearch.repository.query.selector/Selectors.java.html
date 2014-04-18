@@ -31,17 +31,17 @@ public class Selectors&lt;FROM&gt; implements GroupSelector&lt;FROM, Selectors&l
 
     private final List&lt;Selector&lt;FROM, ?&gt;&gt; selectors;
 
-<span class="fc" id="L34">    public Selectors() {</span>
-<span class="fc" id="L35">        andMode = true;</span>
-<span class="fc" id="L36">        selectors = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L37">    }</span>
+<span class="nc" id="L34">    public Selectors() {</span>
+<span class="nc" id="L35">        andMode = true;</span>
+<span class="nc" id="L36">        selectors = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L37">    }</span>
 
 <span class="nc" id="L39">    private Selectors(Selectors&lt;FROM&gt; toCopy) {</span>
 <span class="nc" id="L40">        andMode = toCopy.andMode;</span>
 <span class="nc" id="L41">        selectors = new ArrayList&lt;&gt;();</span>
 <span class="nc bnc" id="L42" title="All 2 branches missed.">        for (Selector&lt;FROM, ?&gt; selector : toCopy.selectors) {</span>
 <span class="nc" id="L43">            selectors.add(selector.copy());</span>
-<span class="nc" id="L44">        }</span>
+        }
 <span class="nc" id="L45">    }</span>
 
     @Override
@@ -55,16 +55,16 @@ public class Selectors&lt;FROM&gt; implements GroupSelector&lt;FROM, Selectors&l
     }
 
     public Selectors&lt;FROM&gt; add(Selector&lt;FROM, ?&gt; selector) {
-<span class="fc" id="L58">        selectors.add(selector);</span>
-<span class="fc" id="L59">        return this;</span>
+<span class="nc" id="L58">        selectors.add(selector);</span>
+<span class="nc" id="L59">        return this;</span>
     }
 
     public boolean isAndMode() {
-<span class="fc" id="L63">        return andMode;</span>
+<span class="nc" id="L63">        return andMode;</span>
     }
 
     public List&lt;Selector&lt;FROM, ?&gt;&gt; getSelectors() {
-<span class="fc" id="L67">        return selectors;</span>
+<span class="nc" id="L67">        return selectors;</span>
     }
 
 }

@@ -37,7 +37,7 @@ import jpasearch.repository.query.selector.Range;
 @SuppressWarnings(&quot;unchecked&quot;)
 @Named
 @Singleton
-<span class="fc" id="L40">public class ByRangeUtil {</span>
+<span class="nc" id="L40">public class ByRangeUtil {</span>
 
     @Inject
     private JpaUtil jpaUtil;
@@ -58,13 +58,13 @@ import jpasearch.repository.query.selector.Range;
 <span class="nc bnc" id="L58" title="All 2 branches missed.">        } else if (range.isLowerBoundSet()) {</span>
 <span class="nc bnc" id="L59" title="All 2 branches missed.">            if (range.isIncludeLowerBound()) {</span>
 <span class="nc" id="L60">                rangePredicate = builder.greaterThanOrEqualTo(path, range.getLowerBound());</span>
-            } else {
+<span class="nc" id="L61">            } else {</span>
 <span class="nc" id="L62">                rangePredicate = builder.greaterThan(path, range.getLowerBound());</span>
             }
 <span class="nc bnc" id="L64" title="All 2 branches missed.">        } else if (range.isHigherBoundSet()) {</span>
 <span class="nc bnc" id="L65" title="All 2 branches missed.">            if (range.isIncludeHigherBound()) {</span>
 <span class="nc" id="L66">                rangePredicate = builder.lessThanOrEqualTo(path, range.getHigherBound());</span>
-            } else {
+<span class="nc" id="L67">            } else {</span>
 <span class="nc" id="L68">                rangePredicate = builder.lessThan(path, range.getHigherBound());</span>
             }
         }

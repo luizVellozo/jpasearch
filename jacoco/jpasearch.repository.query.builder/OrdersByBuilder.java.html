@@ -38,9 +38,9 @@ public class OrdersByBuilder&lt;FROM&gt; extends AbstractBuilder&lt;SearchBuilde
     private final Set&lt;OrderBy&lt;FROM, ?&gt;&gt; orders;
 
     public OrdersByBuilder(SearchBuilder&lt;FROM&gt; searchParameters) {
-<span class="fc" id="L41">        super(searchParameters);</span>
-<span class="fc" id="L42">        orders = new LinkedHashSet&lt;&gt;();</span>
-<span class="fc" id="L43">    }</span>
+<span class="nc" id="L41">        super(searchParameters);</span>
+<span class="nc" id="L42">        orders = new LinkedHashSet&lt;&gt;();</span>
+<span class="nc" id="L43">    }</span>
 
     public OrdersByBuilder(SearchBuilder&lt;FROM&gt; searchParameters, Set&lt;OrderBy&lt;FROM, ?&gt;&gt; orders) {
 <span class="nc" id="L46">        super(searchParameters);</span>
@@ -61,7 +61,7 @@ public class OrdersByBuilder&lt;FROM&gt; extends AbstractBuilder&lt;SearchBuilde
     }
 
     public Set&lt;OrderBy&lt;FROM, ?&gt;&gt; getOrders() {
-<span class="fc" id="L64">        return Collections.unmodifiableSet(orders);</span>
+<span class="nc" id="L64">        return Collections.unmodifiableSet(orders);</span>
     }
 
     &lt;TO&gt; OrdersByBuilder&lt;FROM&gt; asc(Path&lt;FROM, TO&gt; path) {

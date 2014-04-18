@@ -34,7 +34,7 @@ import jpasearch.repository.query.selector.TermSelector;
 
 @Named
 @Singleton
-<span class="fc" id="L37">public class ByFullTextUtil {</span>
+<span class="nc" id="L37">public class ByFullTextUtil {</span>
     private HibernateSearchUtil hibernateSearchUtil;
     private JpaUtil jpaUtil;
 
@@ -62,7 +62,7 @@ import jpasearch.repository.query.selector.TermSelector;
 <span class="nc" id="L62">        List&lt;Predicate&gt; predicates = new ArrayList&lt;&gt;();</span>
 <span class="nc bnc" id="L63" title="All 2 branches missed.">        for (T t : found) {</span>
 <span class="nc" id="L64">            predicates.add(builder.equal(root, t));</span>
-<span class="nc" id="L65">        }</span>
+        }
 
 <span class="nc" id="L67">        return jpaUtil.orPredicate(builder, predicates);</span>
     }
@@ -80,13 +80,13 @@ import jpasearch.repository.query.selector.TermSelector;
 
     @Inject
     public void setHibernateSearchUtil(HibernateSearchUtil hibernateSearchUtil) {
-<span class="fc" id="L83">        this.hibernateSearchUtil = hibernateSearchUtil;</span>
-<span class="fc" id="L84">    }</span>
+<span class="nc" id="L83">        this.hibernateSearchUtil = hibernateSearchUtil;</span>
+<span class="nc" id="L84">    }</span>
 
     @Inject
     public void setJpaUtil(JpaUtil jpaUtil) {
-<span class="fc" id="L88">        this.jpaUtil = jpaUtil;</span>
-<span class="fc" id="L89">    }</span>
+<span class="nc" id="L88">        this.jpaUtil = jpaUtil;</span>
+<span class="nc" id="L89">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

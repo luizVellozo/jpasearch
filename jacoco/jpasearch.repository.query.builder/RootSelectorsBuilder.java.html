@@ -32,8 +32,8 @@ public class RootSelectorsBuilder&lt;FROM&gt; extends SelectorsBuilder&lt;FROM, 
 <span class="nc" id="L32">    }</span>
 
     public RootSelectorsBuilder(SearchBuilder&lt;FROM&gt; parent) {
-<span class="fc" id="L35">        super(parent);</span>
-<span class="fc" id="L36">    }</span>
+<span class="nc" id="L35">        super(parent);</span>
+<span class="nc" id="L36">    }</span>
 
     public DisjunctionSelectorsBuilder&lt;FROM, RootSelectorsBuilder&lt;FROM&gt;&gt; disjunction() {
 <span class="nc" id="L39">        DisjunctionSelectorsBuilder&lt;FROM, RootSelectorsBuilder&lt;FROM&gt;&gt; disjunction = new DisjunctionSelectorsBuilder&lt;FROM, RootSelectorsBuilder&lt;FROM&gt;&gt;(this);</span>
@@ -43,11 +43,11 @@ public class RootSelectorsBuilder&lt;FROM&gt; extends SelectorsBuilder&lt;FROM, 
 
     @Override
     protected RootSelectorsBuilder&lt;FROM&gt; getThis() {
-<span class="fc" id="L46">        return this;</span>
+<span class="nc" id="L46">        return this;</span>
     }
 
     public SearchParameters&lt;FROM&gt; build() {
-<span class="fc" id="L50">        return toParent().build();</span>
+<span class="nc" id="L50">        return toParent().build();</span>
     }
 
     public SearchBuilder&lt;FROM&gt; and() {

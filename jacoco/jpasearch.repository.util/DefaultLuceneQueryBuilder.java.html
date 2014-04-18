@@ -33,7 +33,7 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 
 @Named
 @Singleton
-<span class="fc" id="L36">public class DefaultLuceneQueryBuilder implements LuceneQueryBuilder {</span>
+<span class="nc" id="L36">public class DefaultLuceneQueryBuilder implements LuceneQueryBuilder {</span>
 
     private static final String SPACES_OR_PUNCTUATION = &quot;\\p{Punct}|\\p{Blank}&quot;;
 
@@ -54,19 +54,19 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 <span class="nc" id="L54">                            BooleanJunction&lt;?&gt; valueContext = builder.bool();</span>
 <span class="nc bnc" id="L55" title="All 2 branches missed.">                            if (termSelector.getSearchSimilarity() != null) {</span>
 <span class="nc" id="L56">                                valueContext.should(builder.keyword().fuzzy() //</span>
-                                        .withEditDistanceUpTo(termSelector.getSearchSimilarity()) //
-                                        .onField(termSelector.getPath()) //
-                                        .matching(value).createQuery());
+<span class="nc" id="L57">                                        .withEditDistanceUpTo(termSelector.getSearchSimilarity()) //</span>
+<span class="nc" id="L58">                                        .onField(termSelector.getPath()) //</span>
+<span class="nc" id="L59">                                        .matching(value).createQuery());</span>
                             }
 <span class="nc" id="L61">                            valueContext.should(builder.keyword() //</span>
-                                    .onField(termSelector.getPath()) //
-                                    .matching(value).createQuery());
+<span class="nc" id="L62">                                    .onField(termSelector.getPath()) //</span>
+<span class="nc" id="L63">                                    .matching(value).createQuery());</span>
 <span class="nc" id="L64">                            valueContext.should(builder.keyword().wildcard() //</span>
-                                    .onField(termSelector.getPath()) //
-                                    .matching(&quot;*&quot; + value + &quot;*&quot;).createQuery());
+<span class="nc" id="L65">                                    .onField(termSelector.getPath()) //</span>
+<span class="nc" id="L66">                                    .matching(&quot;*&quot; + value + &quot;*&quot;).createQuery());</span>
 <span class="nc bnc" id="L67" title="All 2 branches missed.">                            if (termSelector.isOrMode()) {</span>
 <span class="nc" id="L68">                                splitContext.should(valueContext.createQuery());</span>
-                            } else {
+<span class="nc" id="L69">                            } else {</span>
 <span class="nc" id="L70">                                splitContext.must(valueContext.createQuery());</span>
                             }
 <span class="nc" id="L72">                            hasTerms = true;</span>
@@ -75,12 +75,12 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 <span class="nc bnc" id="L75" title="All 2 branches missed.">                    if (hasTerms) {</span>
 <span class="nc bnc" id="L76" title="All 2 branches missed.">                        if (termSelector.isOrMode()) {</span>
 <span class="nc" id="L77">                            termContext.should(splitContext.createQuery());</span>
-                        } else {
+<span class="nc" id="L78">                        } else {</span>
 <span class="nc" id="L79">                            termContext.must(splitContext.createQuery());</span>
                         }
                     }
                 }
-<span class="nc" id="L83">            }</span>
+            }
 <span class="nc bnc" id="L84" title="All 2 branches missed.">            if (hasTerms) {</span>
 <span class="nc" id="L85">                context.must(termContext.createQuery());</span>
 <span class="nc" id="L86">                valid = true;</span>

@@ -29,10 +29,10 @@ public class PaginationBuilder&lt;FROM&gt; extends AbstractBuilder&lt;SearchBuil
     private int firstResult;
 
     public PaginationBuilder(SearchBuilder&lt;FROM&gt; searchParameters) {
-<span class="fc" id="L32">        super(searchParameters);</span>
-<span class="fc" id="L33">        maxResults = -1;</span>
-<span class="fc" id="L34">        firstResult = 0;</span>
-<span class="fc" id="L35">    }</span>
+<span class="nc" id="L32">        super(searchParameters);</span>
+<span class="nc" id="L33">        maxResults = -1;</span>
+<span class="nc" id="L34">        firstResult = 0;</span>
+<span class="nc" id="L35">    }</span>
 
     public PaginationBuilder(SearchBuilder&lt;FROM&gt; searchParameters, int firstResult, int maxResults) {
 <span class="nc" id="L38">        super(searchParameters);</span>
@@ -51,11 +51,11 @@ public class PaginationBuilder&lt;FROM&gt; extends AbstractBuilder&lt;SearchBuil
     }
 
     public int getMaxResults() {
-<span class="fc" id="L54">        return maxResults;</span>
+<span class="nc" id="L54">        return maxResults;</span>
     }
 
     public int getFirstResult() {
-<span class="fc" id="L58">        return firstResult;</span>
+<span class="nc" id="L58">        return firstResult;</span>
     }
 
 }

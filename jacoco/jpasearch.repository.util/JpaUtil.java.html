@@ -50,12 +50,12 @@ import jpasearch.repository.query.SearchParameters;
 
 @Named
 @Singleton
-<span class="fc" id="L53">public class JpaUtil {</span>
+<span class="nc" id="L53">public class JpaUtil {</span>
 
     private MetamodelUtil metamodelUtil;
 
     public Predicate andPredicate(CriteriaBuilder builder, Predicate... predicatesNullAllowed) {
-<span class="fc" id="L58">        return andPredicate(builder, Arrays.asList(predicatesNullAllowed));</span>
+<span class="nc" id="L58">        return andPredicate(builder, Arrays.asList(predicatesNullAllowed));</span>
     }
 
     public Predicate orPredicate(CriteriaBuilder builder, Predicate... predicatesNullAllowed) {
@@ -63,36 +63,36 @@ import jpasearch.repository.query.SearchParameters;
     }
 
     public Predicate andPredicate(CriteriaBuilder builder, Iterable&lt;Predicate&gt; predicatesNullAllowed) {
-<span class="fc" id="L66">        List&lt;Predicate&gt; predicates = newArrayList(filter(predicatesNullAllowed, notNull()));</span>
-<span class="pc bpc" id="L67" title="2 of 4 branches missed.">        if ((predicates == null) || predicates.isEmpty()) {</span>
+<span class="nc" id="L66">        List&lt;Predicate&gt; predicates = newArrayList(filter(predicatesNullAllowed, notNull()));</span>
+<span class="nc bnc" id="L67" title="All 4 branches missed.">        if ((predicates == null) || predicates.isEmpty()) {</span>
 <span class="nc" id="L68">            return null;</span>
-<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        } else if (predicates.size() == 1) {</span>
-<span class="fc" id="L70">            return predicates.get(0);</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        } else if (predicates.size() == 1) {</span>
+<span class="nc" id="L70">            return predicates.get(0);</span>
         } else {
 <span class="nc" id="L72">            return builder.and(toArray(predicates, Predicate.class));</span>
         }
     }
 
     public Predicate orPredicate(CriteriaBuilder builder, Iterable&lt;Predicate&gt; predicatesNullAllowed) {
-<span class="fc" id="L77">        List&lt;Predicate&gt; predicates = newArrayList(filter(predicatesNullAllowed, notNull()));</span>
-<span class="pc bpc" id="L78" title="2 of 4 branches missed.">        if ((predicates == null) || predicates.isEmpty()) {</span>
+<span class="nc" id="L77">        List&lt;Predicate&gt; predicates = newArrayList(filter(predicatesNullAllowed, notNull()));</span>
+<span class="nc bnc" id="L78" title="All 4 branches missed.">        if ((predicates == null) || predicates.isEmpty()) {</span>
 <span class="nc" id="L79">            return null;</span>
-<span class="pc bpc" id="L80" title="1 of 2 branches missed.">        } else if (predicates.size() == 1) {</span>
-<span class="fc" id="L81">            return predicates.get(0);</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        } else if (predicates.size() == 1) {</span>
+<span class="nc" id="L81">            return predicates.get(0);</span>
         } else {
 <span class="nc" id="L83">            return builder.or(toArray(predicates, Predicate.class));</span>
         }
     }
 
     public &lt;E&gt; Predicate stringPredicate(Expression&lt;String&gt; path, Object attrValue, SearchMode searchMode, boolean caseSensitive, CriteriaBuilder builder) {
-<span class="pc bpc" id="L88" title="1 of 2 branches missed.">        if (!caseSensitive) {</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        if (!caseSensitive) {</span>
 <span class="nc" id="L89">            path = builder.lower(path);</span>
 <span class="nc" id="L90">            attrValue = ((String) attrValue).toLowerCase(Locale.FRANCE);</span>
         }
 
-<span class="pc bpc" id="L93" title="5 of 6 branches missed.">        switch (searchMode) {</span>
+<span class="pc bnc" id="L93" title="All 6 branches missed.">        switch (searchMode) {</span>
         case EQUALS:
-<span class="fc" id="L95">            return builder.equal(path, attrValue);</span>
+<span class="nc" id="L95">            return builder.equal(path, attrValue);</span>
         case ENDING_LIKE:
 <span class="nc" id="L97">            return builder.like(path, &quot;%&quot; + attrValue);</span>
         case STARTING_LIKE:
@@ -103,51 +103,51 @@ import jpasearch.repository.query.SearchParameters;
             // assume user provide the wild cards
 <span class="nc" id="L104">            return builder.like(path, (String) attrValue);</span>
         default:
-<span class="pc" id="L106">            throw new IllegalStateException(&quot;expecting a search mode!&quot;);</span>
+<span class="nc" id="L106">            throw new IllegalStateException(&quot;expecting a search mode!&quot;);</span>
         }
     }
 
     public &lt;E, F&gt; Path&lt;F&gt; getPath(Root&lt;E&gt; root, String path) {
-<span class="fc" id="L111">        return getPath(root, metamodelUtil.toAttributes(root.getJavaType(), path));</span>
+<span class="nc" id="L111">        return getPath(root, metamodelUtil.toAttributes(root.getJavaType(), path));</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
     public &lt;E, F&gt; Path&lt;F&gt; getPath(Root&lt;E&gt; root, List&lt;Attribute&lt;?, ?&gt;&gt; attributes) {
-<span class="fc" id="L116">        Path&lt;?&gt; path = root;</span>
-<span class="fc bfc" id="L117" title="All 2 branches covered.">        for (Attribute&lt;?, ?&gt; attribute : attributes) {</span>
-<span class="fc" id="L118">            boolean found = false;</span>
-<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            if (path instanceof FetchParent) {</span>
-<span class="pc bpc" id="L120" title="1 of 2 branches missed.">                for (Fetch&lt;E, ?&gt; fetch : ((FetchParent&lt;?, E&gt;) path).getFetches()) {</span>
+<span class="nc" id="L116">        Path&lt;?&gt; path = root;</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        for (Attribute&lt;?, ?&gt; attribute : attributes) {</span>
+<span class="nc" id="L118">            boolean found = false;</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">            if (path instanceof FetchParent) {</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">                for (Fetch&lt;E, ?&gt; fetch : ((FetchParent&lt;?, E&gt;) path).getFetches()) {</span>
 <span class="nc bnc" id="L121" title="All 4 branches missed.">                    if (attribute.getName().equals(fetch.getAttribute().getName()) &amp;&amp; (fetch instanceof Join&lt;?, ?&gt;)) {</span>
 <span class="nc" id="L122">                        path = (Join&lt;E, ?&gt;) fetch;</span>
 <span class="nc" id="L123">                        found = true;</span>
 <span class="nc" id="L124">                        break;</span>
                     }
-<span class="nc" id="L126">                }</span>
-            }
-<span class="pc bpc" id="L128" title="1 of 2 branches missed.">            if (!found) {</span>
-<span class="pc bpc" id="L129" title="1 of 2 branches missed.">                if (attribute instanceof PluralAttribute) {</span>
-<span class="nc" id="L130">                    path = ((From&lt;?, ?&gt;) path).join(attribute.getName(), JoinType.LEFT);</span>
-                } else {
-<span class="fc" id="L132">                    path = path.get(attribute.getName());</span>
                 }
             }
-<span class="fc" id="L135">        }</span>
-<span class="fc" id="L136">        return (Path&lt;F&gt;) path;</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">            if (!found) {</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">                if (attribute instanceof PluralAttribute) {</span>
+<span class="nc" id="L130">                    path = ((From&lt;?, ?&gt;) path).join(attribute.getName(), JoinType.LEFT);</span>
+<span class="nc" id="L131">                } else {</span>
+<span class="nc" id="L132">                    path = path.get(attribute.getName());</span>
+                }
+            }
+        }
+<span class="nc" id="L136">        return (Path&lt;F&gt;) path;</span>
     }
 
     public void applyPagination(Query query, SearchParameters&lt;?&gt; sp) {
-<span class="pc bpc" id="L140" title="1 of 2 branches missed.">        if (sp.getFirstResult() &gt; 0) {</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        if (sp.getFirstResult() &gt; 0) {</span>
 <span class="nc" id="L141">            query.setFirstResult(sp.getFirstResult());</span>
         }
-<span class="pc bpc" id="L143" title="1 of 2 branches missed.">        if (sp.getMaxResults() &gt; 0) {</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (sp.getMaxResults() &gt; 0) {</span>
 <span class="nc" id="L144">            query.setMaxResults(sp.getMaxResults());</span>
         }
-<span class="fc" id="L146">    }</span>
+<span class="nc" id="L146">    }</span>
 
     @SuppressWarnings({ &quot;unchecked&quot;, &quot;rawtypes&quot; })
     public &lt;E&gt; void fetches(SearchParameters&lt;E&gt; sp, Root&lt;E&gt; root) {
-<span class="pc bpc" id="L150" title="1 of 2 branches missed.">        for (jpasearch.repository.query.Path&lt;E, ?&gt; path : sp.getFetches()) {</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        for (jpasearch.repository.query.Path&lt;E, ?&gt; path : sp.getFetches()) {</span>
 <span class="nc" id="L151">            FetchParent&lt;?, ?&gt; from = root;</span>
 <span class="nc bnc" id="L152" title="All 2 branches missed.">            for (Attribute&lt;?, ?&gt; arg : metamodelUtil.toAttributes(root.getJavaType(), path.getPath())) {</span>
 <span class="nc" id="L153">                boolean found = false;</span>
@@ -157,22 +157,22 @@ import jpasearch.repository.query.SearchParameters;
 <span class="nc" id="L157">                        found = true;</span>
 <span class="nc" id="L158">                        break;</span>
                     }
-<span class="nc" id="L160">                }</span>
+                }
 <span class="nc bnc" id="L161" title="All 2 branches missed.">                if (!found) {</span>
 <span class="nc bnc" id="L162" title="All 2 branches missed.">                    if (arg instanceof PluralAttribute) {</span>
 <span class="nc" id="L163">                        from = from.fetch((PluralAttribute) arg, JoinType.LEFT);</span>
-                    } else {
+<span class="nc" id="L164">                    } else {</span>
 <span class="nc" id="L165">                        from = from.fetch((SingularAttribute) arg, JoinType.LEFT);</span>
                     }
                 }
-<span class="nc" id="L168">            }</span>
-<span class="nc" id="L169">        }</span>
-<span class="fc" id="L170">    }</span>
+            }
+        }
+<span class="nc" id="L170">    }</span>
 
     @Inject
     public void setMetamodelUtil(MetamodelUtil metamodelUtil) {
-<span class="fc" id="L174">        this.metamodelUtil = metamodelUtil;</span>
-<span class="fc" id="L175">    }</span>
+<span class="nc" id="L174">        this.metamodelUtil = metamodelUtil;</span>
+<span class="nc" id="L175">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

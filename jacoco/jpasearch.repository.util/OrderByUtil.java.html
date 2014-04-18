@@ -37,23 +37,23 @@ import jpasearch.repository.query.OrderByDirection;
  */
 @Named
 @Singleton
-<span class="fc" id="L40">public class OrderByUtil {</span>
+<span class="nc" id="L40">public class OrderByUtil {</span>
 
     private JpaUtil jpaUtil;
 
     public &lt;E&gt; List&lt;Order&gt; buildJpaOrders(Iterable&lt;OrderBy&lt;E, ?&gt;&gt; orders, Root&lt;E&gt; root, CriteriaBuilder builder) {
-<span class="fc" id="L45">        List&lt;Order&gt; jpaOrders = new ArrayList&lt;&gt;();</span>
-<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        for (OrderBy&lt;E, ?&gt; ob : orders) {</span>
+<span class="nc" id="L45">        List&lt;Order&gt; jpaOrders = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        for (OrderBy&lt;E, ?&gt; ob : orders) {</span>
 <span class="nc" id="L47">            Path&lt;?&gt; path = jpaUtil.getPath(root, ob.getPath());</span>
 <span class="nc bnc" id="L48" title="All 2 branches missed.">            jpaOrders.add(ob.getDirection() == OrderByDirection.DESC ? builder.desc(path) : builder.asc(path));</span>
-<span class="nc" id="L49">        }</span>
-<span class="fc" id="L50">        return jpaOrders;</span>
+        }
+<span class="nc" id="L50">        return jpaOrders;</span>
     }
 
     @Inject
     public void setJpaUtil(JpaUtil jpaUtil) {
-<span class="fc" id="L55">        this.jpaUtil = jpaUtil;</span>
-<span class="fc" id="L56">    }</span>
+<span class="nc" id="L55">        this.jpaUtil = jpaUtil;</span>
+<span class="nc" id="L56">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

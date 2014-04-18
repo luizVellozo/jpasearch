@@ -49,34 +49,34 @@ public class SearchParameters&lt;FROM&gt; implements Serializable {
 
     private final boolean useDistinct;
 
-<span class="fc" id="L52">    SearchParameters(SearchBuilder&lt;FROM&gt; builder) {</span>
-<span class="fc" id="L53">        extraParameters = Collections.unmodifiableMap(builder.getExtraParameters());</span>
-<span class="fc" id="L54">        fetches = Collections.unmodifiableSet(builder.getFetches());</span>
-<span class="fc" id="L55">        firstResult = builder.getFirstResult();</span>
-<span class="fc" id="L56">        maxResults = builder.getMaxResults();</span>
-<span class="fc" id="L57">        orders = Collections.unmodifiableSet(builder.getOrders());</span>
-<span class="fc" id="L58">        selectors = builder.getSelectors();</span>
-<span class="fc" id="L59">        useDistinct = builder.isUseDistinct();</span>
-<span class="fc" id="L60">    }</span>
+<span class="nc" id="L52">    SearchParameters(SearchBuilder&lt;FROM&gt; builder) {</span>
+<span class="nc" id="L53">        extraParameters = Collections.unmodifiableMap(builder.getExtraParameters());</span>
+<span class="nc" id="L54">        fetches = Collections.unmodifiableSet(builder.getFetches());</span>
+<span class="nc" id="L55">        firstResult = builder.getFirstResult();</span>
+<span class="nc" id="L56">        maxResults = builder.getMaxResults();</span>
+<span class="nc" id="L57">        orders = Collections.unmodifiableSet(builder.getOrders());</span>
+<span class="nc" id="L58">        selectors = builder.getSelectors();</span>
+<span class="nc" id="L59">        useDistinct = builder.isUseDistinct();</span>
+<span class="nc" id="L60">    }</span>
 
     public Set&lt;OrderBy&lt;FROM, ?&gt;&gt; getOrders() {
-<span class="fc" id="L63">        return orders;</span>
+<span class="nc" id="L63">        return orders;</span>
     }
 
     public int getMaxResults() {
-<span class="fc" id="L67">        return maxResults;</span>
+<span class="nc" id="L67">        return maxResults;</span>
     }
 
     public int getFirstResult() {
-<span class="fc" id="L71">        return firstResult;</span>
+<span class="nc" id="L71">        return firstResult;</span>
     }
 
     public Set&lt;Path&lt;FROM, ?&gt;&gt; getFetches() {
-<span class="fc" id="L75">        return fetches;</span>
+<span class="nc" id="L75">        return fetches;</span>
     }
 
     public Selectors&lt;FROM&gt; getSelectors() {
-<span class="fc" id="L79">        return selectors;</span>
+<span class="nc" id="L79">        return selectors;</span>
     }
 
     public Map&lt;String, Object&gt; getExtraParameters() {
@@ -84,7 +84,7 @@ public class SearchParameters&lt;FROM&gt; implements Serializable {
     }
 
     public boolean isUseDistinct() {
-<span class="fc" id="L87">        return useDistinct;</span>
+<span class="nc" id="L87">        return useDistinct;</span>
     }
 
 }

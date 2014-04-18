@@ -41,8 +41,8 @@ public class Path&lt;FROM, TO&gt; implements Serializable {
     private final Class&lt;? super FROM&gt; from;
 
     public Path(SingularAttribute&lt;? super FROM, TO&gt; attribute) {
-<span class="fc" id="L44">        this(attribute.getDeclaringType().getJavaType(), attribute.getName());</span>
-<span class="fc" id="L45">    }</span>
+<span class="nc" id="L44">        this(attribute.getDeclaringType().getJavaType(), attribute.getName());</span>
+<span class="nc" id="L45">    }</span>
 
     public Path(PluralAttribute&lt;? super FROM, ?, TO&gt; attribute) {
 <span class="nc" id="L48">        this(attribute.getDeclaringType().getJavaType(), attribute.getName());</span>
@@ -56,10 +56,10 @@ public class Path&lt;FROM, TO&gt; implements Serializable {
 <span class="nc" id="L56">        this(old.from, old.path + &quot;.&quot; + attribute.getName());</span>
 <span class="nc" id="L57">    }</span>
 
-<span class="fc" id="L59">    public Path(Class&lt;? super FROM&gt; from, String path) {</span>
-<span class="fc" id="L60">        this.from = from;</span>
-<span class="fc" id="L61">        this.path = path;</span>
-<span class="fc" id="L62">    }</span>
+<span class="nc" id="L59">    public Path(Class&lt;? super FROM&gt; from, String path) {</span>
+<span class="nc" id="L60">        this.from = from;</span>
+<span class="nc" id="L61">        this.path = path;</span>
+<span class="nc" id="L62">    }</span>
 
     public &lt;T&gt; Path&lt;FROM, T&gt; add(SingularAttribute&lt;? super TO, T&gt; attribute) {
 <span class="nc" id="L65">        return new Path&lt;FROM, T&gt;(this, attribute);</span>
@@ -70,12 +70,12 @@ public class Path&lt;FROM, TO&gt; implements Serializable {
     }
 
     public String getPath() {
-<span class="fc" id="L73">        return path;</span>
+<span class="nc" id="L73">        return path;</span>
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
+<span class="nc" id="L78">        final int prime = 31;</span>
 <span class="nc" id="L79">        int result = 1;</span>
 <span class="nc bnc" id="L80" title="All 2 branches missed.">        result = (prime * result) + ((from == null) ? 0 : from.hashCode());</span>
 <span class="nc bnc" id="L81" title="All 2 branches missed.">        result = (prime * result) + ((path == null) ? 0 : path.hashCode());</span>

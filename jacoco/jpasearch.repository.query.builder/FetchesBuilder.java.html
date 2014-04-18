@@ -36,9 +36,9 @@ public class FetchesBuilder&lt;FROM&gt; extends AbstractBuilder&lt;SearchBuilder
     private final Set&lt;Path&lt;FROM, ?&gt;&gt; fetches;
 
     public FetchesBuilder(SearchBuilder&lt;FROM&gt; searchParameters) {
-<span class="fc" id="L39">        super(searchParameters);</span>
-<span class="fc" id="L40">        fetches = new HashSet&lt;&gt;();</span>
-<span class="fc" id="L41">    }</span>
+<span class="nc" id="L39">        super(searchParameters);</span>
+<span class="nc" id="L40">        fetches = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L41">    }</span>
 
     public FetchesBuilder(SearchBuilder&lt;FROM&gt; searchParameters, Set&lt;Path&lt;FROM, ?&gt;&gt; fetches) {
 <span class="nc" id="L44">        super(searchParameters);</span>
@@ -54,7 +54,7 @@ public class FetchesBuilder&lt;FROM&gt; extends AbstractBuilder&lt;SearchBuilder
     }
 
     public Set&lt;Path&lt;FROM, ?&gt;&gt; getFetches() {
-<span class="fc" id="L57">        return Collections.unmodifiableSet(fetches);</span>
+<span class="nc" id="L57">        return Collections.unmodifiableSet(fetches);</span>
     }
 
     &lt;TO&gt; FetchesBuilder&lt;FROM&gt; add(Path&lt;FROM, TO&gt; path) {

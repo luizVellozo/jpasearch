@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<document>
+
+  <properties>
+    <title>jpasearch - Home</title>
+    <author>Sébastien PERALTA</author>
+  </properties>
+
+  <body>
+    Generic repository for jpa entities
+  </body>
+</document>

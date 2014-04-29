@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ByRangeUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.util</a> &gt; <span class="el_source">ByRangeUtil.java</span></div><h1>ByRangeUtil.java</h1><pre class="source lang-java linenums">/*
- * Copyright 20143, jpasearch
- *
- * This file is part of jpasearch.
- *
- * jpasearch is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * jpasearch is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
- */
-package jpasearch.repository.util;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ByRangeUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.util</a> &gt; <span class="el_source">ByRangeUtil.java</span></div><h1>ByRangeUtil.java</h1><pre class="source lang-java linenums">package jpasearch.repository.util;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -37,53 +19,53 @@ import jpasearch.repository.query.selector.Range;
 @SuppressWarnings(&quot;unchecked&quot;)
 @Named
 @Singleton
-<span class="nc" id="L40">public class ByRangeUtil {</span>
+<span class="fc" id="L22">public class ByRangeUtil {</span>
 
     @Inject
     private JpaUtil jpaUtil;
 
     public &lt;E&gt; Predicate byRange(Root&lt;E&gt; root, CriteriaBuilder builder, Range&lt;E, ?&gt; range) {
-<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (range.isSet()) {</span>
-<span class="nc" id="L47">            return buildRangePredicate(range, root, builder);</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        if (range.isSet()) {</span>
+<span class="nc" id="L29">            return buildRangePredicate(range, root, builder);</span>
         } else {
-<span class="nc" id="L49">            return null;</span>
+<span class="nc" id="L31">            return null;</span>
         }
     }
 
     private &lt;D extends Comparable&lt;? super D&gt;, E&gt; Predicate buildRangePredicate(Range&lt;E, D&gt; range, Root&lt;E&gt; root, CriteriaBuilder builder) {
-<span class="nc" id="L54">        Predicate rangePredicate = null;</span>
-<span class="nc" id="L55">        Path&lt;D&gt; path = jpaUtil.getPath(root, range.getPath());</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (range.isBetween()) {</span>
-<span class="nc" id="L57">            rangePredicate = builder.between(path, range.getLowerBound(), range.getHigherBound());</span>
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        } else if (range.isLowerBoundSet()) {</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">            if (range.isIncludeLowerBound()) {</span>
-<span class="nc" id="L60">                rangePredicate = builder.greaterThanOrEqualTo(path, range.getLowerBound());</span>
-<span class="nc" id="L61">            } else {</span>
-<span class="nc" id="L62">                rangePredicate = builder.greaterThan(path, range.getLowerBound());</span>
+<span class="nc" id="L36">        Predicate rangePredicate = null;</span>
+<span class="nc" id="L37">        Path&lt;D&gt; path = jpaUtil.getPath(root, range.getPath());</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (range.isBetween()) {</span>
+<span class="nc" id="L39">            rangePredicate = builder.between(path, range.getLowerBound(), range.getHigherBound());</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        } else if (range.isLowerBoundSet()) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (range.isIncludeLowerBound()) {</span>
+<span class="nc" id="L42">                rangePredicate = builder.greaterThanOrEqualTo(path, range.getLowerBound());</span>
+            } else {
+<span class="nc" id="L44">                rangePredicate = builder.greaterThan(path, range.getLowerBound());</span>
             }
-<span class="nc bnc" id="L64" title="All 2 branches missed.">        } else if (range.isHigherBoundSet()) {</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">            if (range.isIncludeHigherBound()) {</span>
-<span class="nc" id="L66">                rangePredicate = builder.lessThanOrEqualTo(path, range.getHigherBound());</span>
-<span class="nc" id="L67">            } else {</span>
-<span class="nc" id="L68">                rangePredicate = builder.lessThan(path, range.getHigherBound());</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        } else if (range.isHigherBoundSet()) {</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">            if (range.isIncludeHigherBound()) {</span>
+<span class="nc" id="L48">                rangePredicate = builder.lessThanOrEqualTo(path, range.getHigherBound());</span>
+            } else {
+<span class="nc" id="L50">                rangePredicate = builder.lessThan(path, range.getHigherBound());</span>
             }
         }
 
-<span class="nc bnc" id="L72" title="All 2 branches missed.">        if (rangePredicate != null) {</span>
-<span class="nc bnc" id="L73" title="All 4 branches missed.">            if (!range.isIncludeNullSet() || (range.getIncludeNull() == FALSE)) {</span>
-<span class="nc" id="L74">                return rangePredicate;</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (rangePredicate != null) {</span>
+<span class="nc bnc" id="L55" title="All 4 branches missed.">            if (!range.isIncludeNullSet() || (range.getIncludeNull() == FALSE)) {</span>
+<span class="nc" id="L56">                return rangePredicate;</span>
             } else {
-<span class="nc" id="L76">                return builder.or(rangePredicate, builder.isNull(path));</span>
+<span class="nc" id="L58">                return builder.or(rangePredicate, builder.isNull(path));</span>
             }
         } else {
             // no from/to is set, but include null or not could be:
-<span class="nc bnc" id="L80" title="All 2 branches missed.">            if (TRUE == range.getIncludeNull()) {</span>
-<span class="nc" id="L81">                return builder.isNull(path);</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">            } else if (FALSE == range.getIncludeNull()) {</span>
-<span class="nc" id="L83">                return builder.isNotNull(path);</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">            if (TRUE == range.getIncludeNull()) {</span>
+<span class="nc" id="L63">                return builder.isNull(path);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">            } else if (FALSE == range.getIncludeNull()) {</span>
+<span class="nc" id="L65">                return builder.isNotNull(path);</span>
             }
         }
-<span class="nc" id="L86">        return null;</span>
+<span class="nc" id="L68">        return null;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

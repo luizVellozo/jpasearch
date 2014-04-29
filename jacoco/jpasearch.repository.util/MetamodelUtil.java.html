@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MetamodelUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.util</a> &gt; <span class="el_source">MetamodelUtil.java</span></div><h1>MetamodelUtil.java</h1><pre class="source lang-java linenums">/*
- * Copyright 20143, jpasearch
- *
- * This file is part of jpasearch.
- *
- * jpasearch is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * jpasearch is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
- */
-package jpasearch.repository.util;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MetamodelUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.util</a> &gt; <span class="el_source">MetamodelUtil.java</span></div><h1>MetamodelUtil.java</h1><pre class="source lang-java linenums">package jpasearch.repository.util;
 
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
@@ -42,75 +24,75 @@ import com.google.common.base.Splitter;
 
 @Named
 @Singleton
-<span class="nc" id="L45">public class MetamodelUtil {</span>
+<span class="fc" id="L27">public class MetamodelUtil {</span>
 
-<span class="nc" id="L47">    private final Map&lt;Class&lt;?&gt;, Class&lt;?&gt;&gt; metamodelCache = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L29">    private final Map&lt;Class&lt;?&gt;, Class&lt;?&gt;&gt; metamodelCache = new HashMap&lt;&gt;();</span>
 
     public SingularAttribute&lt;?, ?&gt; toAttribute(Class&lt;?&gt; from, String property) {
         try {
-<span class="nc" id="L51">            Class&lt;?&gt; metamodelClass = getCachedClass(from);</span>
-<span class="nc" id="L52">            Field field = metamodelClass.getField(property);</span>
-<span class="nc" id="L53">            return (SingularAttribute&lt;?, ?&gt;) field.get(null);</span>
-<span class="nc" id="L54">        } catch (Exception e) {</span>
-<span class="nc" id="L55">            throw new IllegalArgumentException(e);</span>
+<span class="nc" id="L33">            Class&lt;?&gt; metamodelClass = getCachedClass(from);</span>
+<span class="nc" id="L34">            Field field = metamodelClass.getField(property);</span>
+<span class="nc" id="L35">            return (SingularAttribute&lt;?, ?&gt;) field.get(null);</span>
+<span class="nc" id="L36">        } catch (Exception e) {</span>
+<span class="nc" id="L37">            throw new IllegalArgumentException(e);</span>
         }
     }
 
     public List&lt;Attribute&lt;?, ?&gt;&gt; toAttributes(Class&lt;?&gt; from, String path) {
         try {
-<span class="nc" id="L61">            List&lt;Attribute&lt;?, ?&gt;&gt; attributes = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L62">            Class&lt;?&gt; current = from;</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">            for (String pathItem : Splitter.on(&quot;.&quot;).split(path)) {</span>
-<span class="nc" id="L64">                Class&lt;?&gt; metamodelClass = getCachedClass(current);</span>
-<span class="nc" id="L65">                Field field = metamodelClass.getField(pathItem);</span>
-<span class="nc" id="L66">                Attribute&lt;?, ?&gt; attribute = (Attribute&lt;?, ?&gt;) field.get(null);</span>
-<span class="nc" id="L67">                attributes.add(attribute);</span>
-<span class="nc bnc" id="L68" title="All 2 branches missed.">                if (attribute instanceof PluralAttribute) {</span>
-<span class="nc" id="L69">                    current = ((PluralAttribute&lt;?, ?, ?&gt;) attribute).getElementType().getJavaType();</span>
-<span class="nc" id="L70">                } else {</span>
-<span class="nc" id="L71">                    current = attribute.getJavaType();</span>
+<span class="fc" id="L43">            List&lt;Attribute&lt;?, ?&gt;&gt; attributes = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L44">            Class&lt;?&gt; current = from;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            for (String pathItem : Splitter.on(&quot;.&quot;).split(path)) {</span>
+<span class="fc" id="L46">                Class&lt;?&gt; metamodelClass = getCachedClass(current);</span>
+<span class="fc" id="L47">                Field field = metamodelClass.getField(pathItem);</span>
+<span class="fc" id="L48">                Attribute&lt;?, ?&gt; attribute = (Attribute&lt;?, ?&gt;) field.get(null);</span>
+<span class="fc" id="L49">                attributes.add(attribute);</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">                if (attribute instanceof PluralAttribute) {</span>
+<span class="nc" id="L51">                    current = ((PluralAttribute&lt;?, ?, ?&gt;) attribute).getElementType().getJavaType();</span>
+                } else {
+<span class="fc" id="L53">                    current = attribute.getJavaType();</span>
                 }
-            }
-<span class="nc" id="L74">            return attributes;</span>
-<span class="nc" id="L75">        } catch (Exception e) {</span>
-<span class="nc" id="L76">            throw new IllegalArgumentException(e);</span>
+<span class="fc" id="L55">            }</span>
+<span class="fc" id="L56">            return attributes;</span>
+<span class="nc" id="L57">        } catch (Exception e) {</span>
+<span class="nc" id="L58">            throw new IllegalArgumentException(e);</span>
         }
     }
 
     public String toPath(List&lt;Attribute&lt;?, ?&gt;&gt; attributes) {
-<span class="nc" id="L81">        StringBuilder path = new StringBuilder();</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">        for (Attribute&lt;?, ?&gt; attribute : attributes) {</span>
-<span class="nc bnc" id="L83" title="All 2 branches missed.">            if (path.length() &gt; 0) {</span>
-<span class="nc" id="L84">                path.append(&quot;.&quot;);</span>
+<span class="nc" id="L63">        StringBuilder path = new StringBuilder();</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        for (Attribute&lt;?, ?&gt; attribute : attributes) {</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">            if (path.length() &gt; 0) {</span>
+<span class="nc" id="L66">                path.append(&quot;.&quot;);</span>
             }
-<span class="nc" id="L86">            path.append(attribute.getName());</span>
-        }
-<span class="nc" id="L88">        return path.toString();</span>
+<span class="nc" id="L68">            path.append(attribute.getName());</span>
+<span class="nc" id="L69">        }</span>
+<span class="nc" id="L70">        return path.toString();</span>
     }
 
     public boolean isBoolean(Class&lt;?&gt; from, String path) {
-<span class="nc" id="L92">        return isType(Boolean.class, toAttributes(from, path));</span>
+<span class="fc" id="L74">        return isType(Boolean.class, toAttributes(from, path));</span>
     }
 
     public boolean isString(Class&lt;?&gt; from, String path) {
-<span class="nc" id="L96">        return isType(String.class, toAttributes(from, path));</span>
+<span class="fc" id="L78">        return isType(String.class, toAttributes(from, path));</span>
     }
 
     public boolean isNumber(Class&lt;?&gt; from, String path) {
-<span class="nc" id="L100">        return isType(Number.class, toAttributes(from, path));</span>
+<span class="nc" id="L82">        return isType(Number.class, toAttributes(from, path));</span>
     }
 
     public boolean isType(Class&lt;?&gt; type, List&lt;Attribute&lt;?, ?&gt;&gt; attributes) {
-<span class="nc" id="L104">        return type.isAssignableFrom(attributes.get(attributes.size() - 1).getJavaType());</span>
+<span class="fc" id="L86">        return type.isAssignableFrom(attributes.get(attributes.size() - 1).getJavaType());</span>
     }
 
     private Class&lt;?&gt; getCachedClass(Class&lt;?&gt; current) throws ClassNotFoundException {
-<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (metamodelCache.containsKey(current)) {</span>
-<span class="nc" id="L109">            return metamodelCache.get(current);</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        if (metamodelCache.containsKey(current)) {</span>
+<span class="fc" id="L91">            return metamodelCache.get(current);</span>
         }
-<span class="nc" id="L111">        Class&lt;?&gt; metamodelClass = Class.forName(current.getName() + &quot;_&quot;);</span>
-<span class="nc" id="L112">        metamodelCache.put(current, metamodelClass);</span>
-<span class="nc" id="L113">        return metamodelClass;</span>
+<span class="fc" id="L93">        Class&lt;?&gt; metamodelClass = Class.forName(current.getName() + &quot;_&quot;);</span>
+<span class="fc" id="L94">        metamodelCache.put(current, metamodelClass);</span>
+<span class="fc" id="L95">        return metamodelClass;</span>
     }
 
     /**
@@ -119,18 +101,18 @@ import com.google.common.base.Splitter;
      * @return an empty collection if no jpa relation annotation can be found.
      */
     public Collection&lt;CascadeType&gt; getCascades(PluralAttribute&lt;?, ?, ?&gt; attribute) {
-<span class="nc bnc" id="L122" title="All 2 branches missed.">        if (attribute.getJavaMember() instanceof AccessibleObject) {</span>
-<span class="nc" id="L123">            AccessibleObject accessibleObject = (AccessibleObject) attribute.getJavaMember();</span>
-<span class="nc" id="L124">            OneToMany oneToMany = accessibleObject.getAnnotation(OneToMany.class);</span>
-<span class="nc bnc" id="L125" title="All 2 branches missed.">            if (oneToMany != null) {</span>
-<span class="nc" id="L126">                return Arrays.asList(oneToMany.cascade());</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">        if (attribute.getJavaMember() instanceof AccessibleObject) {</span>
+<span class="nc" id="L105">            AccessibleObject accessibleObject = (AccessibleObject) attribute.getJavaMember();</span>
+<span class="nc" id="L106">            OneToMany oneToMany = accessibleObject.getAnnotation(OneToMany.class);</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            if (oneToMany != null) {</span>
+<span class="nc" id="L108">                return Arrays.asList(oneToMany.cascade());</span>
             }
-<span class="nc" id="L128">            ManyToMany manyToMany = accessibleObject.getAnnotation(ManyToMany.class);</span>
-<span class="nc bnc" id="L129" title="All 2 branches missed.">            if (manyToMany != null) {</span>
-<span class="nc" id="L130">                return Arrays.asList(manyToMany.cascade());</span>
+<span class="nc" id="L110">            ManyToMany manyToMany = accessibleObject.getAnnotation(ManyToMany.class);</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">            if (manyToMany != null) {</span>
+<span class="nc" id="L112">                return Arrays.asList(manyToMany.cascade());</span>
             }
         }
-<span class="nc" id="L133">        return new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L115">        return new ArrayList&lt;&gt;();</span>
     }
 
     /**
@@ -139,29 +121,29 @@ import com.google.common.base.Splitter;
      * @return an empty collection if no jpa relation annotation can be found.
      */
     public Collection&lt;CascadeType&gt; getCascades(SingularAttribute&lt;?, ?&gt; attribute) {
-<span class="nc bnc" id="L142" title="All 2 branches missed.">        if (attribute.getJavaMember() instanceof AccessibleObject) {</span>
-<span class="nc" id="L143">            AccessibleObject accessibleObject = (AccessibleObject) attribute.getJavaMember();</span>
-<span class="nc" id="L144">            OneToOne oneToOne = accessibleObject.getAnnotation(OneToOne.class);</span>
-<span class="nc bnc" id="L145" title="All 2 branches missed.">            if (oneToOne != null) {</span>
-<span class="nc" id="L146">                return Arrays.asList(oneToOne.cascade());</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        if (attribute.getJavaMember() instanceof AccessibleObject) {</span>
+<span class="nc" id="L125">            AccessibleObject accessibleObject = (AccessibleObject) attribute.getJavaMember();</span>
+<span class="nc" id="L126">            OneToOne oneToOne = accessibleObject.getAnnotation(OneToOne.class);</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">            if (oneToOne != null) {</span>
+<span class="nc" id="L128">                return Arrays.asList(oneToOne.cascade());</span>
             }
-<span class="nc" id="L148">            ManyToOne manyToOne = accessibleObject.getAnnotation(ManyToOne.class);</span>
-<span class="nc bnc" id="L149" title="All 2 branches missed.">            if (manyToOne != null) {</span>
-<span class="nc" id="L150">                return Arrays.asList(manyToOne.cascade());</span>
+<span class="nc" id="L130">            ManyToOne manyToOne = accessibleObject.getAnnotation(ManyToOne.class);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">            if (manyToOne != null) {</span>
+<span class="nc" id="L132">                return Arrays.asList(manyToOne.cascade());</span>
             }
         }
-<span class="nc" id="L153">        return new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L135">        return new ArrayList&lt;&gt;();</span>
     }
 
     public boolean isOrphanRemoval(PluralAttribute&lt;?, ?, ?&gt; attribute) {
-<span class="nc bnc" id="L157" title="All 2 branches missed.">        if (attribute.getJavaMember() instanceof AccessibleObject) {</span>
-<span class="nc" id="L158">            AccessibleObject accessibleObject = (AccessibleObject) attribute.getJavaMember();</span>
-<span class="nc" id="L159">            OneToMany oneToMany = accessibleObject.getAnnotation(OneToMany.class);</span>
-<span class="nc bnc" id="L160" title="All 2 branches missed.">            if (oneToMany != null) {</span>
-<span class="nc" id="L161">                return oneToMany.orphanRemoval();</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        if (attribute.getJavaMember() instanceof AccessibleObject) {</span>
+<span class="nc" id="L140">            AccessibleObject accessibleObject = (AccessibleObject) attribute.getJavaMember();</span>
+<span class="nc" id="L141">            OneToMany oneToMany = accessibleObject.getAnnotation(OneToMany.class);</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">            if (oneToMany != null) {</span>
+<span class="nc" id="L143">                return oneToMany.orphanRemoval();</span>
             }
         }
-<span class="nc" id="L164">        return true;</span>
+<span class="nc" id="L146">        return true;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

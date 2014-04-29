@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>JpaUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.util</a> &gt; <span class="el_source">JpaUtil.java</span></div><h1>JpaUtil.java</h1><pre class="source lang-java linenums">/*
- * Copyright 20143, jpasearch
- *
- * This file is part of jpasearch.
- *
- * jpasearch is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * jpasearch is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
- */
-package jpasearch.repository.util;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>JpaUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.util</a> &gt; <span class="el_source">JpaUtil.java</span></div><h1>JpaUtil.java</h1><pre class="source lang-java linenums">package jpasearch.repository.util;
 
 import static com.google.common.base.Predicates.notNull;
 import static com.google.common.collect.Iterables.filter;
@@ -50,129 +32,129 @@ import jpasearch.repository.query.SearchParameters;
 
 @Named
 @Singleton
-<span class="nc" id="L53">public class JpaUtil {</span>
+<span class="fc" id="L35">public class JpaUtil {</span>
 
     private MetamodelUtil metamodelUtil;
 
     public Predicate andPredicate(CriteriaBuilder builder, Predicate... predicatesNullAllowed) {
-<span class="nc" id="L58">        return andPredicate(builder, Arrays.asList(predicatesNullAllowed));</span>
+<span class="fc" id="L40">        return andPredicate(builder, Arrays.asList(predicatesNullAllowed));</span>
     }
 
     public Predicate orPredicate(CriteriaBuilder builder, Predicate... predicatesNullAllowed) {
-<span class="nc" id="L62">        return orPredicate(builder, Arrays.asList(predicatesNullAllowed));</span>
+<span class="nc" id="L44">        return orPredicate(builder, Arrays.asList(predicatesNullAllowed));</span>
     }
 
     public Predicate andPredicate(CriteriaBuilder builder, Iterable&lt;Predicate&gt; predicatesNullAllowed) {
-<span class="nc" id="L66">        List&lt;Predicate&gt; predicates = newArrayList(filter(predicatesNullAllowed, notNull()));</span>
-<span class="nc bnc" id="L67" title="All 4 branches missed.">        if ((predicates == null) || predicates.isEmpty()) {</span>
-<span class="nc" id="L68">            return null;</span>
-<span class="nc bnc" id="L69" title="All 2 branches missed.">        } else if (predicates.size() == 1) {</span>
-<span class="nc" id="L70">            return predicates.get(0);</span>
+<span class="fc" id="L48">        List&lt;Predicate&gt; predicates = newArrayList(filter(predicatesNullAllowed, notNull()));</span>
+<span class="pc bpc" id="L49" title="2 of 4 branches missed.">        if ((predicates == null) || predicates.isEmpty()) {</span>
+<span class="nc" id="L50">            return null;</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">        } else if (predicates.size() == 1) {</span>
+<span class="fc" id="L52">            return predicates.get(0);</span>
         } else {
-<span class="nc" id="L72">            return builder.and(toArray(predicates, Predicate.class));</span>
+<span class="nc" id="L54">            return builder.and(toArray(predicates, Predicate.class));</span>
         }
     }
 
     public Predicate orPredicate(CriteriaBuilder builder, Iterable&lt;Predicate&gt; predicatesNullAllowed) {
-<span class="nc" id="L77">        List&lt;Predicate&gt; predicates = newArrayList(filter(predicatesNullAllowed, notNull()));</span>
-<span class="nc bnc" id="L78" title="All 4 branches missed.">        if ((predicates == null) || predicates.isEmpty()) {</span>
-<span class="nc" id="L79">            return null;</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">        } else if (predicates.size() == 1) {</span>
-<span class="nc" id="L81">            return predicates.get(0);</span>
+<span class="fc" id="L59">        List&lt;Predicate&gt; predicates = newArrayList(filter(predicatesNullAllowed, notNull()));</span>
+<span class="pc bpc" id="L60" title="2 of 4 branches missed.">        if ((predicates == null) || predicates.isEmpty()) {</span>
+<span class="nc" id="L61">            return null;</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">        } else if (predicates.size() == 1) {</span>
+<span class="fc" id="L63">            return predicates.get(0);</span>
         } else {
-<span class="nc" id="L83">            return builder.or(toArray(predicates, Predicate.class));</span>
+<span class="nc" id="L65">            return builder.or(toArray(predicates, Predicate.class));</span>
         }
     }
 
     public &lt;E&gt; Predicate stringPredicate(Expression&lt;String&gt; path, Object attrValue, SearchMode searchMode, boolean caseSensitive, CriteriaBuilder builder) {
-<span class="nc bnc" id="L88" title="All 2 branches missed.">        if (!caseSensitive) {</span>
-<span class="nc" id="L89">            path = builder.lower(path);</span>
-<span class="nc" id="L90">            attrValue = ((String) attrValue).toLowerCase(Locale.FRANCE);</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        if (!caseSensitive) {</span>
+<span class="nc" id="L71">            path = builder.lower(path);</span>
+<span class="nc" id="L72">            attrValue = ((String) attrValue).toLowerCase(Locale.FRANCE);</span>
         }
 
-<span class="pc bnc" id="L93" title="All 6 branches missed.">        switch (searchMode) {</span>
+<span class="pc bpc" id="L75" title="5 of 6 branches missed.">        switch (searchMode) {</span>
         case EQUALS:
-<span class="nc" id="L95">            return builder.equal(path, attrValue);</span>
+<span class="fc" id="L77">            return builder.equal(path, attrValue);</span>
         case ENDING_LIKE:
-<span class="nc" id="L97">            return builder.like(path, &quot;%&quot; + attrValue);</span>
+<span class="nc" id="L79">            return builder.like(path, &quot;%&quot; + attrValue);</span>
         case STARTING_LIKE:
-<span class="nc" id="L99">            return builder.like(path, attrValue + &quot;%&quot;);</span>
+<span class="nc" id="L81">            return builder.like(path, attrValue + &quot;%&quot;);</span>
         case ANYWHERE:
-<span class="nc" id="L101">            return builder.like(path, &quot;%&quot; + attrValue + &quot;%&quot;);</span>
+<span class="nc" id="L83">            return builder.like(path, &quot;%&quot; + attrValue + &quot;%&quot;);</span>
         case LIKE:
             // assume user provide the wild cards
-<span class="nc" id="L104">            return builder.like(path, (String) attrValue);</span>
+<span class="nc" id="L86">            return builder.like(path, (String) attrValue);</span>
         default:
-<span class="nc" id="L106">            throw new IllegalStateException(&quot;expecting a search mode!&quot;);</span>
+<span class="pc" id="L88">            throw new IllegalStateException(&quot;expecting a search mode!&quot;);</span>
         }
     }
 
     public &lt;E, F&gt; Path&lt;F&gt; getPath(Root&lt;E&gt; root, String path) {
-<span class="nc" id="L111">        return getPath(root, metamodelUtil.toAttributes(root.getJavaType(), path));</span>
+<span class="fc" id="L93">        return getPath(root, metamodelUtil.toAttributes(root.getJavaType(), path));</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
     public &lt;E, F&gt; Path&lt;F&gt; getPath(Root&lt;E&gt; root, List&lt;Attribute&lt;?, ?&gt;&gt; attributes) {
-<span class="nc" id="L116">        Path&lt;?&gt; path = root;</span>
-<span class="nc bnc" id="L117" title="All 2 branches missed.">        for (Attribute&lt;?, ?&gt; attribute : attributes) {</span>
-<span class="nc" id="L118">            boolean found = false;</span>
-<span class="nc bnc" id="L119" title="All 2 branches missed.">            if (path instanceof FetchParent) {</span>
-<span class="nc bnc" id="L120" title="All 2 branches missed.">                for (Fetch&lt;E, ?&gt; fetch : ((FetchParent&lt;?, E&gt;) path).getFetches()) {</span>
-<span class="nc bnc" id="L121" title="All 4 branches missed.">                    if (attribute.getName().equals(fetch.getAttribute().getName()) &amp;&amp; (fetch instanceof Join&lt;?, ?&gt;)) {</span>
-<span class="nc" id="L122">                        path = (Join&lt;E, ?&gt;) fetch;</span>
-<span class="nc" id="L123">                        found = true;</span>
-<span class="nc" id="L124">                        break;</span>
+<span class="fc" id="L98">        Path&lt;?&gt; path = root;</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        for (Attribute&lt;?, ?&gt; attribute : attributes) {</span>
+<span class="fc" id="L100">            boolean found = false;</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">            if (path instanceof FetchParent) {</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">                for (Fetch&lt;E, ?&gt; fetch : ((FetchParent&lt;?, E&gt;) path).getFetches()) {</span>
+<span class="nc bnc" id="L103" title="All 4 branches missed.">                    if (attribute.getName().equals(fetch.getAttribute().getName()) &amp;&amp; (fetch instanceof Join&lt;?, ?&gt;)) {</span>
+<span class="nc" id="L104">                        path = (Join&lt;E, ?&gt;) fetch;</span>
+<span class="nc" id="L105">                        found = true;</span>
+<span class="nc" id="L106">                        break;</span>
                     }
+<span class="nc" id="L108">                }</span>
+            }
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">            if (!found) {</span>
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">                if (attribute instanceof PluralAttribute) {</span>
+<span class="nc" id="L112">                    path = ((From&lt;?, ?&gt;) path).join(attribute.getName(), JoinType.LEFT);</span>
+                } else {
+<span class="fc" id="L114">                    path = path.get(attribute.getName());</span>
                 }
             }
-<span class="nc bnc" id="L128" title="All 2 branches missed.">            if (!found) {</span>
-<span class="nc bnc" id="L129" title="All 2 branches missed.">                if (attribute instanceof PluralAttribute) {</span>
-<span class="nc" id="L130">                    path = ((From&lt;?, ?&gt;) path).join(attribute.getName(), JoinType.LEFT);</span>
-<span class="nc" id="L131">                } else {</span>
-<span class="nc" id="L132">                    path = path.get(attribute.getName());</span>
-                }
-            }
-        }
-<span class="nc" id="L136">        return (Path&lt;F&gt;) path;</span>
+<span class="fc" id="L117">        }</span>
+<span class="fc" id="L118">        return (Path&lt;F&gt;) path;</span>
     }
 
     public void applyPagination(Query query, SearchParameters&lt;?&gt; sp) {
-<span class="nc bnc" id="L140" title="All 2 branches missed.">        if (sp.getFirstResult() &gt; 0) {</span>
-<span class="nc" id="L141">            query.setFirstResult(sp.getFirstResult());</span>
+<span class="pc bpc" id="L122" title="1 of 2 branches missed.">        if (sp.getFirstResult() &gt; 0) {</span>
+<span class="nc" id="L123">            query.setFirstResult(sp.getFirstResult());</span>
         }
-<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (sp.getMaxResults() &gt; 0) {</span>
-<span class="nc" id="L144">            query.setMaxResults(sp.getMaxResults());</span>
+<span class="pc bpc" id="L125" title="1 of 2 branches missed.">        if (sp.getMaxResults() &gt; 0) {</span>
+<span class="nc" id="L126">            query.setMaxResults(sp.getMaxResults());</span>
         }
-<span class="nc" id="L146">    }</span>
+<span class="fc" id="L128">    }</span>
 
     @SuppressWarnings({ &quot;unchecked&quot;, &quot;rawtypes&quot; })
     public &lt;E&gt; void fetches(SearchParameters&lt;E&gt; sp, Root&lt;E&gt; root) {
-<span class="nc bnc" id="L150" title="All 2 branches missed.">        for (jpasearch.repository.query.Path&lt;E, ?&gt; path : sp.getFetches()) {</span>
-<span class="nc" id="L151">            FetchParent&lt;?, ?&gt; from = root;</span>
-<span class="nc bnc" id="L152" title="All 2 branches missed.">            for (Attribute&lt;?, ?&gt; arg : metamodelUtil.toAttributes(root.getJavaType(), path.getPath())) {</span>
-<span class="nc" id="L153">                boolean found = false;</span>
-<span class="nc bnc" id="L154" title="All 2 branches missed.">                for (Fetch&lt;?, ?&gt; fetch : from.getFetches()) {</span>
-<span class="nc bnc" id="L155" title="All 2 branches missed.">                    if (arg.equals(fetch.getAttribute())) {</span>
-<span class="nc" id="L156">                        from = fetch;</span>
-<span class="nc" id="L157">                        found = true;</span>
-<span class="nc" id="L158">                        break;</span>
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">        for (jpasearch.repository.query.Path&lt;E, ?&gt; path : sp.getFetches()) {</span>
+<span class="nc" id="L133">            FetchParent&lt;?, ?&gt; from = root;</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">            for (Attribute&lt;?, ?&gt; arg : metamodelUtil.toAttributes(root.getJavaType(), path.getPath())) {</span>
+<span class="nc" id="L135">                boolean found = false;</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">                for (Fetch&lt;?, ?&gt; fetch : from.getFetches()) {</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">                    if (arg.equals(fetch.getAttribute())) {</span>
+<span class="nc" id="L138">                        from = fetch;</span>
+<span class="nc" id="L139">                        found = true;</span>
+<span class="nc" id="L140">                        break;</span>
+                    }
+<span class="nc" id="L142">                }</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">                if (!found) {</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">                    if (arg instanceof PluralAttribute) {</span>
+<span class="nc" id="L145">                        from = from.fetch((PluralAttribute) arg, JoinType.LEFT);</span>
+                    } else {
+<span class="nc" id="L147">                        from = from.fetch((SingularAttribute) arg, JoinType.LEFT);</span>
                     }
                 }
-<span class="nc bnc" id="L161" title="All 2 branches missed.">                if (!found) {</span>
-<span class="nc bnc" id="L162" title="All 2 branches missed.">                    if (arg instanceof PluralAttribute) {</span>
-<span class="nc" id="L163">                        from = from.fetch((PluralAttribute) arg, JoinType.LEFT);</span>
-<span class="nc" id="L164">                    } else {</span>
-<span class="nc" id="L165">                        from = from.fetch((SingularAttribute) arg, JoinType.LEFT);</span>
-                    }
-                }
-            }
-        }
-<span class="nc" id="L170">    }</span>
+<span class="nc" id="L150">            }</span>
+<span class="nc" id="L151">        }</span>
+<span class="fc" id="L152">    }</span>
 
     @Inject
     public void setMetamodelUtil(MetamodelUtil metamodelUtil) {
-<span class="nc" id="L174">        this.metamodelUtil = metamodelUtil;</span>
-<span class="nc" id="L175">    }</span>
+<span class="fc" id="L156">        this.metamodelUtil = metamodelUtil;</span>
+<span class="fc" id="L157">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

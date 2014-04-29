@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ByPropertySelectorUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.util</a> &gt; <span class="el_source">ByPropertySelectorUtil.java</span></div><h1>ByPropertySelectorUtil.java</h1><pre class="source lang-java linenums">/*
- * Copyright 20143, jpasearch
- *
- * This file is part of jpasearch.
- *
- * jpasearch is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * jpasearch is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
- */
-package jpasearch.repository.util;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ByPropertySelectorUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.util</a> &gt; <span class="el_source">ByPropertySelectorUtil.java</span></div><h1>ByPropertySelectorUtil.java</h1><pre class="source lang-java linenums">package jpasearch.repository.util;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -38,7 +20,7 @@ import jpasearch.repository.query.selector.PropertySelector;
  */
 @Named
 @Singleton
-<span class="nc" id="L41">public class ByPropertySelectorUtil {</span>
+<span class="fc" id="L23">public class ByPropertySelectorUtil {</span>
 
     private JpaUtil jpaUtil;
 
@@ -46,165 +28,165 @@ import jpasearch.repository.query.selector.PropertySelector;
 
     @SuppressWarnings(&quot;unchecked&quot;)
     public &lt;E&gt; Predicate byPropertySelectors(Root&lt;E&gt; root, CriteriaBuilder builder, PropertySelector&lt;? super E, ?&gt; propertySelector) {
-<span class="nc" id="L49">        List&lt;Predicate&gt; predicates = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (metamodelUtil.isBoolean(root.getJavaType(), propertySelector.getPath())) {</span>
-<span class="nc" id="L51">            byBooleanSelector(root, builder, predicates, (PropertySelector&lt;? super E, Boolean&gt;) propertySelector);</span>
-<span class="nc bnc" id="L52" title="All 2 branches missed.">        } else if (metamodelUtil.isString(root.getJavaType(), propertySelector.getPath())) {</span>
-<span class="nc" id="L53">            byStringSelector(root, builder, predicates, (PropertySelector&lt;? super E, String&gt;) propertySelector);</span>
-<span class="nc" id="L54">        } else {</span>
-<span class="nc" id="L55">            byObjectSelector(root, builder, predicates, propertySelector);</span>
-        }
-<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (propertySelector.isOrMode()) {</span>
-<span class="nc" id="L58">            return jpaUtil.orPredicate(builder, predicates);</span>
+<span class="fc" id="L31">        List&lt;Predicate&gt; predicates = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        if (metamodelUtil.isBoolean(root.getJavaType(), propertySelector.getPath())) {</span>
+<span class="nc" id="L33">            byBooleanSelector(root, builder, predicates, (PropertySelector&lt;? super E, Boolean&gt;) propertySelector);</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        } else if (metamodelUtil.isString(root.getJavaType(), propertySelector.getPath())) {</span>
+<span class="fc" id="L35">            byStringSelector(root, builder, predicates, (PropertySelector&lt;? super E, String&gt;) propertySelector);</span>
         } else {
-<span class="nc" id="L60">            return jpaUtil.andPredicate(builder, predicates);</span>
+<span class="nc" id="L37">            byObjectSelector(root, builder, predicates, propertySelector);</span>
+        }
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if (propertySelector.isOrMode()) {</span>
+<span class="fc" id="L40">            return jpaUtil.orPredicate(builder, predicates);</span>
+        } else {
+<span class="nc" id="L42">            return jpaUtil.andPredicate(builder, predicates);</span>
         }
     }
 
     private &lt;E&gt; void byBooleanSelector(Root&lt;E&gt; root, CriteriaBuilder builder, List&lt;Predicate&gt; predicates, PropertySelector&lt;? super E, Boolean&gt; selector) {
-<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (selector.isNotEmpty()) {</span>
-<span class="nc" id="L66">            List&lt;Predicate&gt; selectorPredicates = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (selector.isNotEmpty()) {</span>
+<span class="nc" id="L48">            List&lt;Predicate&gt; selectorPredicates = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L68" title="All 2 branches missed.">            for (Boolean selection : selector.getSelected()) {</span>
-<span class="nc" id="L69">                Path&lt;Boolean&gt; path = jpaUtil.getPath(root, selector.getPath());</span>
-<span class="nc bnc" id="L70" title="All 2 branches missed.">                if (selection == null) {</span>
-<span class="nc" id="L71">                    selectorPredicates.add(builder.isNull(path));</span>
-<span class="nc" id="L72">                } else {</span>
-<span class="nc bnc" id="L73" title="All 2 branches missed.">                    selectorPredicates.add(selection ? builder.isTrue(path) : builder.isFalse(path));</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            for (Boolean selection : selector.getSelected()) {</span>
+<span class="nc" id="L51">                Path&lt;Boolean&gt; path = jpaUtil.getPath(root, selector.getPath());</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">                if (selection == null) {</span>
+<span class="nc" id="L53">                    selectorPredicates.add(builder.isNull(path));</span>
+                } else {
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                    selectorPredicates.add(selection ? builder.isTrue(path) : builder.isFalse(path));</span>
                 }
-            }
-<span class="nc bnc" id="L76" title="All 2 branches missed.">            if (selector.isOrMode()) {</span>
-<span class="nc" id="L77">                Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);</span>
-<span class="nc bnc" id="L78" title="All 2 branches missed.">                if (selector.isNotMode()) {</span>
-<span class="nc" id="L79">                    predicates.add(builder.not(predicate));</span>
-<span class="nc" id="L80">                } else {</span>
-<span class="nc" id="L81">                    predicates.add(predicate);</span>
+<span class="nc" id="L57">            }</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">            if (selector.isOrMode()) {</span>
+<span class="nc" id="L59">                Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">                if (selector.isNotMode()) {</span>
+<span class="nc" id="L61">                    predicates.add(builder.not(predicate));</span>
+                } else {
+<span class="nc" id="L63">                    predicates.add(predicate);</span>
                 }
-<span class="nc" id="L83">            } else {</span>
-<span class="nc" id="L84">                Predicate predicate = jpaUtil.andPredicate(builder, selectorPredicates);</span>
-<span class="nc bnc" id="L85" title="All 2 branches missed.">                if (selector.isNotMode()) {</span>
-<span class="nc" id="L86">                    predicates.add(builder.not(predicate));</span>
-<span class="nc" id="L87">                } else {</span>
-<span class="nc" id="L88">                    predicates.add(predicate);</span>
+<span class="nc" id="L65">            } else {</span>
+<span class="nc" id="L66">                Predicate predicate = jpaUtil.andPredicate(builder, selectorPredicates);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">                if (selector.isNotMode()) {</span>
+<span class="nc" id="L68">                    predicates.add(builder.not(predicate));</span>
+                } else {
+<span class="nc" id="L70">                    predicates.add(predicate);</span>
                 }
             }
         }
-<span class="nc" id="L92">    }</span>
+<span class="nc" id="L74">    }</span>
 
     private &lt;E&gt; void byStringSelector(Root&lt;E&gt; root, CriteriaBuilder builder, List&lt;Predicate&gt; predicates, PropertySelector&lt;? super E, String&gt; selector) {
-<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (selector.isNotEmpty()) {</span>
-<span class="nc" id="L96">            Path&lt;String&gt; path = null;</span>
-<span class="nc" id="L97">            List&lt;Predicate&gt; selectorPredicates = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L98">            List&lt;String&gt; selected = selector.getSelected();</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">            if (selector.getSelected().contains(null)) {</span>
-<span class="nc" id="L100">                path = jpaUtil.getPath(root, selector.getPath());</span>
-<span class="nc" id="L101">                selected = new ArrayList&lt;&gt;(selector.getSelected());</span>
-<span class="nc" id="L102">                selected.remove(null);</span>
-<span class="nc" id="L103">                selectorPredicates.add(builder.isNull(path));</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">        if (selector.isNotEmpty()) {</span>
+<span class="fc" id="L78">            Path&lt;String&gt; path = null;</span>
+<span class="fc" id="L79">            List&lt;Predicate&gt; selectorPredicates = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L80">            List&lt;String&gt; selected = selector.getSelected();</span>
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">            if (selector.getSelected().contains(null)) {</span>
+<span class="nc" id="L82">                path = jpaUtil.getPath(root, selector.getPath());</span>
+<span class="nc" id="L83">                selected = new ArrayList&lt;&gt;(selector.getSelected());</span>
+<span class="nc" id="L84">                selected.remove(null);</span>
+<span class="nc" id="L85">                selectorPredicates.add(builder.isNull(path));</span>
             }
-<span class="nc bnc" id="L105" title="All 2 branches missed.">            if (selector.isOrMode()) {</span>
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">            if (selector.isOrMode()) {</span>
                 // re-use created pat if it exists in 'or' mode : only one join
-<span class="nc bnc" id="L107" title="All 2 branches missed.">                if (path == null) {</span>
-<span class="nc" id="L108">                    path = jpaUtil.getPath(root, selector.getPath());</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">                if (path == null) {</span>
+<span class="fc" id="L90">                    path = jpaUtil.getPath(root, selector.getPath());</span>
                 }
-<span class="nc bnc" id="L110" title="All 2 branches missed.">                for (String selection : selected) {</span>
-<span class="nc" id="L111">                    selectorPredicates.add(jpaUtil.stringPredicate(path, selection, selector.getSearchMode(), selector.isCaseSensitive(), builder));</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">                for (String selection : selected) {</span>
+<span class="fc" id="L93">                    selectorPredicates.add(jpaUtil.stringPredicate(path, selection, selector.getSearchMode(), selector.isCaseSensitive(), builder));</span>
+<span class="fc" id="L94">                }</span>
+<span class="fc" id="L95">                Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">                if (selector.isNotMode()) {</span>
+<span class="nc" id="L97">                    predicates.add(builder.not(predicate));</span>
+                } else {
+<span class="fc" id="L99">                    predicates.add(predicate);</span>
                 }
-<span class="nc" id="L113">                Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);</span>
-<span class="nc bnc" id="L114" title="All 2 branches missed.">                if (selector.isNotMode()) {</span>
-<span class="nc" id="L115">                    predicates.add(builder.not(predicate));</span>
-<span class="nc" id="L116">                } else {</span>
-<span class="nc" id="L117">                    predicates.add(predicate);</span>
-                }
-<span class="nc" id="L119">            } else {</span>
-<span class="nc bnc" id="L120" title="All 2 branches missed.">                for (String selection : selected) {</span>
+<span class="fc" id="L101">            } else {</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">                for (String selection : selected) {</span>
                     // explicitly create new path for new join in 'and' mode
-<span class="nc" id="L122">                    path = jpaUtil.getPath(root, selector.getPath());</span>
-<span class="nc" id="L123">                    selectorPredicates.add(jpaUtil.stringPredicate(path, selection, selector.getSearchMode(), selector.isCaseSensitive(), builder));</span>
-                }
-<span class="nc" id="L125">                Predicate predicate = jpaUtil.andPredicate(builder, selectorPredicates);</span>
-<span class="nc bnc" id="L126" title="All 2 branches missed.">                if (selector.isNotMode()) {</span>
-<span class="nc" id="L127">                    predicates.add(builder.not(predicate));</span>
-<span class="nc" id="L128">                } else {</span>
-<span class="nc" id="L129">                    predicates.add(predicate);</span>
+<span class="nc" id="L104">                    path = jpaUtil.getPath(root, selector.getPath());</span>
+<span class="nc" id="L105">                    selectorPredicates.add(jpaUtil.stringPredicate(path, selection, selector.getSearchMode(), selector.isCaseSensitive(), builder));</span>
+<span class="nc" id="L106">                }</span>
+<span class="nc" id="L107">                Predicate predicate = jpaUtil.andPredicate(builder, selectorPredicates);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">                if (selector.isNotMode()) {</span>
+<span class="nc" id="L109">                    predicates.add(builder.not(predicate));</span>
+                } else {
+<span class="nc" id="L111">                    predicates.add(predicate);</span>
                 }
             }
         }
-<span class="nc" id="L133">    }</span>
+<span class="fc" id="L115">    }</span>
 
     private &lt;E&gt; void byObjectSelector(Root&lt;E&gt; root, CriteriaBuilder builder, List&lt;Predicate&gt; predicates, PropertySelector&lt;? super E, ?&gt; selector) {
-<span class="nc bnc" id="L136" title="All 2 branches missed.">        if (selector.isNotEmpty()) {</span>
-<span class="nc bnc" id="L137" title="All 2 branches missed.">            if (selector.isOrMode()) {</span>
-<span class="nc" id="L138">                byObjectOrModeSelector(root, builder, predicates, selector);</span>
-<span class="nc" id="L139">            } else {</span>
-<span class="nc" id="L140">                byObjectAndModeSelector(root, builder, predicates, selector);</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (selector.isNotEmpty()) {</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">            if (selector.isOrMode()) {</span>
+<span class="nc" id="L120">                byObjectOrModeSelector(root, builder, predicates, selector);</span>
+            } else {
+<span class="nc" id="L122">                byObjectAndModeSelector(root, builder, predicates, selector);</span>
             }
-<span class="nc bnc" id="L142" title="All 2 branches missed.">        } else if (selector.isNotIncludingNullSet()) {</span>
-<span class="nc" id="L143">            predicates.add(builder.isNotNull(jpaUtil.getPath(root, selector.getPath())));</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        } else if (selector.isNotIncludingNullSet()) {</span>
+<span class="nc" id="L125">            predicates.add(builder.isNotNull(jpaUtil.getPath(root, selector.getPath())));</span>
         }
-<span class="nc" id="L145">    }</span>
+<span class="nc" id="L127">    }</span>
 
     private &lt;E&gt; void byObjectOrModeSelector(Root&lt;E&gt; root, CriteriaBuilder builder, List&lt;Predicate&gt; predicates, PropertySelector&lt;? super E, ?&gt; selector) {
-<span class="nc" id="L148">        List&lt;Predicate&gt; selectorPredicates = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L149">        Path&lt;?&gt; path = jpaUtil.getPath(root, selector.getPath());</span>
-<span class="nc" id="L150">        List&lt;?&gt; selected = selector.getSelected();</span>
-<span class="nc bnc" id="L151" title="All 2 branches missed.">        if (selector.getSelected().contains(null)) {</span>
-<span class="nc" id="L152">            selected = new ArrayList&lt;&gt;(selector.getSelected());</span>
-<span class="nc" id="L153">            selected.remove(null);</span>
-<span class="nc" id="L154">            selectorPredicates.add(builder.isNull(path));</span>
+<span class="nc" id="L130">        List&lt;Predicate&gt; selectorPredicates = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L131">        Path&lt;?&gt; path = jpaUtil.getPath(root, selector.getPath());</span>
+<span class="nc" id="L132">        List&lt;?&gt; selected = selector.getSelected();</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">        if (selector.getSelected().contains(null)) {</span>
+<span class="nc" id="L134">            selected = new ArrayList&lt;&gt;(selector.getSelected());</span>
+<span class="nc" id="L135">            selected.remove(null);</span>
+<span class="nc" id="L136">            selectorPredicates.add(builder.isNull(path));</span>
         }
-<span class="nc bnc" id="L156" title="All 2 branches missed.">        if (!selected.isEmpty()) {</span>
-<span class="nc bnc" id="L157" title="All 2 branches missed.">            if (selected.get(0) instanceof Identifiable) {</span>
-<span class="nc" id="L158">                List&lt;Serializable&gt; ids = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L159" title="All 2 branches missed.">                for (Object selection : selected) {</span>
-<span class="nc" id="L160">                    ids.add(((Identifiable&lt;?&gt;) selection).getId());</span>
-                }
-<span class="nc" id="L162">                selectorPredicates.add(path.get(&quot;id&quot;).in(ids));</span>
-<span class="nc" id="L163">            } else {</span>
-<span class="nc" id="L164">                selectorPredicates.add(path.in(selected));</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        if (!selected.isEmpty()) {</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">            if (selected.get(0) instanceof Identifiable) {</span>
+<span class="nc" id="L140">                List&lt;Serializable&gt; ids = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">                for (Object selection : selected) {</span>
+<span class="nc" id="L142">                    ids.add(((Identifiable&lt;?&gt;) selection).getId());</span>
+<span class="nc" id="L143">                }</span>
+<span class="nc" id="L144">                selectorPredicates.add(path.get(&quot;id&quot;).in(ids));</span>
+<span class="nc" id="L145">            } else {</span>
+<span class="nc" id="L146">                selectorPredicates.add(path.in(selected));</span>
             }
         }
-<span class="nc" id="L167">        Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);</span>
-<span class="nc bnc" id="L168" title="All 2 branches missed.">        if (selector.isNotMode()) {</span>
-<span class="nc" id="L169">            predicates.add(builder.not(predicate));</span>
-<span class="nc" id="L170">        } else {</span>
-<span class="nc" id="L171">            predicates.add(predicate);</span>
+<span class="nc" id="L149">        Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        if (selector.isNotMode()) {</span>
+<span class="nc" id="L151">            predicates.add(builder.not(predicate));</span>
+        } else {
+<span class="nc" id="L153">            predicates.add(predicate);</span>
         }
-<span class="nc" id="L173">    }</span>
+<span class="nc" id="L155">    }</span>
 
     private &lt;E&gt; void byObjectAndModeSelector(Root&lt;E&gt; root, CriteriaBuilder builder, List&lt;Predicate&gt; predicates, PropertySelector&lt;? super E, ?&gt; selector) {
-<span class="nc" id="L176">        List&lt;Predicate&gt; selectorPredicates = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L177">        List&lt;?&gt; selected = selector.getSelected();</span>
-<span class="nc bnc" id="L178" title="All 2 branches missed.">        if (selector.getSelected().contains(null)) {</span>
-<span class="nc" id="L179">            selected = new ArrayList&lt;&gt;(selector.getSelected());</span>
-<span class="nc" id="L180">            selected.remove(null);</span>
-<span class="nc" id="L181">            selectorPredicates.add(builder.isNull(jpaUtil.getPath(root, selector.getPath())));</span>
+<span class="nc" id="L158">        List&lt;Predicate&gt; selectorPredicates = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L159">        List&lt;?&gt; selected = selector.getSelected();</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">        if (selector.getSelected().contains(null)) {</span>
+<span class="nc" id="L161">            selected = new ArrayList&lt;&gt;(selector.getSelected());</span>
+<span class="nc" id="L162">            selected.remove(null);</span>
+<span class="nc" id="L163">            selectorPredicates.add(builder.isNull(jpaUtil.getPath(root, selector.getPath())));</span>
         }
-<span class="nc bnc" id="L183" title="All 2 branches missed.">        for (Object selection : selector.getSelected()) {</span>
-<span class="nc" id="L184">            Path&lt;?&gt; path = jpaUtil.getPath(root, selector.getPath());</span>
-<span class="nc bnc" id="L185" title="All 2 branches missed.">            if (selection instanceof Identifiable) {</span>
-<span class="nc" id="L186">                selectorPredicates.add(builder.equal(path.get(&quot;id&quot;), ((Identifiable&lt;?&gt;) selection).getId()));</span>
-<span class="nc" id="L187">            } else {</span>
-<span class="nc" id="L188">                selectorPredicates.add(builder.equal(path, selection));</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        for (Object selection : selector.getSelected()) {</span>
+<span class="nc" id="L166">            Path&lt;?&gt; path = jpaUtil.getPath(root, selector.getPath());</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">            if (selection instanceof Identifiable) {</span>
+<span class="nc" id="L168">                selectorPredicates.add(builder.equal(path.get(&quot;id&quot;), ((Identifiable&lt;?&gt;) selection).getId()));</span>
+            } else {
+<span class="nc" id="L170">                selectorPredicates.add(builder.equal(path, selection));</span>
             }
+<span class="nc" id="L172">        }</span>
+<span class="nc" id="L173">        Predicate predicate = jpaUtil.andPredicate(builder, selectorPredicates);</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">        if (selector.isNotMode()) {</span>
+<span class="nc" id="L175">            predicates.add(builder.not(predicate));</span>
+        } else {
+<span class="nc" id="L177">            predicates.add(predicate);</span>
         }
-<span class="nc" id="L191">        Predicate predicate = jpaUtil.andPredicate(builder, selectorPredicates);</span>
-<span class="nc bnc" id="L192" title="All 2 branches missed.">        if (selector.isNotMode()) {</span>
-<span class="nc" id="L193">            predicates.add(builder.not(predicate));</span>
-<span class="nc" id="L194">        } else {</span>
-<span class="nc" id="L195">            predicates.add(predicate);</span>
-        }
-<span class="nc" id="L197">    }</span>
+<span class="nc" id="L179">    }</span>
 
     @Inject
     public void setJpaUtil(JpaUtil jpaUtil) {
-<span class="nc" id="L201">        this.jpaUtil = jpaUtil;</span>
-<span class="nc" id="L202">    }</span>
+<span class="fc" id="L183">        this.jpaUtil = jpaUtil;</span>
+<span class="fc" id="L184">    }</span>
 
     @Inject
     public void setMetamodelUtil(MetamodelUtil metamodelUtil) {
-<span class="nc" id="L206">        this.metamodelUtil = metamodelUtil;</span>
-<span class="nc" id="L207">    }</span>
+<span class="fc" id="L188">        this.metamodelUtil = metamodelUtil;</span>
+<span class="fc" id="L189">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>OrdersByBuilder.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query.builder</a> &gt; <span class="el_source">OrdersByBuilder.java</span></div><h1>OrdersByBuilder.java</h1><pre class="source lang-java linenums">/*
- * Copyright 20144, jpasearch
- *
- * This file is part of jpasearch.
- *
- * jpasearch is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * jpasearch is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
- */
-package jpasearch.repository.query.builder;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>OrdersByBuilder.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query.builder</a> &gt; <span class="el_source">OrdersByBuilder.java</span></div><h1>OrdersByBuilder.java</h1><pre class="source lang-java linenums">package jpasearch.repository.query.builder;
 
 import java.util.Collections;
 import java.util.LinkedHashSet;
@@ -38,40 +20,40 @@ public class OrdersByBuilder&lt;FROM&gt; extends AbstractBuilder&lt;SearchBuilde
     private final Set&lt;OrderBy&lt;FROM, ?&gt;&gt; orders;
 
     public OrdersByBuilder(SearchBuilder&lt;FROM&gt; searchParameters) {
-<span class="nc" id="L41">        super(searchParameters);</span>
-<span class="nc" id="L42">        orders = new LinkedHashSet&lt;&gt;();</span>
-<span class="nc" id="L43">    }</span>
+<span class="fc" id="L23">        super(searchParameters);</span>
+<span class="fc" id="L24">        orders = new LinkedHashSet&lt;&gt;();</span>
+<span class="fc" id="L25">    }</span>
 
     public OrdersByBuilder(SearchBuilder&lt;FROM&gt; searchParameters, Set&lt;OrderBy&lt;FROM, ?&gt;&gt; orders) {
-<span class="nc" id="L46">        super(searchParameters);</span>
-<span class="nc" id="L47">        this.orders = new LinkedHashSet&lt;&gt;(orders);</span>
-<span class="nc" id="L48">    }</span>
+<span class="nc" id="L28">        super(searchParameters);</span>
+<span class="nc" id="L29">        this.orders = new LinkedHashSet&lt;&gt;(orders);</span>
+<span class="nc" id="L30">    }</span>
 
     public &lt;TO&gt; OrderByBuilder&lt;FROM, FROM, TO&gt; by(SingularAttribute&lt;? super FROM, TO&gt; attribute) {
-<span class="nc" id="L51">        return new OrderByBuilder&lt;&gt;(this, attribute);</span>
+<span class="nc" id="L33">        return new OrderByBuilder&lt;&gt;(this, attribute);</span>
     }
 
     public &lt;TO&gt; OrderByBuilder&lt;FROM, FROM, TO&gt; by(PluralAttribute&lt;? super FROM, ?, TO&gt; attribute) {
-<span class="nc" id="L55">        return new OrderByBuilder&lt;&gt;(this, attribute);</span>
+<span class="nc" id="L37">        return new OrderByBuilder&lt;&gt;(this, attribute);</span>
     }
 
     public OrdersByBuilder&lt;FROM&gt; orderBy(OrderByDirection direction, String path, Class&lt;FROM&gt; from) {
-<span class="nc" id="L59">        orders.add(new OrderBy&lt;&gt;(direction, from, path));</span>
-<span class="nc" id="L60">        return this;</span>
+<span class="nc" id="L41">        orders.add(new OrderBy&lt;&gt;(direction, from, path));</span>
+<span class="nc" id="L42">        return this;</span>
     }
 
     public Set&lt;OrderBy&lt;FROM, ?&gt;&gt; getOrders() {
-<span class="nc" id="L64">        return Collections.unmodifiableSet(orders);</span>
+<span class="fc" id="L46">        return Collections.unmodifiableSet(orders);</span>
     }
 
     &lt;TO&gt; OrdersByBuilder&lt;FROM&gt; asc(Path&lt;FROM, TO&gt; path) {
-<span class="nc" id="L68">        orders.add(new OrderBy&lt;FROM, TO&gt;(OrderByDirection.ASC, path));</span>
-<span class="nc" id="L69">        return this;</span>
+<span class="nc" id="L50">        orders.add(new OrderBy&lt;FROM, TO&gt;(OrderByDirection.ASC, path));</span>
+<span class="nc" id="L51">        return this;</span>
     }
 
     &lt;TO&gt; OrdersByBuilder&lt;FROM&gt; desc(Path&lt;FROM, TO&gt; path) {
-<span class="nc" id="L73">        orders.add(new OrderBy&lt;FROM, TO&gt;(OrderByDirection.DESC, path));</span>
-<span class="nc" id="L74">        return this;</span>
+<span class="nc" id="L55">        orders.add(new OrderBy&lt;FROM, TO&gt;(OrderByDirection.DESC, path));</span>
+<span class="nc" id="L56">        return this;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

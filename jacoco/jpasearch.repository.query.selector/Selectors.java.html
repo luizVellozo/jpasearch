@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Selectors.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query.selector</a> &gt; <span class="el_source">Selectors.java</span></div><h1>Selectors.java</h1><pre class="source lang-java linenums">/*
- * Copyright 20144, jpasearch
- *
- * This file is part of jpasearch.
- *
- * jpasearch is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * jpasearch is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
- */
-package jpasearch.repository.query.selector;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Selectors.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query.selector</a> &gt; <span class="el_source">Selectors.java</span></div><h1>Selectors.java</h1><pre class="source lang-java linenums">package jpasearch.repository.query.selector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,40 +13,40 @@ public class Selectors&lt;FROM&gt; implements GroupSelector&lt;FROM, Selectors&l
 
     private final List&lt;Selector&lt;FROM, ?&gt;&gt; selectors;
 
-<span class="nc" id="L34">    public Selectors() {</span>
-<span class="nc" id="L35">        andMode = true;</span>
-<span class="nc" id="L36">        selectors = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L37">    }</span>
+<span class="fc" id="L16">    public Selectors() {</span>
+<span class="fc" id="L17">        andMode = true;</span>
+<span class="fc" id="L18">        selectors = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L19">    }</span>
 
-<span class="nc" id="L39">    private Selectors(Selectors&lt;FROM&gt; toCopy) {</span>
-<span class="nc" id="L40">        andMode = toCopy.andMode;</span>
-<span class="nc" id="L41">        selectors = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        for (Selector&lt;FROM, ?&gt; selector : toCopy.selectors) {</span>
-<span class="nc" id="L43">            selectors.add(selector.copy());</span>
-        }
-<span class="nc" id="L45">    }</span>
+<span class="nc" id="L21">    private Selectors(Selectors&lt;FROM&gt; toCopy) {</span>
+<span class="nc" id="L22">        andMode = toCopy.andMode;</span>
+<span class="nc" id="L23">        selectors = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (Selector&lt;FROM, ?&gt; selector : toCopy.selectors) {</span>
+<span class="nc" id="L25">            selectors.add(selector.copy());</span>
+<span class="nc" id="L26">        }</span>
+<span class="nc" id="L27">    }</span>
 
     @Override
     public Selectors&lt;FROM&gt; copy() {
-<span class="nc" id="L49">        return new Selectors&lt;FROM&gt;(this);</span>
+<span class="nc" id="L31">        return new Selectors&lt;FROM&gt;(this);</span>
     }
 
     public Selectors&lt;FROM&gt; or() {
-<span class="nc" id="L53">        andMode = false;</span>
-<span class="nc" id="L54">        return this;</span>
+<span class="nc" id="L35">        andMode = false;</span>
+<span class="nc" id="L36">        return this;</span>
     }
 
     public Selectors&lt;FROM&gt; add(Selector&lt;FROM, ?&gt; selector) {
-<span class="nc" id="L58">        selectors.add(selector);</span>
-<span class="nc" id="L59">        return this;</span>
+<span class="fc" id="L40">        selectors.add(selector);</span>
+<span class="fc" id="L41">        return this;</span>
     }
 
     public boolean isAndMode() {
-<span class="nc" id="L63">        return andMode;</span>
+<span class="fc" id="L45">        return andMode;</span>
     }
 
     public List&lt;Selector&lt;FROM, ?&gt;&gt; getSelectors() {
-<span class="nc" id="L67">        return selectors;</span>
+<span class="fc" id="L49">        return selectors;</span>
     }
 
 }

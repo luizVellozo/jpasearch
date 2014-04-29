@@ -1,0 +1,6 @@
+jpasearch.domain
+jpasearch.repository
+jpasearch.repository.query.builder
+jpasearch.repository.query
+jpasearch.repository.query.selector
+jpasearch.repository.util

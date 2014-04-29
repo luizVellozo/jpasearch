@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PaginationBuilder.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query.builder</a> &gt; <span class="el_source">PaginationBuilder.java</span></div><h1>PaginationBuilder.java</h1><pre class="source lang-java linenums">/*
- * Copyright 20144, jpasearch
- *
- * This file is part of jpasearch.
- *
- * jpasearch is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * jpasearch is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
- */
-package jpasearch.repository.query.builder;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PaginationBuilder.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query.builder</a> &gt; <span class="el_source">PaginationBuilder.java</span></div><h1>PaginationBuilder.java</h1><pre class="source lang-java linenums">package jpasearch.repository.query.builder;
 
 import jpasearch.repository.query.SearchBuilder;
 
@@ -29,33 +11,33 @@ public class PaginationBuilder&lt;FROM&gt; extends AbstractBuilder&lt;SearchBuil
     private int firstResult;
 
     public PaginationBuilder(SearchBuilder&lt;FROM&gt; searchParameters) {
-<span class="nc" id="L32">        super(searchParameters);</span>
-<span class="nc" id="L33">        maxResults = -1;</span>
-<span class="nc" id="L34">        firstResult = 0;</span>
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L14">        super(searchParameters);</span>
+<span class="fc" id="L15">        maxResults = -1;</span>
+<span class="fc" id="L16">        firstResult = 0;</span>
+<span class="fc" id="L17">    }</span>
 
     public PaginationBuilder(SearchBuilder&lt;FROM&gt; searchParameters, int firstResult, int maxResults) {
-<span class="nc" id="L38">        super(searchParameters);</span>
-<span class="nc" id="L39">        this.maxResults = maxResults;</span>
-<span class="nc" id="L40">        this.firstResult = firstResult;</span>
-<span class="nc" id="L41">    }</span>
+<span class="nc" id="L20">        super(searchParameters);</span>
+<span class="nc" id="L21">        this.maxResults = maxResults;</span>
+<span class="nc" id="L22">        this.firstResult = firstResult;</span>
+<span class="nc" id="L23">    }</span>
 
     public PaginationBuilder&lt;FROM&gt; firstResult(int firstResult) {
-<span class="nc" id="L44">        this.firstResult = firstResult;</span>
-<span class="nc" id="L45">        return this;</span>
+<span class="nc" id="L26">        this.firstResult = firstResult;</span>
+<span class="nc" id="L27">        return this;</span>
     }
 
     public PaginationBuilder&lt;FROM&gt; maxResult(int maxResults) {
-<span class="nc" id="L49">        this.maxResults = maxResults;</span>
-<span class="nc" id="L50">        return this;</span>
+<span class="nc" id="L31">        this.maxResults = maxResults;</span>
+<span class="nc" id="L32">        return this;</span>
     }
 
     public int getMaxResults() {
-<span class="nc" id="L54">        return maxResults;</span>
+<span class="fc" id="L36">        return maxResults;</span>
     }
 
     public int getFirstResult() {
-<span class="nc" id="L58">        return firstResult;</span>
+<span class="fc" id="L40">        return firstResult;</span>
     }
 
 }

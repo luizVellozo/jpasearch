@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Range.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query.selector</a> &gt; <span class="el_source">Range.java</span></div><h1>Range.java</h1><pre class="source lang-java linenums">/*
- * Copyright 20143, jpasearch
- *
- * This file is part of jpasearch.
- *
- * jpasearch is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * jpasearch is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with jpasearch. If not, see &lt;http://www.gnu.org/licenses/&gt;.
- */
-package jpasearch.repository.query.selector;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Range.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JPA Search</a> &gt; <a href="index.source.html" class="el_package">jpasearch.repository.query.selector</a> &gt; <span class="el_source">Range.java</span></div><h1>Range.java</h1><pre class="source lang-java linenums">package jpasearch.repository.query.selector;
 
 import jpasearch.repository.query.Path;
 
@@ -29,9 +11,9 @@ public class Range&lt;E, D extends Comparable&gt; implements SingleSelector&lt;E
 
     private final Path&lt;E, D&gt; path;
     private D lowerBound;
-<span class="nc" id="L32">    private boolean includeLowerBound = true;</span>
+<span class="nc" id="L14">    private boolean includeLowerBound = true;</span>
     private D higherBound;
-<span class="nc" id="L34">    private boolean includeHigherBound = true;</span>
+<span class="nc" id="L16">    private boolean includeHigherBound = true;</span>
     private Boolean includeNull;
 
     /**
@@ -41,9 +23,9 @@ public class Range&lt;E, D extends Comparable&gt; implements SingleSelector&lt;E
      * @param path
      *            the path to the attribute of an existing entity.
      */
-<span class="nc" id="L44">    public Range(Path&lt;E, D&gt; path) {</span>
-<span class="nc" id="L45">        this.path = path;</span>
-<span class="nc" id="L46">    }</span>
+<span class="nc" id="L26">    public Range(Path&lt;E, D&gt; path) {</span>
+<span class="nc" id="L27">        this.path = path;</span>
+<span class="nc" id="L28">    }</span>
 
     /**
      * Constructs a new Range.
@@ -58,10 +40,10 @@ public class Range&lt;E, D extends Comparable&gt; implements SingleSelector&lt;E
      *            the path to the attribute of an existing entity.
      */
     public Range(D lowerBound, D higherBound, Path&lt;E, D&gt; path) {
-<span class="nc" id="L61">        this(path);</span>
-<span class="nc" id="L62">        this.lowerBound = lowerBound;</span>
-<span class="nc" id="L63">        this.higherBound = higherBound;</span>
-<span class="nc" id="L64">    }</span>
+<span class="nc" id="L43">        this(path);</span>
+<span class="nc" id="L44">        this.lowerBound = lowerBound;</span>
+<span class="nc" id="L45">        this.higherBound = higherBound;</span>
+<span class="nc" id="L46">    }</span>
 
     /**
      * Constructs a new Range.
@@ -78,127 +60,127 @@ public class Range&lt;E, D extends Comparable&gt; implements SingleSelector&lt;E
      *            the path to the attribute of an existing entity.
      */
     public Range(D lowerBound, D higherBound, Boolean includeNull, Path&lt;E, D&gt; path) {
-<span class="nc" id="L81">        this(lowerBound, higherBound, path);</span>
-<span class="nc" id="L82">        this.includeNull = includeNull;</span>
-<span class="nc" id="L83">    }</span>
+<span class="nc" id="L63">        this(lowerBound, higherBound, path);</span>
+<span class="nc" id="L64">        this.includeNull = includeNull;</span>
+<span class="nc" id="L65">    }</span>
 
-<span class="nc" id="L85">    private Range(Range&lt;E, D&gt; other) {</span>
-<span class="nc" id="L86">        this.path = other.path;</span>
-<span class="nc" id="L87">        this.lowerBound = other.lowerBound;</span>
-<span class="nc" id="L88">        this.higherBound = other.higherBound;</span>
-<span class="nc" id="L89">        this.includeNull = other.includeNull;</span>
-<span class="nc" id="L90">    }</span>
+<span class="nc" id="L67">    private Range(Range&lt;E, D&gt; other) {</span>
+<span class="nc" id="L68">        this.path = other.path;</span>
+<span class="nc" id="L69">        this.lowerBound = other.lowerBound;</span>
+<span class="nc" id="L70">        this.higherBound = other.higherBound;</span>
+<span class="nc" id="L71">        this.includeNull = other.includeNull;</span>
+<span class="nc" id="L72">    }</span>
 
     @Override
     public Range&lt;E, D&gt; copy() {
-<span class="nc" id="L94">        return new Range&lt;E, D&gt;(this);</span>
+<span class="nc" id="L76">        return new Range&lt;E, D&gt;(this);</span>
     }
 
     public String getPath() {
-<span class="nc" id="L98">        return path.getPath();</span>
+<span class="nc" id="L80">        return path.getPath();</span>
     }
 
     /**
      * @return the lower range boundary or null for unbound lower range.
      */
     public D getLowerBound() {
-<span class="nc" id="L105">        return lowerBound;</span>
+<span class="nc" id="L87">        return lowerBound;</span>
     }
 
     /**
      * Sets the lower range boundary. Accepts null for unbound lower range.
      */
     public void setLowerBound(D lowerBound) {
-<span class="nc" id="L112">        this.lowerBound = lowerBound;</span>
-<span class="nc" id="L113">    }</span>
+<span class="nc" id="L94">        this.lowerBound = lowerBound;</span>
+<span class="nc" id="L95">    }</span>
 
     public Range&lt;E, D&gt; lowerBound(D lowerBound) {
-<span class="nc" id="L116">        setLowerBound(lowerBound);</span>
-<span class="nc" id="L117">        return this;</span>
+<span class="nc" id="L98">        setLowerBound(lowerBound);</span>
+<span class="nc" id="L99">        return this;</span>
     }
 
     public boolean isLowerBoundSet() {
-<span class="nc bnc" id="L121" title="All 2 branches missed.">        return getLowerBound() != null;</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        return getLowerBound() != null;</span>
     }
 
     /**
      * @return the upper range boundary or null for unbound upper range.
      */
     public D getHigherBound() {
-<span class="nc" id="L128">        return higherBound;</span>
+<span class="nc" id="L110">        return higherBound;</span>
     }
 
     public Range&lt;E, D&gt; higherBound(D higherBound) {
-<span class="nc" id="L132">        setHigherBound(higherBound);</span>
-<span class="nc" id="L133">        return this;</span>
+<span class="nc" id="L114">        setHigherBound(higherBound);</span>
+<span class="nc" id="L115">        return this;</span>
     }
 
     /**
      * Sets the upper range boundary. Accepts null for unbound upper range.
      */
     public void setHigherBound(D higherBound) {
-<span class="nc" id="L140">        this.higherBound = higherBound;</span>
-<span class="nc" id="L141">    }</span>
+<span class="nc" id="L122">        this.higherBound = higherBound;</span>
+<span class="nc" id="L123">    }</span>
 
     public boolean isHigherBoundSet() {
-<span class="nc bnc" id="L144" title="All 2 branches missed.">        return getHigherBound() != null;</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        return getHigherBound() != null;</span>
     }
 
     public void setIncludeNull(Boolean includeNull) {
-<span class="nc" id="L148">        this.includeNull = includeNull;</span>
-<span class="nc" id="L149">    }</span>
+<span class="nc" id="L130">        this.includeNull = includeNull;</span>
+<span class="nc" id="L131">    }</span>
 
     public Range&lt;E, D&gt; includeNull(Boolean includeNull) {
-<span class="nc" id="L152">        setIncludeNull(includeNull);</span>
-<span class="nc" id="L153">        return this;</span>
+<span class="nc" id="L134">        setIncludeNull(includeNull);</span>
+<span class="nc" id="L135">        return this;</span>
     }
 
     public Boolean getIncludeNull() {
-<span class="nc" id="L157">        return includeNull;</span>
+<span class="nc" id="L139">        return includeNull;</span>
     }
 
     public boolean isIncludeNullSet() {
-<span class="nc bnc" id="L161" title="All 2 branches missed.">        return includeNull != null;</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">        return includeNull != null;</span>
     }
 
     public boolean isBetween() {
-<span class="nc bnc" id="L165" title="All 4 branches missed.">        return isLowerBoundSet() &amp;&amp; isHigherBoundSet();</span>
+<span class="nc bnc" id="L147" title="All 4 branches missed.">        return isLowerBoundSet() &amp;&amp; isHigherBoundSet();</span>
     }
 
     public boolean isSet() {
-<span class="nc bnc" id="L169" title="All 6 branches missed.">        return isLowerBoundSet() || isHigherBoundSet() || isIncludeNullSet();</span>
+<span class="nc bnc" id="L151" title="All 6 branches missed.">        return isLowerBoundSet() || isHigherBoundSet() || isIncludeNullSet();</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
     public boolean isValid() {
-<span class="nc bnc" id="L174" title="All 2 branches missed.">        if (isBetween()) {</span>
-<span class="nc bnc" id="L175" title="All 2 branches missed.">            return getLowerBound().compareTo(getHigherBound()) &lt;= 0;</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">        if (isBetween()) {</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">            return getLowerBound().compareTo(getHigherBound()) &lt;= 0;</span>
         }
-<span class="nc" id="L177">        return true;</span>
+<span class="nc" id="L159">        return true;</span>
     }
 
     public void resetRange() {
-<span class="nc" id="L181">        lowerBound = null;</span>
-<span class="nc" id="L182">        higherBound = null;</span>
-<span class="nc" id="L183">        includeNull = null;</span>
-<span class="nc" id="L184">        includeLowerBound = true;</span>
-<span class="nc" id="L185">        includeHigherBound = true;</span>
-<span class="nc" id="L186">    }</span>
+<span class="nc" id="L163">        lowerBound = null;</span>
+<span class="nc" id="L164">        higherBound = null;</span>
+<span class="nc" id="L165">        includeNull = null;</span>
+<span class="nc" id="L166">        includeLowerBound = true;</span>
+<span class="nc" id="L167">        includeHigherBound = true;</span>
+<span class="nc" id="L168">    }</span>
 
     /**
      * @return whether lowerBound bound should included or not. Default is true.
      */
     public boolean isIncludeLowerBound() {
-<span class="nc" id="L192">        return includeLowerBound;</span>
+<span class="nc" id="L174">        return includeLowerBound;</span>
     }
 
     public void setIncludeLowerBound(boolean includeLowerBound) {
-<span class="nc" id="L196">        this.includeLowerBound = includeLowerBound;</span>
-<span class="nc" id="L197">    }</span>
+<span class="nc" id="L178">        this.includeLowerBound = includeLowerBound;</span>
+<span class="nc" id="L179">    }</span>
 
     public Range includeLowerBound(boolean includeLowerBound) {
-<span class="nc" id="L200">        setIncludeLowerBound(includeLowerBound);</span>
-<span class="nc" id="L201">        return this;</span>
+<span class="nc" id="L182">        setIncludeLowerBound(includeLowerBound);</span>
+<span class="nc" id="L183">        return this;</span>
     }
 
     /**
@@ -206,16 +188,16 @@ public class Range&lt;E, D extends Comparable&gt; implements SingleSelector&lt;E
      *         true.
      */
     public boolean isIncludeHigherBound() {
-<span class="nc" id="L209">        return includeHigherBound;</span>
+<span class="nc" id="L191">        return includeHigherBound;</span>
     }
 
     public void setIncludeHigherBound(boolean includeHigherBound) {
-<span class="nc" id="L213">        this.includeHigherBound = includeHigherBound;</span>
-<span class="nc" id="L214">    }</span>
+<span class="nc" id="L195">        this.includeHigherBound = includeHigherBound;</span>
+<span class="nc" id="L196">    }</span>
 
     public Range includeHigherBound(boolean includeHigherBound) {
-<span class="nc" id="L217">        setIncludeHigherBound(includeHigherBound);</span>
-<span class="nc" id="L218">        return this;</span>
+<span class="nc" id="L199">        setIncludeHigherBound(includeHigherBound);</span>
+<span class="nc" id="L200">        return this;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

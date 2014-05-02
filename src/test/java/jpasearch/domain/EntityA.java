@@ -1,5 +1,7 @@
 package jpasearch.domain;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,6 +10,7 @@ import javax.persistence.Id;
  * @author speralta
  */
 @Entity
+@Data
 public class EntityA implements Identifiable<Integer> {
 
     @Id
@@ -17,21 +20,9 @@ public class EntityA implements Identifiable<Integer> {
     private String value;
 
     @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
     public boolean isIdSet() {
         return id != null;
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 
 }

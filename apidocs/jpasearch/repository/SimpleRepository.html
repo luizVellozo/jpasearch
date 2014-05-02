@@ -79,7 +79,7 @@
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">jpasearch.repository</div>
-<h2 title="Interface SimpleRepository" class="title">Interface SimpleRepository&lt;E extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&gt;</h2>
+<h2 title="Interface SimpleRepository" class="title">Interface SimpleRepository&lt;PK extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>,E extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;PK&gt;&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -87,7 +87,7 @@
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;E,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</dd>
+<dd><a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;E,PK&gt;</dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
@@ -95,8 +95,8 @@
 </dl>
 <hr>
 <br>
-<pre>public interface <span class="strong">SimpleRepository&lt;E extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;&gt;</span>
-extends <a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;E,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&gt;</pre>
+<pre>public interface <span class="strong">SimpleRepository&lt;PK extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>,E extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;PK&gt;&gt;</span>
+extends <a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;E,PK&gt;</pre>
 </li>
 </ul>
 </div>
@@ -121,7 +121,7 @@ extends <a href="../../jpasearch/repository/GenericRepository.html" title="inter
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../jpasearch/repository/SimpleRepository.html" title="type parameter in SimpleRepository">E</a></code></td>
-<td class="colLast"><code><strong><a href="../../jpasearch/repository/SimpleRepository.html#getById(java.lang.Integer)">getById</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;id)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../jpasearch/repository/SimpleRepository.html#getById(PK)">getById</a></strong>(<a href="../../jpasearch/repository/SimpleRepository.html" title="type parameter in SimpleRepository">PK</a>&nbsp;id)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../jpasearch/repository/SimpleRepository.html" title="type parameter in SimpleRepository">E</a></code></td>
@@ -149,13 +149,15 @@ extends <a href="../../jpasearch/repository/GenericRepository.html" title="inter
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getById(java.lang.Integer)">
+<a name="getById(java.io.Serializable)">
+<!--   -->
+</a><a name="getById(PK)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getById</h4>
-<pre><a href="../../jpasearch/repository/SimpleRepository.html" title="type parameter in SimpleRepository">E</a>&nbsp;getById(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;id)</pre>
+<pre><a href="../../jpasearch/repository/SimpleRepository.html" title="type parameter in SimpleRepository">E</a>&nbsp;getById(<a href="../../jpasearch/repository/SimpleRepository.html" title="type parameter in SimpleRepository">PK</a>&nbsp;id)</pre>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>id</code> - the entity id</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the entity matching the id</dd></dl>
 </li>

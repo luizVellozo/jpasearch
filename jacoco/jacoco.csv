@@ -13,13 +13,13 @@ JPA Search,jpasearch.repository.util,ByPropertySelectorUtil,421,115,50,10,80,27,
 JPA Search,jpasearch.repository.util,JpaUtil.new Object() {...},5,35,0,0,0,1,0,1,0,1
 JPA Search,jpasearch.repository.util,JpaUtil,187,126,33,17,34,32,27,11,1,10
 JPA Search,jpasearch.repository.util,BySelectorUtil,43,68,7,5,6,18,5,8,0,7
-JPA Search,jpasearch.repository,JpaGenericRepository,286,145,22,2,61,34,22,12,10,12
+JPA Search,jpasearch.repository,JpaGenericRepository,229,202,20,4,49,46,21,13,9,13
 JPA Search,jpasearch.repository,JpaSimpleRepository,31,26,0,0,7,8,3,3,3,3
 JPA Search,jpasearch.repository.query,OrderByDirection,38,0,0,0,2,0,4,0,4,0
-JPA Search,jpasearch.repository.query,OrderBy,93,0,14,0,27,0,14,0,7,0
+JPA Search,jpasearch.repository.query,OrderBy,95,0,14,0,28,0,14,0,7,0
 JPA Search,jpasearch.repository.query,SearchBuilder,158,71,0,0,29,17,16,10,16,10
 JPA Search,jpasearch.repository.query,SearchParameters,3,52,0,0,1,15,1,7,1,7
-JPA Search,jpasearch.repository.query,Path,122,20,10,0,21,7,13,3,8,3
+JPA Search,jpasearch.repository.query,Path,124,20,10,0,22,7,13,3,8,3
 JPA Search,jpasearch.repository.query,SearchMode,33,71,4,0,5,9,5,3,3,3
 JPA Search,jpasearch.repository.query.builder,SelectorsBuilder,32,27,0,0,6,7,4,4,4,4
 JPA Search,jpasearch.repository.query.builder,OrderByBuilder,80,0,0,0,20,0,8,0,8,0

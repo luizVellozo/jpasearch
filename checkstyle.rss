@@ -26,7 +26,7 @@ under the License.
     <copyright>&#169;2014 jpasearch</copyright>
     <item>
       <title>File: 40,
-             Errors: 1262,
+             Errors: 1264,
              Warnings: 0,
              Infos: 0
       </title>
@@ -102,20 +102,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.SearchMode.java">jpasearch/repository/query/SearchMode.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  9
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.selector.Range.java">jpasearch/repository/query/selector/Range.java</a>
                 </td>
                 <td>
@@ -126,6 +112,20 @@ under the License.
                 </td>
                 <td>
                   96
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.SearchMode.java">jpasearch/repository/query/SearchMode.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
                 </td>
               </tr>
                           <tr>
@@ -167,7 +167,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  3
                 </td>
               </tr>
                           <tr>
@@ -517,7 +517,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  12
+                  13
                 </td>
               </tr>
                           <tr>

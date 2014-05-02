@@ -91,30 +91,30 @@ public abstract class JpaGenericRepository&lt;E extends Identifiable&lt;PK&gt;, 
 
     @Override
     public long findCount(SearchParameters&lt;E&gt; sp) {
-<span class="nc" id="L94">        checkNotNull(sp, &quot;The searchParameters cannot be null&quot;);</span>
-<span class="nc" id="L95">        CriteriaBuilder builder = entityManager.getCriteriaBuilder();</span>
+<span class="fc" id="L94">        checkNotNull(sp, &quot;The searchParameters cannot be null&quot;);</span>
+<span class="fc" id="L95">        CriteriaBuilder builder = entityManager.getCriteriaBuilder();</span>
 
-<span class="nc" id="L97">        CriteriaQuery&lt;Long&gt; criteriaQuery = builder.createQuery(Long.class);</span>
-<span class="nc" id="L98">        Root&lt;E&gt; root = criteriaQuery.from(type);</span>
+<span class="fc" id="L97">        CriteriaQuery&lt;Long&gt; criteriaQuery = builder.createQuery(Long.class);</span>
+<span class="fc" id="L98">        Root&lt;E&gt; root = criteriaQuery.from(type);</span>
 
-<span class="nc bnc" id="L100" title="All 2 branches missed.">        if (sp.isUseDistinct()) {</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        if (sp.isUseDistinct()) {</span>
 <span class="nc" id="L101">            criteriaQuery = criteriaQuery.select(builder.countDistinct(root));</span>
         } else {
-<span class="nc" id="L103">            criteriaQuery = criteriaQuery.select(builder.count(root));</span>
+<span class="fc" id="L103">            criteriaQuery = criteriaQuery.select(builder.count(root));</span>
         }
 
         // predicate
-<span class="nc" id="L107">        Predicate predicate = getPredicate(criteriaQuery, root, builder, sp);</span>
-<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (predicate != null) {</span>
-<span class="nc" id="L109">            criteriaQuery = criteriaQuery.where(predicate);</span>
+<span class="fc" id="L107">        Predicate predicate = getPredicate(criteriaQuery, root, builder, sp);</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        if (predicate != null) {</span>
+<span class="fc" id="L109">            criteriaQuery = criteriaQuery.where(predicate);</span>
         }
 
         // construct order by to fetch or joins if needed
-<span class="nc" id="L113">        orderByUtil.buildJpaOrders(sp.getOrders(), root, builder);</span>
+<span class="fc" id="L113">        orderByUtil.buildJpaOrders(sp.getOrders(), root, builder);</span>
 
-<span class="nc" id="L115">        TypedQuery&lt;Long&gt; typedQuery = entityManager.createQuery(criteriaQuery);</span>
+<span class="fc" id="L115">        TypedQuery&lt;Long&gt; typedQuery = entityManager.createQuery(criteriaQuery);</span>
 
-<span class="nc" id="L117">        return typedQuery.getSingleResult().longValue();</span>
+<span class="fc" id="L117">        return typedQuery.getSingleResult().longValue();</span>
     }
 
     @Override

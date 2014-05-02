@@ -4,6 +4,6 @@ branches:
   - master
 install:
 - mvn install -DskipTests
-script: mvn verify
+script: mvn verify -Pjacoco
 after_success:
-- mvn verify jacoco:report coveralls:jacoco
+- mvn verify jacoco:report coveralls:jacoco -Pjacoco

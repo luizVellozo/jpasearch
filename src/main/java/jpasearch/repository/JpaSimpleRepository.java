@@ -5,10 +5,13 @@ import jpasearch.domain.Identifiable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
+
 /**
  * @author speralta
  */
-public abstract class JpaSimpleRepository<E extends Identifiable<Integer>> extends JpaGenericRepository<E, Integer> implements SimpleRepository<E> {
+public abstract class JpaSimpleRepository<PK extends Serializable,E extends Identifiable<PK>>
+        extends JpaGenericRepository<E, PK> implements SimpleRepository<PK,E> {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -17,7 +20,7 @@ public abstract class JpaSimpleRepository<E extends Identifiable<Integer>> exten
     }
 
     @Override
-    public final E getById(Integer id) {
+    public final E getById(PK id) {
         return getEntityManager().find(getType(), id);
     }
 

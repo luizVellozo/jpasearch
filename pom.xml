@@ -75,6 +75,8 @@
     <!-- Other properties -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <hibernate.version>4.3.4.Final</hibernate.version>
   </properties>
   <developers>
     <developer>
@@ -158,7 +160,13 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
-      <version>4.3.4.Final</version>
+      <version>${hibernate.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-jpamodelgen</artifactId>
+      <version>${hibernate.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>

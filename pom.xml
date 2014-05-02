@@ -33,6 +33,7 @@
   <properties>
     <java.version>1.7</java.version>
     <spring.version>4.0.3.RELEASE</spring.version>
+    <hibernate.version>4.3.4.Final</hibernate.version>
 
     <!-- Plugin version numbers -->
     <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
@@ -68,20 +69,22 @@
     <maven.compiler.verbose>true</maven.compiler.verbose>
     <maven.compiler.optimize>true</maven.compiler.optimize>
     <maven.compiler.debug>true</maven.compiler.debug>
-    <maven.compiler.debuglevel>lines,source</maven.compiler.debuglevel>
+    <maven.compiler.debuglevel>lines,source,vars</maven.compiler.debuglevel>
     <!-- Properties for maven-javadoc-plugin -->
     <author>false</author>
     <notimestamp>true</notimestamp>
     <!-- Other properties -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <hibernate.version>4.3.4.Final</hibernate.version>
   </properties>
   <developers>
     <developer>
       <name>Sébastien PERALTA</name>
       <email>sebastien@peralta.fr</email>
+    </developer>
+    <developer>
+      <name>Brice LEPORINI</name>
+      <email>brice@leporini.net</email>
     </developer>
   </developers>
   <dependencies>
@@ -187,19 +190,18 @@
       <version>${spring.version}</version>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <version>1.12.6</version>
-          <scope>provided</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.assertj</groupId>
-          <artifactId>assertj-core</artifactId>
-          <version>1.6.0</version>
-          <scope>test</scope>
-      </dependency>
-
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.12.6</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>1.6.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -458,16 +460,16 @@
         <version>${jacoco-maven-plugin.version}</version>
       </plugin>
       <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <reportSets>
-            <reportSet>
-              <reports>
-                <report>checkstyle</report>
-              </reports>
-            </reportSet>
-          </reportSets>
-        </plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
     </plugins>
   </reporting>
 

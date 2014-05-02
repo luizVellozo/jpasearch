@@ -11,11 +11,11 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class EntityA implements Identifiable<Integer> {
+public class EntityB implements Identifiable<Long> {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     private String value;
 

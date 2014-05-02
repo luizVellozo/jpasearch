@@ -8,8 +8,8 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import jpasearch.TestApplication;
-import jpasearch.domain.EntityA;
-import jpasearch.domain.EntityA_;
+import jpasearch.domain.EntityB;
+import jpasearch.domain.EntityB_;
 import jpasearch.repository.query.SearchBuilder;
 import jpasearch.repository.query.SearchParameters;
 
@@ -26,29 +26,29 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 @ContextConfiguration(classes = TestApplication.class)
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
-public class EntityARepositoryIT {
+public class EntityBRepositoryIT {
 
     @Inject
-    private EntityARepository entityARepository;
+    private EntityBRepository entityBRepository;
 
     @Test
     public void test() {
         final String testValue = "test";
 
-        assertThat(entityARepository.findCount(findByValue(testValue))).isEqualTo(0);
+        assertThat(entityBRepository.findCount(findByValue(testValue))).isEqualTo(0);
 
-        EntityA entityA = new EntityA();
-        entityA.setValue(testValue);
-        entityA = entityARepository.save(entityA);
+        EntityB entityB = new EntityB();
+        entityB.setValue(testValue);
+        entityB = entityBRepository.save(entityB);
 
-        List<EntityA> founds = entityARepository.find(findByValue(testValue));
+        List<EntityB> founds = entityBRepository.find(findByValue(testValue));
 
-        assertThat(founds).containsExactly(entityA);
+        assertThat(founds).containsExactly(entityB);
     }
 
-    private SearchParameters<EntityA> findByValue(String value) {
-        return new SearchBuilder<EntityA>() //
-                .on(EntityA_.value).equalsTo(value) //
+    private SearchParameters<EntityB> findByValue(String value) {
+        return new SearchBuilder<EntityB>() //
+                .on(EntityB_.value).equalsTo(value) //
                 .build();
     }
 

@@ -1,17 +1,16 @@
 package jpasearch.repository;
 
+import java.io.Serializable;
+
 import jpasearch.domain.Identifiable;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.Serializable;
-
 /**
  * @author speralta
  */
-public abstract class JpaSimpleRepository<PK extends Serializable,E extends Identifiable<PK>>
-        extends JpaGenericRepository<E, PK> implements SimpleRepository<PK,E> {
+public abstract class JpaSimpleRepository<PK extends Serializable, E extends Identifiable<PK>> extends JpaGenericRepository<E, PK> implements SimpleRepository<PK, E> {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 

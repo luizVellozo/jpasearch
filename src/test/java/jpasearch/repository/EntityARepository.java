@@ -10,7 +10,7 @@ import jpasearch.domain.EntityA;
  */
 @Named
 @Singleton
-public class EntityARepository extends JpaSimpleRepository<Integer,EntityA> {
+public class EntityARepository extends JpaSimpleRepository<Integer, EntityA> {
 
     public EntityARepository() {
         super(EntityA.class);

@@ -1,36 +1,39 @@
 package jpasearch.repository.util;
 
+import com.google.common.base.Splitter;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+
+import javax.inject.Named;
+import javax.inject.Singleton;
+import javax.persistence.*;
+import javax.persistence.metamodel.Attribute;
+import javax.persistence.metamodel.PluralAttribute;
+import javax.persistence.metamodel.SingularAttribute;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.inject.Named;
-import javax.inject.Singleton;
-import javax.persistence.CascadeType;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.metamodel.Attribute;
-import javax.persistence.metamodel.PluralAttribute;
-import javax.persistence.metamodel.SingularAttribute;
-
-import com.google.common.base.Splitter;
 
 @Named
 @Singleton
 public class MetamodelUtil {
 
-    private final Map<Class<?>, Class<?>> metamodelCache = new HashMap<>();
+    private final LoadingCache<Class<?>, Class<?>> metamodelCache = CacheBuilder.newBuilder()
+            .maximumSize(1000)
+            .build(new CacheLoader<Class<?>, Class<?>>() {
+                @Override
+                public Class<?> load(Class<?> key) throws ClassNotFoundException {
+                    return Class.forName(key.getName() + "_");
+                }
+            });
 
     public SingularAttribute<?, ?> toAttribute(Class<?> from, String property) {
         try {
-            Class<?> metamodelClass = getCachedClass(from);
+            Class<?> metamodelClass = metamodelCache.get(from);
             Field field = metamodelClass.getField(property);
             return (SingularAttribute<?, ?>) field.get(null);
         } catch (Exception e) {
@@ -43,7 +46,7 @@ public class MetamodelUtil {
             List<Attribute<?, ?>> attributes = new ArrayList<>();
             Class<?> current = from;
             for (String pathItem : Splitter.on(".").split(path)) {
-                Class<?> metamodelClass = getCachedClass(current);
+                Class<?> metamodelClass = metamodelCache.get(current);
                 Field field = metamodelClass.getField(pathItem);
                 Attribute<?, ?> attribute = (Attribute<?, ?>) field.get(null);
                 attributes.add(attribute);
@@ -86,14 +89,9 @@ public class MetamodelUtil {
         return type.isAssignableFrom(attributes.get(attributes.size() - 1).getJavaType());
     }
 
-    private Class<?> getCachedClass(Class<?> current) throws ClassNotFoundException {
-        if (metamodelCache.containsKey(current)) {
-            return metamodelCache.get(current);
-        }
-        Class<?> metamodelClass = Class.forName(current.getName() + "_");
-        metamodelCache.put(current, metamodelClass);
-        return metamodelClass;
-    }
+
+
+
 
     /**
      * Retrieves cascade from metamodel attribute

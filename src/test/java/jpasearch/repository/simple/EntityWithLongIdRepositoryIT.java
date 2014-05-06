@@ -1,15 +1,13 @@
-package jpasearch.repository;
+package jpasearch.repository.simple;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import jpasearch.TestApplication;
-import jpasearch.domain.EntityB;
-import jpasearch.domain.EntityB_;
+import jpasearch.domain.simple.EntityWithLongId;
+import jpasearch.domain.simple.EntityWithLongId_;
 import jpasearch.repository.query.SearchBuilder;
 import jpasearch.repository.query.SearchParameters;
 
@@ -26,29 +24,27 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 @ContextConfiguration(classes = TestApplication.class)
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
-public class EntityBRepositoryIT {
+public class EntityWithLongIdRepositoryIT {
 
     @Inject
-    private EntityBRepository entityBRepository;
+    private EntityWithLongIdRepository entityWithLongIdRepository;
 
     @Test
     public void test() {
         final String testValue = "test";
 
-        assertThat(entityBRepository.findCount(findByValue(testValue))).isEqualTo(0);
+        assertThat(entityWithLongIdRepository.findCount(findByValue(testValue))).isEqualTo(0);
 
-        EntityB entityB = new EntityB();
-        entityB.setValue(testValue);
-        entityB = entityBRepository.save(entityB);
+        EntityWithLongId entityWithLongId = new EntityWithLongId();
+        entityWithLongId.setValue(testValue);
+        entityWithLongId = entityWithLongIdRepository.save(entityWithLongId);
 
-        List<EntityB> founds = entityBRepository.find(findByValue(testValue));
-
-        assertThat(founds).containsExactly(entityB);
+        assertThat(entityWithLongIdRepository.find(findByValue(testValue))).containsExactly(entityWithLongId);
     }
 
-    private SearchParameters<EntityB> findByValue(String value) {
-        return new SearchBuilder<EntityB>() //
-                .on(EntityB_.value).equalsTo(value) //
+    private SearchParameters<EntityWithLongId> findByValue(String value) {
+        return new SearchBuilder<EntityWithLongId>() //
+                .on(EntityWithLongId_.value).equalsTo(value) //
                 .build();
     }
 

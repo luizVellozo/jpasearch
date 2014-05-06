@@ -24,9 +24,11 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.Attribute;
+import javax.persistence.metamodel.Bindable;
 import javax.persistence.metamodel.PluralAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 
+import jpasearch.domain.Identifiable;
 import jpasearch.repository.query.SearchMode;
 import jpasearch.repository.query.SearchParameters;
 
@@ -108,7 +110,8 @@ public class JpaUtil {
                 }
             }
             if (!found) {
-                if (attribute instanceof PluralAttribute) {
+                if ((attributes.indexOf(attribute) != (attributes.size() - 1)) && (attribute instanceof Bindable)
+                        && Identifiable.class.isAssignableFrom(((Bindable<?>) attribute).getBindableJavaType())) {
                     path = ((From<?, ?>) path).join(attribute.getName(), JoinType.LEFT);
                 } else {
                     path = path.get(attribute.getName());

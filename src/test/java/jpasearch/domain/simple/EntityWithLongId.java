@@ -1,9 +1,10 @@
-package jpasearch.domain;
+package jpasearch.domain.simple;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import jpasearch.domain.Identifiable;
 import lombok.Data;
 
 /**
@@ -11,11 +12,11 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class EntityA implements Identifiable<Integer> {
+public class EntityWithLongId implements Identifiable<Long> {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     private String value;
 

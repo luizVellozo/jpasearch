@@ -1,16 +1,5 @@
 package jpasearch.repository.util;
 
-import com.google.common.base.Splitter;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-
-import javax.inject.Named;
-import javax.inject.Singleton;
-import javax.persistence.*;
-import javax.persistence.metamodel.Attribute;
-import javax.persistence.metamodel.PluralAttribute;
-import javax.persistence.metamodel.SingularAttribute;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -18,18 +7,32 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import javax.inject.Named;
+import javax.inject.Singleton;
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.metamodel.Attribute;
+import javax.persistence.metamodel.PluralAttribute;
+import javax.persistence.metamodel.SingularAttribute;
+
+import com.google.common.base.Splitter;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+
 @Named
 @Singleton
 public class MetamodelUtil {
 
-    private final LoadingCache<Class<?>, Class<?>> metamodelCache = CacheBuilder.newBuilder()
-            .maximumSize(1000)
-            .build(new CacheLoader<Class<?>, Class<?>>() {
-                @Override
-                public Class<?> load(Class<?> key) throws ClassNotFoundException {
-                    return Class.forName(key.getName() + "_");
-                }
-            });
+    private final LoadingCache<Class<?>, Class<?>> metamodelCache = CacheBuilder.newBuilder().maximumSize(1000).build(new CacheLoader<Class<?>, Class<?>>() {
+        @Override
+        public Class<?> load(Class<?> key) throws ClassNotFoundException {
+            return Class.forName(key.getName() + "_");
+        }
+    });
 
     public SingularAttribute<?, ?> toAttribute(Class<?> from, String property) {
         try {
@@ -88,10 +91,6 @@ public class MetamodelUtil {
     public boolean isType(Class<?> type, List<Attribute<?, ?>> attributes) {
         return type.isAssignableFrom(attributes.get(attributes.size() - 1).getJavaType());
     }
-
-
-
-
 
     /**
      * Retrieves cascade from metamodel attribute

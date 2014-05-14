@@ -1,5 +1,6 @@
-package jpasearch.domain.join;
+package jpasearch.domain.unique;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,12 +13,13 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class EntityOne implements Identifiable<Integer> {
+public class EntityWithUniqueField implements Identifiable<Integer> {
 
     @Id
     @GeneratedValue
     private Integer id;
 
+    @Column(unique = true)
     private String value;
 
     @Override

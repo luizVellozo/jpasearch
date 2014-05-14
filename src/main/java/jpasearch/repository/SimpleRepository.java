@@ -1,8 +1,8 @@
 package jpasearch.repository;
 
-import jpasearch.domain.Identifiable;
-
 import java.io.Serializable;
+
+import jpasearch.domain.Identifiable;
 
 /**
  * @author speralta

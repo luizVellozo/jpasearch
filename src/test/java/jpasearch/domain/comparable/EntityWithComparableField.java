@@ -1,4 +1,6 @@
-package jpasearch.domain.join;
+package jpasearch.domain.comparable;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,13 +14,13 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class EntityOne implements Identifiable<Integer> {
+public class EntityWithComparableField implements Identifiable<Integer> {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    private String value;
+    private Date date;
 
     @Override
     public boolean isIdSet() {

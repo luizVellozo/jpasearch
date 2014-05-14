@@ -76,4 +76,28 @@ public class EntityManyRepositoryIT {
                 .build();
     }
 
+    @Test
+    public void orderByDeepString() {
+        assertThat(entityManyRepository.findCount(orderByValue())).isEqualTo(0);
+
+        EntityOne entityOne1 = new EntityOne();
+        entityOne1.setValue("test1");
+        EntityMany entityMany1 = new EntityMany();
+        entityMany1.setEntityOne(entityOne1);
+        entityMany1 = entityManyRepository.save(entityMany1);
+
+        EntityOne entityOne2 = new EntityOne();
+        entityOne2.setValue("test2");
+        EntityMany entityMany2 = new EntityMany();
+        entityMany2.setEntityOne(entityOne2);
+        entityMany2 = entityManyRepository.save(entityMany2);
+
+        assertThat(entityManyRepository.find(orderByValue())).containsExactly(entityMany2, entityMany1);
+    }
+
+    private SearchParameters<EntityMany> orderByValue() {
+        return new SearchBuilder<EntityMany>() //
+                .orderBy(EntityMany_.entityOne).and(EntityOne_.value).desc().build();
+    }
+
 }

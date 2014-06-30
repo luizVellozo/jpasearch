@@ -20,7 +20,7 @@
 <a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="11" href="#11">11</a>  <em class="jxr_javadoccomment"> * @author speralta</em>
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="13" href="#13">13</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> JpaSimpleRepository&lt;PK <strong class="jxr_keyword">extends</strong> Serializable, E <strong class="jxr_keyword">extends</strong> Identifiable&lt;PK&gt;&gt; <strong class="jxr_keyword">extends</strong> JpaGenericRepository&lt;E, PK&gt; <strong class="jxr_keyword">implements</strong> SimpleRepository&lt;PK, E&gt; {
+<a class="jxr_linenumber" name="13" href="#13">13</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> JpaSimpleRepository&lt;E <strong class="jxr_keyword">extends</strong> Identifiable&lt;PK&gt;, PK <strong class="jxr_keyword">extends</strong> Serializable&gt; <strong class="jxr_keyword">extends</strong> JpaGenericRepository&lt;E, PK&gt; <strong class="jxr_keyword">implements</strong> SimpleRepository&lt;E, PK&gt; {
 <a class="jxr_linenumber" name="14" href="#14">14</a>  
 <a class="jxr_linenumber" name="15" href="#15">15</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Logger logger = LoggerFactory.getLogger(getClass());
 <a class="jxr_linenumber" name="16" href="#16">16</a>  

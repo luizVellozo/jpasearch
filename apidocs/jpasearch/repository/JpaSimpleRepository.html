@@ -3,13 +3,13 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>JpaSimpleRepository (JPA Search 0.2.0-SNAPSHOT API)</title>
+<title>JpaSimpleRepository (JPA Search 0.2.2-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="JpaSimpleRepository (JPA Search 0.2.0-SNAPSHOT API)";
+        parent.document.title="JpaSimpleRepository (JPA Search 0.2.2-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -79,7 +79,7 @@
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">jpasearch.repository</div>
-<h2 title="Class JpaSimpleRepository" class="title">Class JpaSimpleRepository&lt;PK extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>,E extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;PK&gt;&gt;</h2>
+<h2 title="Class JpaSimpleRepository" class="title">Class JpaSimpleRepository&lt;E extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;PK&gt;,PK extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
@@ -89,7 +89,7 @@
 <li><a href="../../jpasearch/repository/JpaGenericRepository.html" title="class in jpasearch.repository">jpasearch.repository.JpaGenericRepository</a>&lt;E,PK&gt;</li>
 <li>
 <ul class="inheritance">
-<li>jpasearch.repository.JpaSimpleRepository&lt;PK,E&gt;</li>
+<li>jpasearch.repository.JpaSimpleRepository&lt;E,PK&gt;</li>
 </ul>
 </li>
 </ul>
@@ -100,13 +100,13 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;E,PK&gt;, <a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;PK,E&gt;</dd>
+<dd><a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;E,PK&gt;, <a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;E,PK&gt;</dd>
 </dl>
 <hr>
 <br>
-<pre>public abstract class <span class="strong">JpaSimpleRepository&lt;PK extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>,E extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;PK&gt;&gt;</span>
+<pre>public abstract class <span class="strong">JpaSimpleRepository&lt;E extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;PK&gt;,PK extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;</span>
 extends <a href="../../jpasearch/repository/JpaGenericRepository.html" title="class in jpasearch.repository">JpaGenericRepository</a>&lt;E,PK&gt;
-implements <a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;PK,E&gt;</pre>
+implements <a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;E,PK&gt;</pre>
 </li>
 </ul>
 </div>
@@ -241,7 +241,7 @@ implements <a href="../../jpasearch/repository/SimpleRepository.html" title="int
 <pre>public final&nbsp;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a>&nbsp;getById(<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a>&nbsp;id)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../jpasearch/repository/SimpleRepository.html#getById(PK)">getById</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>,<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a>&gt;&gt;</code></dd>
+<dd><code><a href="../../jpasearch/repository/SimpleRepository.html#getById(PK)">getById</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a>&gt;,<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>id</code> - the entity id</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the entity matching the id</dd></dl>
 </li>
@@ -257,7 +257,7 @@ implements <a href="../../jpasearch/repository/SimpleRepository.html" title="int
 <pre>public final&nbsp;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a>&nbsp;save(<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a>&nbsp;entity)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../jpasearch/repository/SimpleRepository.html#save(E)">save</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>,<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a>&gt;&gt;</code></dd>
+<dd><code><a href="../../jpasearch/repository/SimpleRepository.html#save(E)">save</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a>&gt;,<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>entity</code> - the entity to save</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the saved entity</dd></dl>
 </li>
@@ -273,7 +273,7 @@ implements <a href="../../jpasearch/repository/SimpleRepository.html" title="int
 <pre>public final&nbsp;void&nbsp;delete(<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a>&nbsp;entity)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../jpasearch/repository/SimpleRepository.html#delete(E)">delete</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>,<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a>&gt;&gt;</code></dd>
+<dd><code><a href="../../jpasearch/repository/SimpleRepository.html#delete(E)">delete</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/SimpleRepository.html" title="interface in jpasearch.repository">SimpleRepository</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a>&gt;,<a href="../../jpasearch/repository/JpaSimpleRepository.html" title="type parameter in JpaSimpleRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>entity</code> - the entity to delete</dd></dl>
 </li>
 </ul>

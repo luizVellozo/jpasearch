@@ -7,7 +7,7 @@ import jpasearch.domain.Identifiable;
 /**
  * @author speralta
  */
-public interface SimpleRepository<PK extends Serializable, E extends Identifiable<PK>> extends GenericRepository<E, PK> {
+public interface SimpleRepository<E extends Identifiable<PK>, PK extends Serializable> extends GenericRepository<E, PK> {
 
     /**
      * @param id

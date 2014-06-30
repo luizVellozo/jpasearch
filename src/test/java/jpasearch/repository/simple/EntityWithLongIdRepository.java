@@ -11,7 +11,7 @@ import jpasearch.repository.JpaSimpleRepository;
  */
 @Named
 @Singleton
-public class EntityWithLongIdRepository extends JpaSimpleRepository<Long, EntityWithLongId> {
+public class EntityWithLongIdRepository extends JpaSimpleRepository<EntityWithLongId, Long> {
 
     public EntityWithLongIdRepository() {
         super(EntityWithLongId.class);

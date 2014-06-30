@@ -11,7 +11,7 @@ import jpasearch.repository.JpaSimpleRepository;
  */
 @Named
 @Singleton
-public class EntityManyRepository extends JpaSimpleRepository<Integer, EntityMany> {
+public class EntityManyRepository extends JpaSimpleRepository<EntityMany, Integer> {
 
     public EntityManyRepository() {
         super(EntityMany.class);

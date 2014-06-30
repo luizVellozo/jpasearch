@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @author speralta
  */
-public abstract class JpaSimpleRepository<PK extends Serializable, E extends Identifiable<PK>> extends JpaGenericRepository<E, PK> implements SimpleRepository<PK, E> {
+public abstract class JpaSimpleRepository<E extends Identifiable<PK>, PK extends Serializable> extends JpaGenericRepository<E, PK> implements SimpleRepository<E, PK> {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 

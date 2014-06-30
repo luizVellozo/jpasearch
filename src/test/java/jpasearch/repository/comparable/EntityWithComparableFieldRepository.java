@@ -11,7 +11,7 @@ import jpasearch.repository.JpaSimpleRepository;
  */
 @Named
 @Singleton
-public class EntityWithComparableFieldRepository extends JpaSimpleRepository<Integer, EntityWithComparableField> {
+public class EntityWithComparableFieldRepository extends JpaSimpleRepository<EntityWithComparableField, Integer> {
 
     public EntityWithComparableFieldRepository() {
         super(EntityWithComparableField.class);

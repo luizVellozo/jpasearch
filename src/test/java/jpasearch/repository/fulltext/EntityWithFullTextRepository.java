@@ -11,7 +11,7 @@ import jpasearch.repository.JpaSimpleRepository;
  */
 @Named
 @Singleton
-public class EntityWithFullTextRepository extends JpaSimpleRepository<Integer, EntityWithFullText> {
+public class EntityWithFullTextRepository extends JpaSimpleRepository<EntityWithFullText, Integer> {
 
     public EntityWithFullTextRepository() {
         super(EntityWithFullText.class);

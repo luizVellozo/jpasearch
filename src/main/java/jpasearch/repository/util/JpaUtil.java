@@ -111,7 +111,7 @@ public class JpaUtil {
             }
             if (!found) {
                 if ((attributes.indexOf(attribute) != (attributes.size() - 1)) && (attribute instanceof Bindable)
-                        && Identifiable.class.isAssignableFrom(((Bindable<?>) attribute).getBindableJavaType())) {
+                        && Identifiable.class.isAssignableFrom(((Bindable<?>) attribute).getBindableJavaType()) && (path instanceof From)) {
                     path = ((From<?, ?>) path).join(attribute.getName(), JoinType.LEFT);
                 } else {
                     path = path.get(attribute.getName());

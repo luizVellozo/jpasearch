@@ -1,5 +1,6 @@
 package jpasearch.repository.query.selector;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,16 +15,16 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSelector<FROM>> {
     private static final long serialVersionUID = 201308010800L;
-    private final Path<FROM, String> path;
+    private final Path<FROM, ? extends Serializable> path;
     private List<String> selected = new ArrayList<>();
     private boolean orMode = true;
-    private Integer searchSimilarity = 2;
+    private Integer searchSimilarity = null;
 
-    public TermSelector(SingularAttribute<? super FROM, String> attribute) {
-        path = new Path<FROM, String>(attribute);
+    public <T extends Serializable> TermSelector(SingularAttribute<? super FROM, T> attribute) {
+        path = new Path<FROM, T>(attribute);
     }
 
-    public TermSelector(Path<FROM, String> path) {
+    public TermSelector(Path<FROM, ? extends Serializable> path) {
         this.path = path;
     }
 

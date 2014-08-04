@@ -60,4 +60,28 @@ public class EntityWithFullTextRepositoryIT {
                 .build();
     }
 
+    @Test
+    public void test_similarity() {
+        assertThat(entityWithFullTextRepository.findCount(findByValueWithSimilarity("tast"))).isEqualTo(0);
+
+        EntityWithFullText entityWithFullText = new EntityWithFullText();
+        entityWithFullText.setValue("test");
+        entityWithFullText = entityWithFullTextRepository.save(entityWithFullText);
+
+        FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(entityManager);
+        fullTextEntityManager.index(entityWithFullText);
+        fullTextEntityManager.flushToIndexes();
+        fullTextEntityManager.flush();
+
+        assertThat(entityWithFullTextRepository.find(findByValueWithSimilarity("tast"))).containsExactly(entityWithFullText);
+    }
+
+    private SearchParameters<EntityWithFullText> findByValueWithSimilarity(String value) {
+        return new SearchBuilder<EntityWithFullText>() //
+                .fullText(EntityWithFullText_.value) //
+                .searchSimilarity(2) //
+                .search(value) //
+                .build();
+    }
+
 }

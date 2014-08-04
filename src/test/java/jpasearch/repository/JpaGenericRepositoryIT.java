@@ -8,8 +8,10 @@ import javax.transaction.Transactional;
 import jpasearch.TestApplication;
 import jpasearch.domain.simple.EntityWithIntegerId;
 import jpasearch.domain.simple.EntityWithIntegerId_;
-import jpasearch.repository.query.SearchBuilder;
+import jpasearch.repository.query.ResultParameters;
 import jpasearch.repository.query.SearchParameters;
+import jpasearch.repository.query.builder.ResultBuilder;
+import jpasearch.repository.query.builder.SearchBuilder;
 import jpasearch.repository.simple.EntityWithIntegerIdRepository;
 
 import org.junit.Test;
@@ -34,13 +36,16 @@ public class JpaGenericRepositoryIT {
     public void test_findProperty() {
         final String testValue = "test";
 
-        assertThat(entityWithIntegerIdRepository.findPropertyCount(findByValue(testValue), EntityWithIntegerId_.value)).isEqualTo(0);
+        SearchParameters<EntityWithIntegerId> searchParameters = findByValue(testValue);
+        ResultParameters<EntityWithIntegerId, String> resultParameters = new ResultBuilder<>(EntityWithIntegerId_.value).build();
+
+        assertThat(entityWithIntegerIdRepository.findPropertyCount(searchParameters, resultParameters)).isEqualTo(0);
 
         EntityWithIntegerId entityWithIntegerId = new EntityWithIntegerId();
         entityWithIntegerId.setValue(testValue);
         entityWithIntegerId = entityWithIntegerIdRepository.save(entityWithIntegerId);
 
-        assertThat(entityWithIntegerIdRepository.findProperty(String.class, findByValue(testValue), EntityWithIntegerId_.value)).containsExactly(testValue);
+        assertThat(entityWithIntegerIdRepository.findProperty(searchParameters, resultParameters)).containsExactly(testValue);
     }
 
     private SearchParameters<EntityWithIntegerId> findByValue(String value) {

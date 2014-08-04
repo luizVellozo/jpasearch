@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.NonUniqueResultException;
-import javax.persistence.metamodel.Attribute;
 
 import jpasearch.domain.Identifiable;
+import jpasearch.repository.query.ResultParameters;
 import jpasearch.repository.query.SearchParameters;
 
 /**
@@ -38,26 +38,24 @@ public interface GenericRepository<E extends Identifiable<PK>, PK extends Serial
     /**
      * Find a list of E property.
      * 
-     * @param propertyType
-     *            type of the property
      * @param searchParameters
      *            carries additional search information
-     * @param attributes
-     *            the list of attributes to the property
+     * @param resultParameters
+     *            carries result information
      * @return the entities property matching the search.
      */
-    <T> List<T> findProperty(Class<T> propertyType, SearchParameters<E> searchParameters, Attribute<?, ?>... attributes);
+    <T> List<T> findProperty(SearchParameters<E> searchParameters, ResultParameters<E, T> resultParameters);
 
     /**
-     * Count the number of E instances.
+     * Count the number of instances of the path.
      * 
      * @param searchParameters
      *            carries additional search information
-     * @param attributes
-     *            the list of attributes to the property
+     * @param resultParameters
+     *            carries result information
      * @return the number of entities matching the search.
      */
-    long findPropertyCount(SearchParameters<E> searchParameters, Attribute<?, ?>... attributes);
+    long findPropertyCount(SearchParameters<E> searchParameters, ResultParameters<E, ?> resultParameters);
 
     /**
      * Find and load a unique E instance.

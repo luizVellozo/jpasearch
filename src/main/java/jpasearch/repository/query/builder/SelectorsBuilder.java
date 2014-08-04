@@ -1,5 +1,7 @@
 package jpasearch.repository.query.builder;
 
+import java.io.Serializable;
+
 import javax.persistence.metamodel.PluralAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 
@@ -19,9 +21,9 @@ public abstract class SelectorsBuilder<FROM, PARENT, CURRENT extends SelectorsBu
         selectors = new Selectors<>();
     }
 
-    public SelectorsBuilder(PARENT parent, Selectors<FROM> propertySelectors) {
+    public SelectorsBuilder(PARENT parent, Selectors<FROM> selectors) {
         super(parent);
-        this.selectors = propertySelectors.copy();
+        this.selectors = selectors.copy();
     }
 
     public <TO> SelectorBuilder<FROM, FROM, TO, CURRENT> on(Path<FROM, TO> path) {
@@ -36,7 +38,7 @@ public abstract class SelectorsBuilder<FROM, PARENT, CURRENT extends SelectorsBu
         return new SelectorBuilder<>(getThis(), attribute);
     }
 
-    public TermSelectorBuilder<FROM, PARENT, CURRENT> fullText(SingularAttribute<? super FROM, String> attribute) {
+    public TermSelectorBuilder<FROM, PARENT, CURRENT> fullText(SingularAttribute<? super FROM, ? extends Serializable> attribute) {
         return new TermSelectorBuilder<>(getThis(), new Path<>(attribute));
     }
 

@@ -1,6 +1,5 @@
 package jpasearch.repository.query.builder;
 
-import jpasearch.repository.query.SearchBuilder;
 
 /**
  * @author speralta

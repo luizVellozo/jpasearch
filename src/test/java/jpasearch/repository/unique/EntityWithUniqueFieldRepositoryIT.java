@@ -10,8 +10,8 @@ import javax.transaction.Transactional;
 import jpasearch.TestApplication;
 import jpasearch.domain.unique.EntityWithUniqueField;
 import jpasearch.domain.unique.EntityWithUniqueField_;
-import jpasearch.repository.query.SearchBuilder;
 import jpasearch.repository.query.SearchParameters;
+import jpasearch.repository.query.builder.SearchBuilder;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

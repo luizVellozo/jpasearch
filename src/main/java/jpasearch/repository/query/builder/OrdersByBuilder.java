@@ -10,7 +10,6 @@ import javax.persistence.metamodel.SingularAttribute;
 import jpasearch.repository.query.OrderBy;
 import jpasearch.repository.query.OrderByDirection;
 import jpasearch.repository.query.Path;
-import jpasearch.repository.query.SearchBuilder;
 
 /**
  * @author speralta

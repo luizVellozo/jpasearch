@@ -1,6 +1,5 @@
 package jpasearch.repository.query.builder;
 
-import jpasearch.repository.query.SearchBuilder;
 import jpasearch.repository.query.SearchParameters;
 import jpasearch.repository.query.selector.Selectors;
 
@@ -29,7 +28,7 @@ public class RootSelectorsBuilder<FROM> extends SelectorsBuilder<FROM, SearchBui
     }
 
     public SearchParameters<FROM> build() {
-        return toParent().build();
+        return and().build();
     }
 
     public SearchBuilder<FROM> and() {

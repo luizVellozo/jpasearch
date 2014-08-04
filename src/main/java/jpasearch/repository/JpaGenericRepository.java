@@ -3,7 +3,6 @@ package jpasearch.repository;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -17,11 +16,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import javax.persistence.metamodel.Attribute;
 
 import jpasearch.domain.Identifiable;
-import jpasearch.repository.query.SearchBuilder;
+import jpasearch.repository.query.ResultParameters;
 import jpasearch.repository.query.SearchParameters;
+import jpasearch.repository.query.builder.SearchBuilder;
 import jpasearch.repository.util.BySelectorUtil;
 import jpasearch.repository.util.JpaUtil;
 import jpasearch.repository.util.MetamodelUtil;
@@ -118,16 +117,15 @@ public abstract class JpaGenericRepository<E extends Identifiable<PK>, PK extend
     }
 
     @Override
-    public <T> List<T> findProperty(Class<T> propertyType, SearchParameters<E> sp, Attribute<?, ?>... attributes) {
+    public <T> List<T> findProperty(SearchParameters<E> sp, ResultParameters<E, T> resultParameters) {
         checkNotNull(sp, "The searchParameters cannot be null");
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<T> criteriaQuery = builder.createQuery(propertyType);
+        CriteriaQuery<T> criteriaQuery = builder.createQuery(resultParameters.getTo());
         if (sp.isUseDistinct()) {
             criteriaQuery.distinct(true);
         }
         Root<E> root = criteriaQuery.from(type);
-        Path<T> path = jpaUtil.getPath(root, Arrays.asList(attributes));
-        criteriaQuery.select(path);
+        criteriaQuery.select(jpaUtil.<E, T> getPath(root, resultParameters.getPath()));
 
         // predicate
         Predicate predicate = getPredicate(criteriaQuery, root, builder, sp);
@@ -139,8 +137,7 @@ public abstract class JpaGenericRepository<E extends Identifiable<PK>, PK extend
         jpaUtil.fetches(sp, root);
 
         // order by
-        // we do not want to follow order by specified in search parameters
-        criteriaQuery.orderBy(builder.asc(path));
+        criteriaQuery.orderBy(orderByUtil.buildJpaOrders(sp.getOrders(), root, builder));
 
         TypedQuery<T> typedQuery = entityManager.createQuery(criteriaQuery);
         jpaUtil.applyPagination(typedQuery, sp);
@@ -151,17 +148,17 @@ public abstract class JpaGenericRepository<E extends Identifiable<PK>, PK extend
     }
 
     @Override
-    public long findPropertyCount(SearchParameters<E> sp, Attribute<?, ?>... attributes) {
+    public long findPropertyCount(SearchParameters<E> sp, ResultParameters<E, ?> resultParameters) {
         checkNotNull(sp, "The searchParameters cannot be null");
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Long> criteriaQuery = builder.createQuery(Long.class);
         Root<E> root = criteriaQuery.from(type);
-        Path<?> path = jpaUtil.getPath(root, Arrays.asList(attributes));
+        Path<?> pathToCount = jpaUtil.getPath(root, resultParameters.getPath());
 
         if (sp.isUseDistinct()) {
-            criteriaQuery = criteriaQuery.select(builder.countDistinct(path));
+            criteriaQuery = criteriaQuery.select(builder.countDistinct(pathToCount));
         } else {
-            criteriaQuery = criteriaQuery.select(builder.count(path));
+            criteriaQuery = criteriaQuery.select(builder.count(pathToCount));
         }
 
         // predicate

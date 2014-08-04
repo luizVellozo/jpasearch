@@ -10,8 +10,8 @@ import javax.transaction.Transactional;
 import jpasearch.TestApplication;
 import jpasearch.domain.fulltext.EntityWithFullText;
 import jpasearch.domain.fulltext.EntityWithFullText_;
-import jpasearch.repository.query.SearchBuilder;
 import jpasearch.repository.query.SearchParameters;
+import jpasearch.repository.query.builder.SearchBuilder;
 
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.Search;

@@ -8,7 +8,6 @@ import javax.persistence.metamodel.PluralAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 
 import jpasearch.repository.query.Path;
-import jpasearch.repository.query.SearchBuilder;
 
 /**
  * @author speralta

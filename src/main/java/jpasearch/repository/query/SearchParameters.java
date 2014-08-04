@@ -14,6 +14,7 @@ public class SearchParameters<FROM> implements Serializable {
 
     private static final long serialVersionUID = 201403271745L;
 
+    // sort
     private final Set<OrderBy<FROM, ?>> orders;
 
     // pagination
@@ -31,14 +32,20 @@ public class SearchParameters<FROM> implements Serializable {
 
     private final boolean useDistinct;
 
-    SearchParameters(SearchBuilder<FROM> builder) {
-        extraParameters = Collections.unmodifiableMap(builder.getExtraParameters());
-        fetches = Collections.unmodifiableSet(builder.getFetches());
-        firstResult = builder.getFirstResult();
-        maxResults = builder.getMaxResults();
-        orders = Collections.unmodifiableSet(builder.getOrders());
-        selectors = builder.getSelectors();
-        useDistinct = builder.isUseDistinct();
+    public SearchParameters(int firstResult, //
+            int maxResults, //
+            Selectors<FROM> selectors, //
+            Set<Path<FROM, ?>> fetches, //
+            Set<OrderBy<FROM, ?>> orders, //
+            Map<String, Object> extraParameters, //
+            boolean useDistinct) {
+        this.firstResult = firstResult;
+        this.maxResults = maxResults;
+        this.selectors = selectors;
+        this.fetches = Collections.unmodifiableSet(fetches);
+        this.orders = Collections.unmodifiableSet(orders);
+        this.extraParameters = Collections.unmodifiableMap(extraParameters);
+        this.useDistinct = useDistinct;
     }
 
     public Set<OrderBy<FROM, ?>> getOrders() {

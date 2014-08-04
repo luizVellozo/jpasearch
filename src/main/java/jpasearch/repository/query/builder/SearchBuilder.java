@@ -1,26 +1,18 @@
-package jpasearch.repository.query;
+package jpasearch.repository.query.builder;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.metamodel.PluralAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 
-import jpasearch.repository.query.builder.DisjunctionSelectorsBuilder;
-import jpasearch.repository.query.builder.FetchBuilder;
-import jpasearch.repository.query.builder.FetchesBuilder;
-import jpasearch.repository.query.builder.OrderByBuilder;
-import jpasearch.repository.query.builder.OrdersByBuilder;
-import jpasearch.repository.query.builder.PaginationBuilder;
-import jpasearch.repository.query.builder.RootSelectorsBuilder;
-import jpasearch.repository.query.builder.SelectorBuilder;
-import jpasearch.repository.query.builder.TermSelectorBuilder;
+import jpasearch.repository.query.OrderByDirection;
+import jpasearch.repository.query.Path;
+import jpasearch.repository.query.SearchParameters;
 import jpasearch.repository.query.selector.Range;
-import jpasearch.repository.query.selector.Selectors;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -60,7 +52,13 @@ public class SearchBuilder<FROM> implements Serializable {
     }
 
     public SearchParameters<FROM> build() {
-        return new SearchParameters<FROM>(this);
+        return new SearchParameters<FROM>(paginationBuilder.getFirstResult(), //
+                paginationBuilder.getMaxResults(), //
+                rootSelectorsBuilder.selectors, //
+                fetchesBuilder.getFetches(), //
+                ordersByBuilder.getOrders(), //
+                extraParameters, //
+                useDistinct);
     }
 
     // -----------------------------------
@@ -94,7 +92,7 @@ public class SearchBuilder<FROM> implements Serializable {
         return this;
     }
 
-    public TermSelectorBuilder<FROM, SearchBuilder<FROM>, RootSelectorsBuilder<FROM>> fullText(SingularAttribute<? super FROM, String> attribute) {
+    public TermSelectorBuilder<FROM, SearchBuilder<FROM>, RootSelectorsBuilder<FROM>> fullText(SingularAttribute<? super FROM, ? extends Serializable> attribute) {
         return new TermSelectorBuilder<>(rootSelectorsBuilder, new Path<>(attribute));
     }
 
@@ -154,36 +152,6 @@ public class SearchBuilder<FROM> implements Serializable {
     public SearchBuilder<FROM> distinct() {
         useDistinct = true;
         return this;
-    }
-
-    // BUILDING
-
-    Map<String, Object> getExtraParameters() {
-        return extraParameters;
-    }
-
-    boolean isUseDistinct() {
-        return useDistinct;
-    }
-
-    int getMaxResults() {
-        return paginationBuilder.getMaxResults();
-    }
-
-    int getFirstResult() {
-        return paginationBuilder.getFirstResult();
-    }
-
-    Set<OrderBy<FROM, ?>> getOrders() {
-        return ordersByBuilder.getOrders();
-    }
-
-    Set<Path<FROM, ?>> getFetches() {
-        return fetchesBuilder.getFetches();
-    }
-
-    Selectors<FROM> getSelectors() {
-        return rootSelectorsBuilder.getSelectors();
     }
 
     @Override

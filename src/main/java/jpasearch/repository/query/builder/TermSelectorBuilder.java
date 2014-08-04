@@ -1,5 +1,7 @@
 package jpasearch.repository.query.builder;
 
+import java.io.Serializable;
+
 import jpasearch.repository.query.Path;
 import jpasearch.repository.query.selector.TermSelector;
 
@@ -11,7 +13,7 @@ public class TermSelectorBuilder<FROM, PARENT, CURRENT extends SelectorsBuilder<
     private final SelectorsBuilder<FROM, PARENT, CURRENT> selectorsBuilder;
     private final TermSelector<FROM> termSelector;
 
-    public TermSelectorBuilder(SelectorsBuilder<FROM, PARENT, CURRENT> selectorsBuilder, Path<FROM, String> path) {
+    public TermSelectorBuilder(SelectorsBuilder<FROM, PARENT, CURRENT> selectorsBuilder, Path<FROM, ? extends Serializable> path) {
         this.selectorsBuilder = selectorsBuilder;
         termSelector = new TermSelector<FROM>(path);
     }

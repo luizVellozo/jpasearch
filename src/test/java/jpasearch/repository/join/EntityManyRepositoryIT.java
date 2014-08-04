@@ -10,8 +10,8 @@ import jpasearch.domain.join.EntityMany;
 import jpasearch.domain.join.EntityMany_;
 import jpasearch.domain.join.EntityOne;
 import jpasearch.domain.join.EntityOne_;
-import jpasearch.repository.query.SearchBuilder;
 import jpasearch.repository.query.SearchParameters;
+import jpasearch.repository.query.builder.SearchBuilder;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -12,8 +12,8 @@ import jpasearch.domain.embedded.EntityEmbedded;
 import jpasearch.domain.embedded.EntityEmbedded_;
 import jpasearch.domain.embedded.EntityWithEmbeddedField;
 import jpasearch.domain.embedded.EntityWithEmbeddedField_;
-import jpasearch.repository.query.SearchBuilder;
 import jpasearch.repository.query.SearchParameters;
+import jpasearch.repository.query.builder.SearchBuilder;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

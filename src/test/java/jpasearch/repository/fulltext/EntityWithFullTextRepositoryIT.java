@@ -56,7 +56,8 @@ public class EntityWithFullTextRepositoryIT {
 
     private SearchParameters<EntityWithFullText> findByValue(String value) {
         return new SearchBuilder<EntityWithFullText>() //
-                .fullText(EntityWithFullText_.value).search(value) //
+                .fullText(EntityWithFullText_.value) //
+                .search(value) //
                 .build();
     }
 

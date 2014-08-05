@@ -1,11 +1,8 @@
 package jpasearch.repository.query.selector;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import javax.persistence.metamodel.SingularAttribute;
 
 import jpasearch.repository.query.Path;
 
@@ -15,21 +12,22 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSelector<FROM>> {
     private static final long serialVersionUID = 201308010800L;
-    private final Path<FROM, ? extends Serializable> path;
+    private final List<Path<FROM, ?>> paths;
     private List<String> selected = new ArrayList<>();
     private boolean orMode = true;
     private Integer searchSimilarity = null;
 
-    public <T extends Serializable> TermSelector(SingularAttribute<? super FROM, T> attribute) {
-        path = new Path<FROM, T>(attribute);
+    public TermSelector(Path<FROM, ?> path) {
+        paths = new ArrayList<>();
+        paths.add(path);
     }
 
-    public TermSelector(Path<FROM, ? extends Serializable> path) {
-        this.path = path;
+    public TermSelector(List<Path<FROM, ?>> paths) {
+        this.paths = new ArrayList<>(paths);
     }
 
     private TermSelector(TermSelector<FROM> toCopy) {
-        path = toCopy.path;
+        paths = new ArrayList<>(toCopy.paths);
         selected = new ArrayList<>(toCopy.selected);
         orMode = toCopy.orMode;
         searchSimilarity = toCopy.searchSimilarity;
@@ -40,8 +38,12 @@ public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSele
         return new TermSelector<FROM>(this);
     }
 
-    public String getPath() {
-        return path.getPath();
+    public List<String> getPaths() {
+        List<String> paths = new ArrayList<>();
+        for (Path<FROM, ?> path : this.paths) {
+            paths.add(path.getPath());
+        }
+        return paths;
     }
 
     public Integer getSearchSimilarity() {

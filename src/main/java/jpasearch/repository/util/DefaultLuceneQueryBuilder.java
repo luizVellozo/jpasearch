@@ -3,6 +3,8 @@ package jpasearch.repository.util;
 import static com.google.common.base.Throwables.propagate;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
+import java.util.List;
+
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -13,6 +15,8 @@ import org.apache.lucene.search.Query;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.query.dsl.BooleanJunction;
 import org.hibernate.search.query.dsl.QueryBuilder;
+import org.hibernate.search.query.dsl.TermMatchingContext;
+import org.hibernate.search.query.dsl.WildcardContext;
 
 @Named
 @Singleton
@@ -33,19 +37,36 @@ public class DefaultLuceneQueryBuilder implements LuceneQueryBuilder {
                 if (isNotBlank(selected)) {
                     String value = StringUtils.join(selected.split(PUNCTUATION), " ");
                     if (isNotBlank(value)) {
+                        List<String> fields = termSelector.getPaths();
                         BooleanJunction<?> valueContext = builder.bool();
+
+                        // fuzzy search
                         if (termSelector.getSearchSimilarity() != null) {
                             valueContext.should(builder.keyword().fuzzy() //
                                     .withEditDistanceUpTo(termSelector.getSearchSimilarity()) //
-                                    .onField(termSelector.getPath()) //
+                                    .onFields(fields.toArray(new String[fields.size()])) //
                                     .matching(value).createQuery());
                         }
+
+                        // keyword search
                         valueContext.should(builder.keyword() //
-                                .onField(termSelector.getPath()) //
+                                .onFields(fields.toArray(new String[fields.size()])) //
                                 .matching(value).createQuery());
-                        valueContext.should(builder.keyword().wildcard() //
-                                .onField(termSelector.getPath()) //
-                                .matching("*" + value + "*").createQuery());
+
+                        // wildcard search
+                        // no #onFields on wildcardContext
+                        WildcardContext wildcardContext = builder.keyword().wildcard();
+                        TermMatchingContext termMatchingContext = null;
+                        for (String field : fields) {
+                            if (termMatchingContext != null) {
+                                termMatchingContext = termMatchingContext.andField(field);
+                            } else {
+                                termMatchingContext = wildcardContext.onField(field);
+                            }
+                        }
+                        valueContext.should(termMatchingContext. //
+                                matching("*" + value + "*").createQuery());
+
                         if (termSelector.isOrMode()) {
                             termContext.should(valueContext.createQuery());
                         } else {
@@ -70,5 +91,4 @@ public class DefaultLuceneQueryBuilder implements LuceneQueryBuilder {
             throw propagate(e);
         }
     }
-
 }

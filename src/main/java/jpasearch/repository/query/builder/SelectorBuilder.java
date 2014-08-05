@@ -7,6 +7,7 @@ import jpasearch.repository.query.Path;
 import jpasearch.repository.query.SearchMode;
 import jpasearch.repository.query.selector.PropertySelector;
 import jpasearch.repository.query.selector.Range;
+import jpasearch.repository.query.selector.TermSelector;
 
 /**
  * @author speralta
@@ -56,6 +57,10 @@ public class SelectorBuilder<F, FROM, TO, B extends SelectorsBuilder<F, ?, B>> e
     @SuppressWarnings("unchecked")
     public B like(TO... values) {
         return getParent().add(new PropertySelector<>(getPath(), values).searchMode(SearchMode.LIKE));
+    }
+
+    public B fullText(String... selected) {
+        return getParent().add(new TermSelector<>(getPath()).selected(selected));
     }
 
     public <E extends Comparable<E>> B between(E from, E to, SingularAttribute<? super TO, E> attribute) {

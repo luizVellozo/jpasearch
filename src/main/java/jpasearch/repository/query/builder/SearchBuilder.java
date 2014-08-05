@@ -92,8 +92,12 @@ public class SearchBuilder<FROM> implements Serializable {
         return this;
     }
 
-    public TermSelectorBuilder<FROM, SearchBuilder<FROM>, RootSelectorsBuilder<FROM>> fullText(SingularAttribute<? super FROM, ? extends Serializable> attribute) {
-        return new TermSelectorBuilder<>(rootSelectorsBuilder, new Path<>(attribute));
+    public <TO> TermSelectorPathBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>, SearchBuilder<FROM>> fullText(SingularAttribute<? super FROM, TO> attribute) {
+        return new TermSelectorBuilder<>(rootSelectorsBuilder).on(attribute);
+    }
+
+    public <TO> TermSelectorPathBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>, SearchBuilder<FROM>> fullText(PluralAttribute<? super FROM, ?, TO> attribute) {
+        return new TermSelectorBuilder<>(rootSelectorsBuilder).on(attribute);
     }
 
     public <TO> SelectorBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>> on(Path<FROM, TO> path) {

@@ -13,7 +13,9 @@ import jpasearch.repository.query.SearchParameters;
  * @author speralta
  * 
  * @param <E>
+ *            the entity type
  * @param <PK>
+ *            the entity's primary key type
  */
 public interface GenericRepository<E extends Identifiable<PK>, PK extends Serializable> {
 

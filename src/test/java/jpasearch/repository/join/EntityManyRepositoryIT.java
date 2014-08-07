@@ -51,7 +51,8 @@ public class EntityManyRepositoryIT {
 
     private SearchParameters<EntityMany> findByValue(String value) {
         return new SearchBuilder<EntityMany>() //
-                .on(EntityMany_.entityOne).to(EntityOne_.value).equalsTo(value) //
+                .on(EntityMany_.entityOne).to(EntityOne_.value).equalsTo(value).and() //
+                .fetch(EntityMany_.entityOne).and() //
                 .build();
     }
 

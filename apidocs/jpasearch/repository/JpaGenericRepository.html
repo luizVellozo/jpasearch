@@ -3,13 +3,13 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>JpaGenericRepository (JPA Search 0.2.2-SNAPSHOT API)</title>
+<title>JpaGenericRepository (JPA Search 0.2.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="JpaGenericRepository (JPA Search 0.2.2-SNAPSHOT API)";
+        parent.document.title="JpaGenericRepository (JPA Search 0.2.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -200,17 +200,16 @@ implements <a href="../../jpasearch/repository/GenericRepository.html" title="in
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../jpasearch/repository/JpaGenericRepository.html#findProperty(java.lang.Class, jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">findProperty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;propertyType,
-            <a href="../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
-            javax.persistence.metamodel.Attribute&lt;?,?&gt;...&nbsp;attributes)</code>
+<td class="colLast"><code><strong><a href="../../jpasearch/repository/JpaGenericRepository.html#findProperty(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">findProperty</a></strong>(<a href="../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
+            <a href="../../jpasearch/repository/query/ResultParameters.html" title="class in jpasearch.repository.query">ResultParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>,T&gt;&nbsp;resultParameters)</code>
 <div class="block">Find a list of E property.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../jpasearch/repository/JpaGenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">findPropertyCount</a></strong>(<a href="../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
-                 javax.persistence.metamodel.Attribute&lt;?,?&gt;...&nbsp;attributes)</code>
-<div class="block">Count the number of E instances.</div>
+<td class="colLast"><code><strong><a href="../../jpasearch/repository/JpaGenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">findPropertyCount</a></strong>(<a href="../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
+                 <a href="../../jpasearch/repository/query/ResultParameters.html" title="class in jpasearch.repository.query">ResultParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>,?&gt;&nbsp;resultParameters)</code>
+<div class="block">Count the number of instances of the path.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -376,38 +375,37 @@ implements <a href="../../jpasearch/repository/GenericRepository.html" title="in
 <dt><span class="strong">Returns:</span></dt><dd>the number of entities matching the search.</dd></dl>
 </li>
 </ul>
-<a name="findProperty(java.lang.Class, jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">
+<a name="findProperty(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>findProperty</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;&nbsp;findProperty(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;propertyType,
-                       <a href="../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
-                       javax.persistence.metamodel.Attribute&lt;?,?&gt;...&nbsp;attributes)</pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../jpasearch/repository/GenericRepository.html#findProperty(java.lang.Class, jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">GenericRepository</a></code></strong></div>
+<pre>public&nbsp;&lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;&nbsp;findProperty(<a href="../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
+                       <a href="../../jpasearch/repository/query/ResultParameters.html" title="class in jpasearch.repository.query">ResultParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>,T&gt;&nbsp;resultParameters)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../jpasearch/repository/GenericRepository.html#findProperty(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">GenericRepository</a></code></strong></div>
 <div class="block">Find a list of E property.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../jpasearch/repository/GenericRepository.html#findProperty(java.lang.Class, jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">findProperty</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">PK</a>&gt;,<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;</code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>propertyType</code> - type of the property</dd><dd><code>sp</code> - carries additional search information</dd><dd><code>attributes</code> - the list of attributes to the property</dd>
+<dd><code><a href="../../jpasearch/repository/GenericRepository.html#findProperty(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">findProperty</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">PK</a>&gt;,<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;</code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>sp</code> - carries additional search information</dd><dd><code>resultParameters</code> - carries result information</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the entities property matching the search.</dd></dl>
 </li>
 </ul>
-<a name="findPropertyCount(jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">
+<a name="findPropertyCount(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>findPropertyCount</h4>
 <pre>public&nbsp;long&nbsp;findPropertyCount(<a href="../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
-                     javax.persistence.metamodel.Attribute&lt;?,?&gt;...&nbsp;attributes)</pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../jpasearch/repository/GenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">GenericRepository</a></code></strong></div>
-<div class="block">Count the number of E instances.</div>
+                     <a href="../../jpasearch/repository/query/ResultParameters.html" title="class in jpasearch.repository.query">ResultParameters</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>,?&gt;&nbsp;resultParameters)</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../jpasearch/repository/GenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">GenericRepository</a></code></strong></div>
+<div class="block">Count the number of instances of the path.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../jpasearch/repository/GenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">findPropertyCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">PK</a>&gt;,<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;</code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>sp</code> - carries additional search information</dd><dd><code>attributes</code> - the list of attributes to the property</dd>
+<dd><code><a href="../../jpasearch/repository/GenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">findPropertyCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a> extends <a href="../../jpasearch/domain/Identifiable.html" title="interface in jpasearch.domain">Identifiable</a>&lt;<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">PK</a>&gt;,<a href="../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">PK</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;</code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>sp</code> - carries additional search information</dd><dd><code>resultParameters</code> - carries result information</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the number of entities matching the search.</dd></dl>
 </li>
 </ul>

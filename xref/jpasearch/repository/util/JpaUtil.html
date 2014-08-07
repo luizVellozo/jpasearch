@@ -121,7 +121,7 @@
 <a class="jxr_linenumber" name="111" href="#111">111</a>             }
 <a class="jxr_linenumber" name="112" href="#112">112</a>             <strong class="jxr_keyword">if</strong> (!found) {
 <a class="jxr_linenumber" name="113" href="#113">113</a>                 <strong class="jxr_keyword">if</strong> ((attributes.indexOf(attribute) != (attributes.size() - 1)) &amp;&amp; (attribute instanceof Bindable)
-<a class="jxr_linenumber" name="114" href="#114">114</a>                         &amp;&amp; Identifiable.<strong class="jxr_keyword">class</strong>.isAssignableFrom(((Bindable&lt;?&gt;) attribute).getBindableJavaType())) {
+<a class="jxr_linenumber" name="114" href="#114">114</a>                         &amp;&amp; Identifiable.<strong class="jxr_keyword">class</strong>.isAssignableFrom(((Bindable&lt;?&gt;) attribute).getBindableJavaType()) &amp;&amp; (path instanceof From)) {
 <a class="jxr_linenumber" name="115" href="#115">115</a>                     path = ((From&lt;?, ?&gt;) path).join(attribute.getName(), JoinType.LEFT);
 <a class="jxr_linenumber" name="116" href="#116">116</a>                 } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="117" href="#117">117</a>                     path = path.get(attribute.getName());

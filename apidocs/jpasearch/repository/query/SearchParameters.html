@@ -3,13 +3,13 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>SearchParameters (JPA Search 0.2.2-SNAPSHOT API)</title>
+<title>SearchParameters (JPA Search 0.2.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SearchParameters (JPA Search 0.2.2-SNAPSHOT API)";
+        parent.document.title="SearchParameters (JPA Search 0.2.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -62,13 +62,13 @@
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>
@@ -109,6 +109,29 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../jpasearch/repository/query/SearchParameters.html#SearchParameters(int, int, jpasearch.repository.query.selector.Selectors, java.util.Set, java.util.Set, java.util.Map, boolean)">SearchParameters</a></strong>(int&nbsp;firstResult,
+                int&nbsp;maxResults,
+                <a href="../../../jpasearch/repository/query/selector/Selectors.html" title="class in jpasearch.repository.query.selector">Selectors</a>&lt;<a href="../../../jpasearch/repository/query/SearchParameters.html" title="type parameter in SearchParameters">FROM</a>&gt;&nbsp;selectors,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../jpasearch/repository/query/SearchParameters.html" title="type parameter in SearchParameters">FROM</a>,?&gt;&gt;&nbsp;fetches,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="../../../jpasearch/repository/query/OrderBy.html" title="class in jpasearch.repository.query">OrderBy</a>&lt;<a href="../../../jpasearch/repository/query/SearchParameters.html" title="type parameter in SearchParameters">FROM</a>,?&gt;&gt;&nbsp;orders,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;extraParameters,
+                boolean&nbsp;useDistinct)</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_summary">
@@ -165,6 +188,29 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="SearchParameters(int, int, jpasearch.repository.query.selector.Selectors, java.util.Set, java.util.Set, java.util.Map, boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>SearchParameters</h4>
+<pre>public&nbsp;SearchParameters(int&nbsp;firstResult,
+                int&nbsp;maxResults,
+                <a href="../../../jpasearch/repository/query/selector/Selectors.html" title="class in jpasearch.repository.query.selector">Selectors</a>&lt;<a href="../../../jpasearch/repository/query/SearchParameters.html" title="type parameter in SearchParameters">FROM</a>&gt;&nbsp;selectors,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../jpasearch/repository/query/SearchParameters.html" title="type parameter in SearchParameters">FROM</a>,?&gt;&gt;&nbsp;fetches,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="../../../jpasearch/repository/query/OrderBy.html" title="class in jpasearch.repository.query">OrderBy</a>&lt;<a href="../../../jpasearch/repository/query/SearchParameters.html" title="type parameter in SearchParameters">FROM</a>,?&gt;&gt;&nbsp;orders,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;extraParameters,
+                boolean&nbsp;useDistinct)</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_detail">
@@ -287,13 +333,13 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
 </div>

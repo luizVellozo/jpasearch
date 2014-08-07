@@ -3,13 +3,13 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>OrderByBuilder (JPA Search 0.2.2-SNAPSHOT API)</title>
+<title>OrderByBuilder (JPA Search 0.2.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="OrderByBuilder (JPA Search 0.2.2-SNAPSHOT API)";
+        parent.document.title="OrderByBuilder (JPA Search 0.2.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -86,7 +86,12 @@
 <li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html" title="class in jpasearch.repository.query.builder">jpasearch.repository.query.builder.AbstractPathBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;F&gt;,F,FROM,TO&gt;</li>
+<li>
+<ul class="inheritance">
 <li>jpasearch.repository.query.builder.OrderByBuilder&lt;F,FROM,TO&gt;</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -96,7 +101,7 @@
 <hr>
 <br>
 <pre>public class <span class="strong">OrderByBuilder&lt;F,FROM,TO&gt;</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+extends <a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html" title="class in jpasearch.repository.query.builder">AbstractPathBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;F&gt;,F,FROM,TO&gt;</pre>
 </li>
 </ul>
 </div>
@@ -115,11 +120,11 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html#OrderByBuilder(jpasearch.repository.query.builder.OrdersByBuilder, javax.persistence.metamodel.PluralAttribute)">OrderByBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;ordersByBuilder,
+<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html#OrderByBuilder(jpasearch.repository.query.builder.OrdersByBuilder, javax.persistence.metamodel.PluralAttribute)">OrderByBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;parent,
               javax.persistence.metamodel.PluralAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>,?,<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">TO</a>&gt;&nbsp;attribute)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html#OrderByBuilder(jpasearch.repository.query.builder.OrdersByBuilder, javax.persistence.metamodel.SingularAttribute)">OrderByBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;ordersByBuilder,
+<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html#OrderByBuilder(jpasearch.repository.query.builder.OrdersByBuilder, javax.persistence.metamodel.SingularAttribute)">OrderByBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;parent,
               javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>,<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">TO</a>&gt;&nbsp;attribute)</code>&nbsp;</td>
 </tr>
 </table>
@@ -146,14 +151,21 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html#and(javax.persistence.metamodel.SingularAttribute)">and</a></strong>(javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">TO</a>,E&gt;&nbsp;attribute)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;</code></td>
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html#asc()">asc</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;</code></td>
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html#desc()">desc</a></strong>()</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_jpasearch.repository.query.builder.AbstractPathBuilder">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;jpasearch.repository.query.builder.<a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html" title="class in jpasearch.repository.query.builder">AbstractPathBuilder</a></h3>
+<code><a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html#getParent()">getParent</a>, <a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html#getPath()">getPath</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
@@ -175,24 +187,24 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="OrderByBuilder(jpasearch.repository.query.builder.OrdersByBuilder, javax.persistence.metamodel.SingularAttribute)">
+<a name="OrderByBuilder(jpasearch.repository.query.builder.OrdersByBuilder, javax.persistence.metamodel.PluralAttribute)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>OrderByBuilder</h4>
-<pre>public&nbsp;OrderByBuilder(<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;ordersByBuilder,
-              javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>,<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">TO</a>&gt;&nbsp;attribute)</pre>
+<pre>public&nbsp;OrderByBuilder(<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;parent,
+              javax.persistence.metamodel.PluralAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>,?,<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">TO</a>&gt;&nbsp;attribute)</pre>
 </li>
 </ul>
-<a name="OrderByBuilder(jpasearch.repository.query.builder.OrdersByBuilder, javax.persistence.metamodel.PluralAttribute)">
+<a name="OrderByBuilder(jpasearch.repository.query.builder.OrdersByBuilder, javax.persistence.metamodel.SingularAttribute)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>OrderByBuilder</h4>
-<pre>public&nbsp;OrderByBuilder(<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;ordersByBuilder,
-              javax.persistence.metamodel.PluralAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>,?,<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">TO</a>&gt;&nbsp;attribute)</pre>
+<pre>public&nbsp;OrderByBuilder(<a href="../../../../jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;parent,
+              javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>,<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">TO</a>&gt;&nbsp;attribute)</pre>
 </li>
 </ul>
 </li>
@@ -209,7 +221,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>asc</h4>
-<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;asc()</pre>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;asc()</pre>
 </li>
 </ul>
 <a name="desc()">
@@ -218,7 +230,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>desc</h4>
-<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;desc()</pre>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/OrderByBuilder.html" title="type parameter in OrderByBuilder">F</a>&gt;&nbsp;desc()</pre>
 </li>
 </ul>
 <a name="and(javax.persistence.metamodel.SingularAttribute)">

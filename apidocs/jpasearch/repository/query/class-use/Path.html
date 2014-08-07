@@ -3,13 +3,13 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Uses of Class jpasearch.repository.query.Path (JPA Search 0.2.2-SNAPSHOT API)</title>
+<title>Uses of Class jpasearch.repository.query.Path (JPA Search 0.2.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Uses of Class jpasearch.repository.query.Path (JPA Search 0.2.2-SNAPSHOT API)";
+        parent.document.title="Uses of Class jpasearch.repository.query.Path (JPA Search 0.2.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -125,19 +125,6 @@
 </tr>
 </tbody>
 </table>
-<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../jpasearch/repository/query/package-summary.html">jpasearch.repository.query</a> with parameters of type <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a></span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Method and Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><code>&lt;TO&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="class in jpasearch.repository.query.builder">SelectorBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;</code></td>
-<td class="colLast"><span class="strong">SearchBuilder.</span><code><strong><a href="../../../../jpasearch/repository/query/SearchBuilder.html#on(jpasearch.repository.query.Path)">on</a></strong>(<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO&gt;&nbsp;path)</code>&nbsp;</td>
-</tr>
-</tbody>
-</table>
 <table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
 <caption><span>Constructors in <a href="../../../../jpasearch/repository/query/package-summary.html">jpasearch.repository.query</a> with parameters of type <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
@@ -148,6 +135,27 @@
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/OrderBy.html#OrderBy(jpasearch.repository.query.OrderByDirection, jpasearch.repository.query.Path)">OrderBy</a></strong>(<a href="../../../../jpasearch/repository/query/OrderByDirection.html" title="enum in jpasearch.repository.query">OrderByDirection</a>&nbsp;direction,
        <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/OrderBy.html" title="type parameter in OrderBy">FROM</a>,<a href="../../../../jpasearch/repository/query/OrderBy.html" title="type parameter in OrderBy">TO</a>&gt;&nbsp;path)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/ResultParameters.html#ResultParameters(jpasearch.repository.query.Path, java.lang.Class)">ResultParameters</a></strong>(<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/ResultParameters.html" title="type parameter in ResultParameters">FROM</a>,<a href="../../../../jpasearch/repository/query/ResultParameters.html" title="type parameter in ResultParameters">TO</a>&gt;&nbsp;path,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;<a href="../../../../jpasearch/repository/query/ResultParameters.html" title="type parameter in ResultParameters">TO</a>&gt;&nbsp;to)</code>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
+<caption><span>Constructor parameters in <a href="../../../../jpasearch/repository/query/package-summary.html">jpasearch.repository.query</a> with type arguments of type <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/SearchParameters.html#SearchParameters(int, int, jpasearch.repository.query.selector.Selectors, java.util.Set, java.util.Set, java.util.Map, boolean)">SearchParameters</a></strong>(int&nbsp;firstResult,
+                int&nbsp;maxResults,
+                <a href="../../../../jpasearch/repository/query/selector/Selectors.html" title="class in jpasearch.repository.query.selector">Selectors</a>&lt;<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="type parameter in SearchParameters">FROM</a>&gt;&nbsp;selectors,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="type parameter in SearchParameters">FROM</a>,?&gt;&gt;&nbsp;fetches,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="../../../../jpasearch/repository/query/OrderBy.html" title="class in jpasearch.repository.query">OrderBy</a>&lt;<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="type parameter in SearchParameters">FROM</a>,?&gt;&gt;&nbsp;orders,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;extraParameters,
+                boolean&nbsp;useDistinct)</code>&nbsp;</td>
+</tr>
 </tbody>
 </table>
 </li>
@@ -155,6 +163,19 @@
 <!--   -->
 </a>
 <h3>Uses of <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a> in <a href="../../../../jpasearch/repository/query/builder/package-summary.html">jpasearch.repository.query.builder</a></h3>
+<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
+<caption><span>Methods in <a href="../../../../jpasearch/repository/query/builder/package-summary.html">jpasearch.repository.query.builder</a> that return <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html" title="type parameter in AbstractPathBuilder">F</a>,<a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html" title="type parameter in AbstractPathBuilder">TO</a>&gt;</code></td>
+<td class="colLast"><span class="strong">AbstractPathBuilder.</span><code><strong><a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html#getPath()">getPath</a></strong>()</code>&nbsp;</td>
+</tr>
+</tbody>
+</table>
 <table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
 <caption><span>Methods in <a href="../../../../jpasearch/repository/query/builder/package-summary.html">jpasearch.repository.query.builder</a> that return types with arguments of type <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
@@ -179,6 +200,10 @@
 <td class="colFirst"><code>&lt;TO&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="class in jpasearch.repository.query.builder">SelectorBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="type parameter in SelectorsBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="type parameter in SelectorsBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="type parameter in SelectorsBuilder">CURRENT</a>&gt;</code></td>
 <td class="colLast"><span class="strong">SelectorsBuilder.</span><code><strong><a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#on(jpasearch.repository.query.Path)">on</a></strong>(<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="type parameter in SelectorsBuilder">FROM</a>,TO&gt;&nbsp;path)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&lt;TO&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="class in jpasearch.repository.query.builder">SelectorBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;</code></td>
+<td class="colLast"><span class="strong">SearchBuilder.</span><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#on(jpasearch.repository.query.Path)">on</a></strong>(<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO&gt;&nbsp;path)</code>&nbsp;</td>
+</tr>
 </tbody>
 </table>
 <table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
@@ -188,12 +213,12 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html#SelectorBuilder(B, jpasearch.repository.query.Path)">SelectorBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="type parameter in SelectorBuilder">B</a>&nbsp;builder,
-               <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="type parameter in SelectorBuilder">F</a>,<a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="type parameter in SelectorBuilder">TO</a>&gt;&nbsp;path)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html#AbstractPathBuilder(PARENT, jpasearch.repository.query.Path)">AbstractPathBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html" title="type parameter in AbstractPathBuilder">PARENT</a>&nbsp;parent,
+                   <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html" title="type parameter in AbstractPathBuilder">F</a>,<a href="../../../../jpasearch/repository/query/builder/AbstractPathBuilder.html" title="type parameter in AbstractPathBuilder">TO</a>&gt;&nbsp;path)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/TermSelectorBuilder.html#TermSelectorBuilder(jpasearch.repository.query.builder.SelectorsBuilder, jpasearch.repository.query.Path)">TermSelectorBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">SelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/TermSelectorBuilder.html" title="type parameter in TermSelectorBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/TermSelectorBuilder.html" title="type parameter in TermSelectorBuilder">PARENT</a>,<a href="../../../../jpasearch/repository/query/builder/TermSelectorBuilder.html" title="type parameter in TermSelectorBuilder">CURRENT</a>&gt;&nbsp;selectorsBuilder,
-                   <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/builder/TermSelectorBuilder.html" title="type parameter in TermSelectorBuilder">FROM</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;path)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html#SelectorBuilder(B, jpasearch.repository.query.Path)">SelectorBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="type parameter in SelectorBuilder">B</a>&nbsp;builder,
+               <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="type parameter in SelectorBuilder">F</a>,<a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="type parameter in SelectorBuilder">TO</a>&gt;&nbsp;path)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -204,7 +229,7 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/FetchesBuilder.html#FetchesBuilder(jpasearch.repository.query.SearchBuilder, java.util.Set)">FetchesBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/FetchesBuilder.html" title="type parameter in FetchesBuilder">FROM</a>&gt;&nbsp;searchParameters,
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/FetchesBuilder.html#FetchesBuilder(jpasearch.repository.query.builder.SearchBuilder, java.util.Set)">FetchesBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/FetchesBuilder.html" title="type parameter in FetchesBuilder">FROM</a>&gt;&nbsp;searchParameters,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/builder/FetchesBuilder.html" title="type parameter in FetchesBuilder">FROM</a>,?&gt;&gt;&nbsp;fetches)</code>&nbsp;</td>
 </tr>
 </tbody>
@@ -246,7 +271,18 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#TermSelector(jpasearch.repository.query.Path)">TermSelector</a></strong>(<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/selector/TermSelector.html" title="type parameter in TermSelector">FROM</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;path)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#TermSelector(jpasearch.repository.query.Path)">TermSelector</a></strong>(<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/selector/TermSelector.html" title="type parameter in TermSelector">FROM</a>,?&gt;&nbsp;path)</code>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
+<caption><span>Constructor parameters in <a href="../../../../jpasearch/repository/query/selector/package-summary.html">jpasearch.repository.query.selector</a> with type arguments of type <a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#TermSelector(java.util.List)">TermSelector</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="../../../../jpasearch/repository/query/selector/TermSelector.html" title="type parameter in TermSelector">FROM</a>,?&gt;&gt;&nbsp;paths)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>

@@ -3,13 +3,13 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Uses of Class jpasearch.repository.query.SearchParameters (JPA Search 0.2.2-SNAPSHOT API)</title>
+<title>Uses of Class jpasearch.repository.query.SearchParameters (JPA Search 0.2.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Uses of Class jpasearch.repository.query.SearchParameters (JPA Search 0.2.2-SNAPSHOT API)";
+        parent.document.title="Uses of Class jpasearch.repository.query.SearchParameters (JPA Search 0.2.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -79,14 +79,10 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="#jpasearch.repository.query">jpasearch.repository.query</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><a href="#jpasearch.repository.query.builder">jpasearch.repository.query.builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="#jpasearch.repository.util">jpasearch.repository.util</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -150,28 +146,26 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;</code></td>
-<td class="colLast"><span class="strong">JpaGenericRepository.</span><code><strong><a href="../../../../jpasearch/repository/JpaGenericRepository.html#findProperty(java.lang.Class, jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">findProperty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;propertyType,
-            <a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
-            javax.persistence.metamodel.Attribute&lt;?,?&gt;...&nbsp;attributes)</code>&nbsp;</td>
+<td class="colLast"><span class="strong">JpaGenericRepository.</span><code><strong><a href="../../../../jpasearch/repository/JpaGenericRepository.html#findProperty(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">findProperty</a></strong>(<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
+            <a href="../../../../jpasearch/repository/query/ResultParameters.html" title="class in jpasearch.repository.query">ResultParameters</a>&lt;<a href="../../../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>,T&gt;&nbsp;resultParameters)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;</code></td>
-<td class="colLast"><span class="strong">GenericRepository.</span><code><strong><a href="../../../../jpasearch/repository/GenericRepository.html#findProperty(java.lang.Class, jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">findProperty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;propertyType,
-            <a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/GenericRepository.html" title="type parameter in GenericRepository">E</a>&gt;&nbsp;searchParameters,
-            javax.persistence.metamodel.Attribute&lt;?,?&gt;...&nbsp;attributes)</code>
+<td class="colLast"><span class="strong">GenericRepository.</span><code><strong><a href="../../../../jpasearch/repository/GenericRepository.html#findProperty(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">findProperty</a></strong>(<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/GenericRepository.html" title="type parameter in GenericRepository">E</a>&gt;&nbsp;searchParameters,
+            <a href="../../../../jpasearch/repository/query/ResultParameters.html" title="class in jpasearch.repository.query">ResultParameters</a>&lt;<a href="../../../../jpasearch/repository/GenericRepository.html" title="type parameter in GenericRepository">E</a>,T&gt;&nbsp;resultParameters)</code>
 <div class="block">Find a list of E property.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
-<td class="colLast"><span class="strong">JpaGenericRepository.</span><code><strong><a href="../../../../jpasearch/repository/JpaGenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">findPropertyCount</a></strong>(<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
-                 javax.persistence.metamodel.Attribute&lt;?,?&gt;...&nbsp;attributes)</code>&nbsp;</td>
+<td class="colLast"><span class="strong">JpaGenericRepository.</span><code><strong><a href="../../../../jpasearch/repository/JpaGenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">findPropertyCount</a></strong>(<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>&gt;&nbsp;sp,
+                 <a href="../../../../jpasearch/repository/query/ResultParameters.html" title="class in jpasearch.repository.query">ResultParameters</a>&lt;<a href="../../../../jpasearch/repository/JpaGenericRepository.html" title="type parameter in JpaGenericRepository">E</a>,?&gt;&nbsp;resultParameters)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>long</code></td>
-<td class="colLast"><span class="strong">GenericRepository.</span><code><strong><a href="../../../../jpasearch/repository/GenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, javax.persistence.metamodel.Attribute...)">findPropertyCount</a></strong>(<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/GenericRepository.html" title="type parameter in GenericRepository">E</a>&gt;&nbsp;searchParameters,
-                 javax.persistence.metamodel.Attribute&lt;?,?&gt;...&nbsp;attributes)</code>
-<div class="block">Count the number of E instances.</div>
+<td class="colLast"><span class="strong">GenericRepository.</span><code><strong><a href="../../../../jpasearch/repository/GenericRepository.html#findPropertyCount(jpasearch.repository.query.SearchParameters, jpasearch.repository.query.ResultParameters)">findPropertyCount</a></strong>(<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/GenericRepository.html" title="type parameter in GenericRepository">E</a>&gt;&nbsp;searchParameters,
+                 <a href="../../../../jpasearch/repository/query/ResultParameters.html" title="class in jpasearch.repository.query">ResultParameters</a>&lt;<a href="../../../../jpasearch/repository/GenericRepository.html" title="type parameter in GenericRepository">E</a>,?&gt;&nbsp;resultParameters)</code>
+<div class="block">Count the number of instances of the path.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -205,35 +199,6 @@
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="jpasearch.repository.query">
-<!--   -->
-</a>
-<h3>Uses of <a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a> in <a href="../../../../jpasearch/repository/query/package-summary.html">jpasearch.repository.query</a></h3>
-<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../jpasearch/repository/query/package-summary.html">jpasearch.repository.query</a> that return <a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a></span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Method and Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;</code></td>
-<td class="colLast"><span class="strong">SearchBuilder.</span><code><strong><a href="../../../../jpasearch/repository/query/SearchBuilder.html#build()">build</a></strong>()</code>&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
-<caption><span>Constructors in <a href="../../../../jpasearch/repository/query/package-summary.html">jpasearch.repository.query</a> with parameters of type <a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a></span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/SearchBuilder.html#SearchBuilder(jpasearch.repository.query.SearchParameters)">SearchBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&nbsp;searchParameters)</code>&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</li>
 <li class="blockList"><a name="jpasearch.repository.query.builder">
 <!--   -->
 </a>
@@ -246,8 +211,23 @@
 </tr>
 <tbody>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;</code></td>
+<td class="colLast"><span class="strong">SearchBuilder.</span><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#build()">build</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;</code></td>
 <td class="colLast"><span class="strong">RootSelectorsBuilder.</span><code><strong><a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html#build()">build</a></strong>()</code>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
+<caption><span>Constructors in <a href="../../../../jpasearch/repository/query/builder/package-summary.html">jpasearch.repository.query.builder</a> with parameters of type <a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#SearchBuilder(jpasearch.repository.query.SearchParameters)">SearchBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&nbsp;searchParameters)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>

@@ -3,13 +3,13 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Serialized Form (JPA Search 0.2.2-SNAPSHOT API)</title>
+<title>Serialized Form (JPA Search 0.2.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Serialized Form (JPA Search 0.2.2-SNAPSHOT API)";
+        parent.document.title="Serialized Form (JPA Search 0.2.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -121,13 +121,13 @@
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="jpasearch.repository.query.SearchBuilder">
+<li class="blockList"><a name="jpasearch.repository.query.ResultParameters">
 <!--   -->
 </a>
-<h3>Class <a href="jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">jpasearch.repository.query.SearchBuilder</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a> implements Serializable</h3>
+<h3>Class <a href="jpasearch/repository/query/ResultParameters.html" title="class in jpasearch.repository.query">jpasearch.repository.query.ResultParameters</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a> implements Serializable</h3>
 <dl class="nameValue">
 <dt>serialVersionUID:</dt>
-<dd>201403271745L</dd>
+<dd>201407292153L</dd>
 </dl>
 <ul class="blockList">
 <li class="blockList"><a name="serializedForm">
@@ -136,28 +136,12 @@
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
-<h4>paginationBuilder</h4>
-<pre><a href="jpasearch/repository/query/builder/PaginationBuilder.html" title="class in jpasearch.repository.query.builder">PaginationBuilder</a>&lt;<a href="jpasearch/repository/query/builder/PaginationBuilder.html" title="type parameter in PaginationBuilder">FROM</a>&gt; paginationBuilder</pre>
-</li>
-<li class="blockList">
-<h4>ordersByBuilder</h4>
-<pre><a href="jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="jpasearch/repository/query/builder/OrdersByBuilder.html" title="type parameter in OrdersByBuilder">FROM</a>&gt; ordersByBuilder</pre>
-</li>
-<li class="blockList">
-<h4>fetchesBuilder</h4>
-<pre><a href="jpasearch/repository/query/builder/FetchesBuilder.html" title="class in jpasearch.repository.query.builder">FetchesBuilder</a>&lt;<a href="jpasearch/repository/query/builder/FetchesBuilder.html" title="type parameter in FetchesBuilder">FROM</a>&gt; fetchesBuilder</pre>
-</li>
-<li class="blockList">
-<h4>rootSelectorsBuilder</h4>
-<pre><a href="jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt; rootSelectorsBuilder</pre>
-</li>
-<li class="blockList">
-<h4>extraParameters</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">K</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">V</a>&gt; extraParameters</pre>
+<h4>path</h4>
+<pre><a href="jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="jpasearch/repository/query/Path.html" title="type parameter in Path">FROM</a>,<a href="jpasearch/repository/query/Path.html" title="type parameter in Path">TO</a>&gt; path</pre>
 </li>
 <li class="blockListLast">
-<h4>useDistinct</h4>
-<pre>boolean useDistinct</pre>
+<h4>to</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">T</a>&gt; to</pre>
 </li>
 </ul>
 </li>
@@ -196,6 +180,53 @@
 <li class="blockList">
 <h4>selectors</h4>
 <pre><a href="jpasearch/repository/query/selector/Selectors.html" title="class in jpasearch.repository.query.selector">Selectors</a>&lt;<a href="jpasearch/repository/query/selector/Selectors.html" title="type parameter in Selectors">FROM</a>&gt; selectors</pre>
+</li>
+<li class="blockList">
+<h4>extraParameters</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">K</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">V</a>&gt; extraParameters</pre>
+</li>
+<li class="blockListLast">
+<h4>useDistinct</h4>
+<pre>boolean useDistinct</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList">
+<h2 title="Package">Package&nbsp;jpasearch.repository.query.builder</h2>
+<ul class="blockList">
+<li class="blockList"><a name="jpasearch.repository.query.builder.SearchBuilder">
+<!--   -->
+</a>
+<h3>Class <a href="jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">jpasearch.repository.query.builder.SearchBuilder</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a> implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>201403271745L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList"><a name="serializedForm">
+<!--   -->
+</a>
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>paginationBuilder</h4>
+<pre><a href="jpasearch/repository/query/builder/PaginationBuilder.html" title="class in jpasearch.repository.query.builder">PaginationBuilder</a>&lt;<a href="jpasearch/repository/query/builder/PaginationBuilder.html" title="type parameter in PaginationBuilder">FROM</a>&gt; paginationBuilder</pre>
+</li>
+<li class="blockList">
+<h4>ordersByBuilder</h4>
+<pre><a href="jpasearch/repository/query/builder/OrdersByBuilder.html" title="class in jpasearch.repository.query.builder">OrdersByBuilder</a>&lt;<a href="jpasearch/repository/query/builder/OrdersByBuilder.html" title="type parameter in OrdersByBuilder">FROM</a>&gt; ordersByBuilder</pre>
+</li>
+<li class="blockList">
+<h4>fetchesBuilder</h4>
+<pre><a href="jpasearch/repository/query/builder/FetchesBuilder.html" title="class in jpasearch.repository.query.builder">FetchesBuilder</a>&lt;<a href="jpasearch/repository/query/builder/FetchesBuilder.html" title="type parameter in FetchesBuilder">FROM</a>&gt; fetchesBuilder</pre>
+</li>
+<li class="blockList">
+<h4>rootSelectorsBuilder</h4>
+<pre><a href="jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt; rootSelectorsBuilder</pre>
 </li>
 <li class="blockList">
 <h4>extraParameters</h4>
@@ -343,8 +374,8 @@
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
-<h4>path</h4>
-<pre><a href="jpasearch/repository/query/Path.html" title="class in jpasearch.repository.query">Path</a>&lt;<a href="jpasearch/repository/query/Path.html" title="type parameter in Path">FROM</a>,<a href="jpasearch/repository/query/Path.html" title="type parameter in Path">TO</a>&gt; path</pre>
+<h4>paths</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">E</a>&gt; paths</pre>
 </li>
 <li class="blockList">
 <h4>selected</h4>

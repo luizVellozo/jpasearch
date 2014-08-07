@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2014 jpasearch</copyright>
     <item>
-      <title>File: 40,
-             Errors: 1266,
+      <title>File: 44,
+             Errors: 1432,
              Warnings: 0,
              Infos: 0
       </title>
@@ -55,7 +55,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  37
+                  34
                 </td>
               </tr>
                           <tr>
@@ -153,7 +153,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  26
+                  38
                 </td>
               </tr>
                           <tr>
@@ -223,7 +223,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  10
+                  17
                 </td>
               </tr>
                           <tr>
@@ -237,7 +237,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  18
+                  48
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.builder.TermSelectorPathBuilder.java">jpasearch/repository/query/builder/TermSelectorPathBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  48
                 </td>
               </tr>
                           <tr>
@@ -252,6 +266,20 @@ under the License.
                 </td>
                 <td>
                   25
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.ResultParameters.java">jpasearch/repository/query/ResultParameters.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  14
                 </td>
               </tr>
                           <tr>
@@ -321,7 +349,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  37
+                  32
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.builder.SearchBuilder.java">jpasearch/repository/query/builder/SearchBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  91
                 </td>
               </tr>
                           <tr>
@@ -335,7 +377,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  33
+                  40
                 </td>
               </tr>
                           <tr>
@@ -377,7 +419,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  54
+                  55
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.builder.AbstractPathBuilder.java">jpasearch/repository/query/builder/AbstractPathBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  37
                 </td>
               </tr>
                           <tr>
@@ -420,6 +476,20 @@ under the License.
                 </td>
                 <td>
                   62
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.builder.ResultBuilder.java">jpasearch/repository/query/builder/ResultBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  27
                 </td>
               </tr>
                           <tr>
@@ -489,7 +559,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  88
+                  91
                 </td>
               </tr>
                           <tr>
@@ -522,20 +592,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.SearchBuilder.java">jpasearch/repository/query/SearchBuilder.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  102
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.builder.OrdersByBuilder.java">jpasearch/repository/query/builder/OrdersByBuilder.java</a>
                 </td>
                 <td>
@@ -559,12 +615,26 @@ under the License.
                   0
                 </td>
                 <td>
-                  73
+                  72
                 </td>
               </tr>
                           <tr>
                 <td>
                   <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.domain.Identifiable.java">jpasearch/domain/Identifiable.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.selector.GroupSelector.java">jpasearch/repository/query/selector/GroupSelector.java</a>
                 </td>
                 <td>
                   0
@@ -588,20 +658,6 @@ under the License.
                 </td>
                 <td>
                   3
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.selector.GroupSelector.java">jpasearch/repository/query/selector/GroupSelector.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  4
                 </td>
               </tr>
                       </tbody>

@@ -3,13 +3,13 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>RootSelectorsBuilder (JPA Search 0.2.2-SNAPSHOT API)</title>
+<title>RootSelectorsBuilder (JPA Search 0.2.3-SNAPSHOT API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="RootSelectorsBuilder (JPA Search 0.2.2-SNAPSHOT API)";
+        parent.document.title="RootSelectorsBuilder (JPA Search 0.2.3-SNAPSHOT API)";
     }
 //-->
 </script>
@@ -35,8 +35,8 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../jpasearch/repository/query/builder/PaginationBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../jpasearch/repository/query/builder/ResultBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?jpasearch/repository/query/builder/RootSelectorsBuilder.html" target="_top">Frames</a></li>
@@ -89,7 +89,7 @@
 <li><a href="../../../../jpasearch/repository/query/builder/AbstractBuilder.html" title="class in jpasearch.repository.query.builder">jpasearch.repository.query.builder.AbstractBuilder</a>&lt;PARENT&gt;</li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">jpasearch.repository.query.builder.SelectorsBuilder</a>&lt;FROM,<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;FROM&gt;,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;FROM&gt;&gt;</li>
+<li><a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">jpasearch.repository.query.builder.SelectorsBuilder</a>&lt;FROM,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;FROM&gt;,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;FROM&gt;&gt;</li>
 <li>
 <ul class="inheritance">
 <li>jpasearch.repository.query.builder.RootSelectorsBuilder&lt;FROM&gt;</li>
@@ -106,7 +106,7 @@
 <hr>
 <br>
 <pre>public class <span class="strong">RootSelectorsBuilder&lt;FROM&gt;</span>
-extends <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">SelectorsBuilder</a>&lt;FROM,<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;FROM&gt;,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;FROM&gt;&gt;</pre>
+extends <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">SelectorsBuilder</a>&lt;FROM,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;FROM&gt;,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;FROM&gt;&gt;</pre>
 </li>
 </ul>
 </div>
@@ -140,10 +140,10 @@ extends <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html#RootSelectorsBuilder(jpasearch.repository.query.SearchBuilder)">RootSelectorsBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;parent)</code>&nbsp;</td>
+<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html#RootSelectorsBuilder(jpasearch.repository.query.builder.SearchBuilder)">RootSelectorsBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;parent)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html#RootSelectorsBuilder(jpasearch.repository.query.SearchBuilder, jpasearch.repository.query.selector.Selectors)">RootSelectorsBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;parent,
+<td class="colOne"><code><strong><a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html#RootSelectorsBuilder(jpasearch.repository.query.builder.SearchBuilder, jpasearch.repository.query.selector.Selectors)">RootSelectorsBuilder</a></strong>(<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;parent,
                     <a href="../../../../jpasearch/repository/query/selector/Selectors.html" title="class in jpasearch.repository.query.selector">Selectors</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;propertySelectors)</code>&nbsp;</td>
 </tr>
 </table>
@@ -162,7 +162,7 @@ extends <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;</code></td>
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html#and()">and</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -183,7 +183,7 @@ extends <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;jpasearch.repository.query.builder.<a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">SelectorsBuilder</a></h3>
-<code><a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#add(jpasearch.repository.query.selector.Selector)">add</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#fullText(javax.persistence.metamodel.SingularAttribute)">fullText</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#getSelectors()">getSelectors</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#on(jpasearch.repository.query.Path)">on</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#on(javax.persistence.metamodel.PluralAttribute)">on</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#on(javax.persistence.metamodel.SingularAttribute)">on</a></code></li>
+<code><a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#add(jpasearch.repository.query.selector.Selector)">add</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#fullText(javax.persistence.metamodel.PluralAttribute)">fullText</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#fullText(javax.persistence.metamodel.SingularAttribute)">fullText</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#getSelectors()">getSelectors</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#on(jpasearch.repository.query.Path)">on</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#on(javax.persistence.metamodel.PluralAttribute)">on</a>, <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#on(javax.persistence.metamodel.SingularAttribute)">on</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_jpasearch.repository.query.builder.AbstractBuilder">
@@ -213,23 +213,23 @@ extends <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="RootSelectorsBuilder(jpasearch.repository.query.SearchBuilder, jpasearch.repository.query.selector.Selectors)">
+<a name="RootSelectorsBuilder(jpasearch.repository.query.builder.SearchBuilder, jpasearch.repository.query.selector.Selectors)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>RootSelectorsBuilder</h4>
-<pre>public&nbsp;RootSelectorsBuilder(<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;parent,
+<pre>public&nbsp;RootSelectorsBuilder(<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;parent,
                     <a href="../../../../jpasearch/repository/query/selector/Selectors.html" title="class in jpasearch.repository.query.selector">Selectors</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;propertySelectors)</pre>
 </li>
 </ul>
-<a name="RootSelectorsBuilder(jpasearch.repository.query.SearchBuilder)">
+<a name="RootSelectorsBuilder(jpasearch.repository.query.builder.SearchBuilder)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>RootSelectorsBuilder</h4>
-<pre>public&nbsp;RootSelectorsBuilder(<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;parent)</pre>
+<pre>public&nbsp;RootSelectorsBuilder(<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;parent)</pre>
 </li>
 </ul>
 </li>
@@ -258,7 +258,7 @@ extends <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder
 <pre>protected&nbsp;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;getThis()</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#getThis()">getThis</a></code>&nbsp;in class&nbsp;<code><a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">SelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&gt;</code></dd>
+<dd><code><a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html#getThis()">getThis</a></code>&nbsp;in class&nbsp;<code><a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">SelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -277,7 +277,7 @@ extends <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder
 <ul class="blockListLast">
 <li class="blockList">
 <h4>and</h4>
-<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/SearchBuilder.html" title="class in jpasearch.repository.query">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;and()</pre>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="type parameter in RootSelectorsBuilder">FROM</a>&gt;&nbsp;and()</pre>
 </li>
 </ul>
 </li>
@@ -306,8 +306,8 @@ extends <a href="../../../../jpasearch/repository/query/builder/SelectorsBuilder
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../jpasearch/repository/query/builder/PaginationBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../jpasearch/repository/query/builder/SelectorBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../jpasearch/repository/query/builder/ResultBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?jpasearch/repository/query/builder/RootSelectorsBuilder.html" target="_top">Frames</a></li>

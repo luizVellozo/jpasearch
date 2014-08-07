@@ -55,21 +55,19 @@ public class ByPropertySelectorUtil {
                     selectorPredicates.add(selection ? builder.isTrue(path) : builder.isFalse(path));
                 }
             }
+            Predicate predicate;
             if (selector.isOrMode()) {
-                Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);
+                predicate = jpaUtil.orPredicate(builder, selectorPredicates);
                 if (selector.isNotMode()) {
-                    predicates.add(builder.not(predicate));
-                } else {
-                    predicates.add(predicate);
+                    predicate = builder.not(predicate);
                 }
             } else {
-                Predicate predicate = jpaUtil.andPredicate(builder, selectorPredicates);
+                predicate = jpaUtil.andPredicate(builder, selectorPredicates);
                 if (selector.isNotMode()) {
-                    predicates.add(builder.not(predicate));
-                } else {
-                    predicates.add(predicate);
+                    predicate = builder.not(predicate);
                 }
             }
+            predicates.add(predicate);
         }
     }
 
@@ -84,6 +82,7 @@ public class ByPropertySelectorUtil {
                 selected.remove(null);
                 selectorPredicates.add(builder.isNull(path));
             }
+            Predicate predicate;
             if (selector.isOrMode()) {
                 // re-use created pat if it exists in 'or' mode : only one join
                 if (path == null) {
@@ -92,11 +91,9 @@ public class ByPropertySelectorUtil {
                 for (String selection : selected) {
                     selectorPredicates.add(jpaUtil.stringPredicate(path, selection, selector.getSearchMode(), selector.isCaseSensitive(), builder));
                 }
-                Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);
+                predicate = jpaUtil.orPredicate(builder, selectorPredicates);
                 if (selector.isNotMode()) {
-                    predicates.add(builder.not(predicate));
-                } else {
-                    predicates.add(predicate);
+                    predicate = builder.not(predicate);
                 }
             } else {
                 for (String selection : selected) {
@@ -104,13 +101,12 @@ public class ByPropertySelectorUtil {
                     path = jpaUtil.getPath(root, selector.getPath());
                     selectorPredicates.add(jpaUtil.stringPredicate(path, selection, selector.getSearchMode(), selector.isCaseSensitive(), builder));
                 }
-                Predicate predicate = jpaUtil.andPredicate(builder, selectorPredicates);
+                predicate = jpaUtil.andPredicate(builder, selectorPredicates);
                 if (selector.isNotMode()) {
-                    predicates.add(builder.not(predicate));
-                } else {
-                    predicates.add(predicate);
+                    predicate = builder.not(predicate);
                 }
             }
+            predicates.add(predicate);
         }
     }
 
@@ -148,10 +144,9 @@ public class ByPropertySelectorUtil {
         }
         Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);
         if (selector.isNotMode()) {
-            predicates.add(builder.not(predicate));
-        } else {
-            predicates.add(predicate);
+            predicate = builder.not(predicate);
         }
+        predicates.add(predicate);
     }
 
     private <E> void byObjectAndModeSelector(Root<E> root, CriteriaBuilder builder, List<Predicate> predicates, PropertySelector<? super E, ?> selector) {
@@ -172,10 +167,9 @@ public class ByPropertySelectorUtil {
         }
         Predicate predicate = jpaUtil.andPredicate(builder, selectorPredicates);
         if (selector.isNotMode()) {
-            predicates.add(builder.not(predicate));
-        } else {
-            predicates.add(predicate);
+            predicate = builder.not(predicate);
         }
+        predicates.add(predicate);
     }
 
     @Inject

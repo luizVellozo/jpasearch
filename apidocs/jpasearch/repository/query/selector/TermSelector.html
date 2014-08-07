@@ -173,7 +173,15 @@ implements <a href="../../../../jpasearch/repository/query/selector/SingleSelect
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#isNotMode()">isNotMode</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#isOrMode()">isOrMode</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/TermSelector.html" title="class in jpasearch.repository.query.selector">TermSelector</a>&lt;<a href="../../../../jpasearch/repository/query/selector/TermSelector.html" title="type parameter in TermSelector">FROM</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#notMode(boolean)">notMode</a></strong>(boolean&nbsp;notMode)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../jpasearch/repository/query/selector/TermSelector.html" title="class in jpasearch.repository.query.selector">TermSelector</a>&lt;<a href="../../../../jpasearch/repository/query/selector/TermSelector.html" title="type parameter in TermSelector">FROM</a>&gt;</code></td>
@@ -185,23 +193,27 @@ implements <a href="../../../../jpasearch/repository/query/selector/SingleSelect
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#setOrMode(boolean)">setOrMode</a></strong>(boolean&nbsp;orMode)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#setNotMode(boolean)">setNotMode</a></strong>(boolean&nbsp;notMode)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#setSearchSimilarity(java.lang.Integer)">setSearchSimilarity</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;searchSimilarity)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#setOrMode(boolean)">setOrMode</a></strong>(boolean&nbsp;orMode)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#setSearchSimilarity(java.lang.Integer)">setSearchSimilarity</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;searchSimilarity)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#setSelected(java.util.List)">setSelected</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;selected)</code>
 <div class="block">Set the possible candidates for property.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#setSelected(java.lang.String)">setSelected</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;selected)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/selector/TermSelector.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -383,6 +395,33 @@ implements <a href="../../../../jpasearch/repository/query/selector/SingleSelect
 <li class="blockList">
 <h4>clearSelected</h4>
 <pre>public&nbsp;void&nbsp;clearSelected()</pre>
+</li>
+</ul>
+<a name="isNotMode()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isNotMode</h4>
+<pre>public&nbsp;boolean&nbsp;isNotMode()</pre>
+</li>
+</ul>
+<a name="setNotMode(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNotMode</h4>
+<pre>public&nbsp;void&nbsp;setNotMode(boolean&nbsp;notMode)</pre>
+</li>
+</ul>
+<a name="notMode(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>notMode</h4>
+<pre>public&nbsp;<a href="../../../../jpasearch/repository/query/selector/TermSelector.html" title="class in jpasearch.repository.query.selector">TermSelector</a>&lt;<a href="../../../../jpasearch/repository/query/selector/TermSelector.html" title="type parameter in TermSelector">FROM</a>&gt;&nbsp;notMode(boolean&nbsp;notMode)</pre>
 </li>
 </ul>
 <a name="toString()">

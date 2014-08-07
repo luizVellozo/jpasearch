@@ -16,6 +16,7 @@ public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSele
     private List<String> selected = new ArrayList<>();
     private boolean orMode = true;
     private Integer searchSimilarity = null;
+    private boolean notMode = false;
 
     public TermSelector(Path<FROM, ?> path) {
         paths = new ArrayList<>();
@@ -111,6 +112,19 @@ public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSele
         if (selected != null) {
             selected.clear();
         }
+    }
+
+    public boolean isNotMode() {
+        return notMode;
+    }
+
+    public void setNotMode(boolean notMode) {
+        this.notMode = notMode;
+    }
+
+    public TermSelector<FROM> notMode(boolean notMode) {
+        setNotMode(notMode);
+        return this;
     }
 
     @Override

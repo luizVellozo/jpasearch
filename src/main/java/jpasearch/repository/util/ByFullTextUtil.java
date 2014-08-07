@@ -57,7 +57,11 @@ public class ByFullTextUtil {
             return builder.disjunction();
         }
 
-        return root.get("id").in(ids);
+        Predicate predicate = root.get("id").in(ids);
+        if (termSelector.isNotMode()) {
+            predicate = builder.not(predicate);
+        }
+        return predicate;
     }
 
     @Inject

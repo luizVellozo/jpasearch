@@ -178,7 +178,7 @@ public class Range<E, D extends Comparable> implements SingleSelector<E, D, Rang
         this.includeLowerBound = includeLowerBound;
     }
 
-    public Range includeLowerBound(boolean includeLowerBound) {
+    public Range<E, D> includeLowerBound(boolean includeLowerBound) {
         setIncludeLowerBound(includeLowerBound);
         return this;
     }
@@ -195,7 +195,7 @@ public class Range<E, D extends Comparable> implements SingleSelector<E, D, Rang
         this.includeHigherBound = includeHigherBound;
     }
 
-    public Range includeHigherBound(boolean includeHigherBound) {
+    public Range<E, D> includeHigherBound(boolean includeHigherBound) {
         setIncludeHigherBound(includeHigherBound);
         return this;
     }

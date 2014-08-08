@@ -12,7 +12,6 @@ import javax.persistence.metamodel.SingularAttribute;
 import jpasearch.repository.query.OrderByDirection;
 import jpasearch.repository.query.Path;
 import jpasearch.repository.query.SearchParameters;
-import jpasearch.repository.query.selector.Range;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -82,14 +81,20 @@ public class SearchBuilder<FROM> implements Serializable {
     // SearchParameters by selectors support
     // -------------------------------------
 
-    public <E extends Comparable<? super E>> SearchBuilder<FROM> between(E from, E to, SingularAttribute<? super FROM, E> attribute) {
-        rootSelectorsBuilder.add(new Range<FROM, E>(from, to, new Path<>(attribute)));
-        return this;
+    public <TO> RangeBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>> range(SingularAttribute<? super FROM, TO> attribute) {
+        return new RangeBuilder<>(rootSelectorsBuilder, attribute);
     }
 
-    public <E extends Comparable<? super E>> SearchBuilder<FROM> between(E from, E to, PluralAttribute<? super FROM, ?, E> attribute) {
-        rootSelectorsBuilder.add(new Range<FROM, E>(from, to, new Path<>(attribute)));
-        return this;
+    public <TO> RangeBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>> range(PluralAttribute<? super FROM, ?, TO> attribute) {
+        return new RangeBuilder<>(rootSelectorsBuilder, attribute);
+    }
+
+    public <TO extends Comparable<TO>> RangeFinalBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>> rangeOn(SingularAttribute<? super FROM, TO> attribute) {
+        return new RangeFinalBuilder<>(rootSelectorsBuilder, attribute);
+    }
+
+    public <TO extends Comparable<TO>> RangeFinalBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>> rangeOn(PluralAttribute<? super FROM, ?, TO> attribute) {
+        return new RangeFinalBuilder<>(rootSelectorsBuilder, attribute);
     }
 
     public <TO> TermSelectorPathBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>, SearchBuilder<FROM>> fullText(SingularAttribute<? super FROM, TO> attribute) {

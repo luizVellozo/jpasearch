@@ -36,7 +36,16 @@ public class ByRangeUtil {
         Predicate rangePredicate = null;
         Path<D> path = jpaUtil.getPath(root, range.getPath());
         if (range.isBetween()) {
-            rangePredicate = builder.between(path, range.getLowerBound(), range.getHigherBound());
+            if (range.isIncludeLowerBound() && range.isIncludeHigherBound()) {
+                // assuming between include bounds
+                rangePredicate = builder.between(path, range.getLowerBound(), range.getHigherBound());
+            } else if (range.isIncludeHigherBound()) {
+                rangePredicate = builder.and(builder.greaterThan(path, range.getLowerBound()), builder.lessThanOrEqualTo(path, range.getHigherBound()));
+            } else if (range.isIncludeLowerBound()) {
+                rangePredicate = builder.and(builder.greaterThanOrEqualTo(path, range.getLowerBound()), builder.lessThan(path, range.getHigherBound()));
+            } else {
+                rangePredicate = builder.and(builder.greaterThan(path, range.getLowerBound()), builder.lessThan(path, range.getHigherBound()));
+            }
         } else if (range.isLowerBoundSet()) {
             if (range.isIncludeLowerBound()) {
                 rangePredicate = builder.greaterThanOrEqualTo(path, range.getLowerBound());
@@ -52,7 +61,7 @@ public class ByRangeUtil {
         }
 
         if (rangePredicate != null) {
-            if (!range.isIncludeNullSet() || (range.getIncludeNull() == FALSE)) {
+            if (TRUE != range.getIncludeNull()) {
                 return rangePredicate;
             } else {
                 return builder.or(rangePredicate, builder.isNull(path));

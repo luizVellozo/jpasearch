@@ -29,11 +29,11 @@ public class FetchBuilder<F, FROM, TO> extends AbstractPathBuilder<FetchesBuilde
     }
 
     public <E> FetchBuilder<F, TO, E> to(SingularAttribute<? super TO, E> attribute) {
-        return new FetchBuilder<F, TO, E>(getParent(), this, attribute);
+        return new FetchBuilder<>(getParent(), this, attribute);
     }
 
     public <E> FetchBuilder<F, TO, E> to(PluralAttribute<? super TO, ?, E> attribute) {
-        return new FetchBuilder<F, TO, E>(getParent(), this, attribute);
+        return new FetchBuilder<>(getParent(), this, attribute);
     }
 
 }

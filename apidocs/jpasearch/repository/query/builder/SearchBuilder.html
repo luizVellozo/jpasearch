@@ -149,18 +149,6 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>&lt;E extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;? super E&gt;&gt;&nbsp;<br><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#between(E, E, javax.persistence.metamodel.PluralAttribute)">between</a></strong>(E&nbsp;from,
-       E&nbsp;to,
-       javax.persistence.metamodel.PluralAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,?,E&gt;&nbsp;attribute)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>&lt;E extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;? super E&gt;&gt;&nbsp;<br><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#between(E, E, javax.persistence.metamodel.SingularAttribute)">between</a></strong>(E&nbsp;from,
-       E&nbsp;to,
-       javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,E&gt;&nbsp;attribute)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../jpasearch/repository/query/SearchParameters.html" title="class in jpasearch.repository.query">SearchParameters</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#build()">build</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -218,6 +206,22 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <td class="colFirst"><code><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#paginate(int, int)">paginate</a></strong>(int&nbsp;first,
         int&nbsp;count)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&lt;TO&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#range(javax.persistence.metamodel.PluralAttribute)">range</a></strong>(javax.persistence.metamodel.PluralAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,?,TO&gt;&nbsp;attribute)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>&lt;TO&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#range(javax.persistence.metamodel.SingularAttribute)">range</a></strong>(javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO&gt;&nbsp;attribute)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&lt;TO extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;TO&gt;&gt;&nbsp;<br><a href="../../../../jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#rangeOn(javax.persistence.metamodel.PluralAttribute)">rangeOn</a></strong>(javax.persistence.metamodel.PluralAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,?,TO&gt;&nbsp;attribute)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>&lt;TO extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;TO&gt;&gt;&nbsp;<br><a href="../../../../jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html#rangeOn(javax.persistence.metamodel.SingularAttribute)">rangeOn</a></strong>(javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO&gt;&nbsp;attribute)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
@@ -309,30 +313,40 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
                           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&nbsp;from)</pre>
 </li>
 </ul>
-<a name="between(java.lang.Comparable,java.lang.Comparable,javax.persistence.metamodel.SingularAttribute)">
-<!--   -->
-</a><a name="between(E, E, javax.persistence.metamodel.SingularAttribute)">
+<a name="range(javax.persistence.metamodel.SingularAttribute)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>between</h4>
-<pre>public&nbsp;&lt;E extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;? super E&gt;&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&nbsp;between(E&nbsp;from,
-                                                            E&nbsp;to,
-                                                            javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,E&gt;&nbsp;attribute)</pre>
+<h4>range</h4>
+<pre>public&nbsp;&lt;TO&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;&nbsp;range(javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO&gt;&nbsp;attribute)</pre>
 </li>
 </ul>
-<a name="between(java.lang.Comparable,java.lang.Comparable,javax.persistence.metamodel.PluralAttribute)">
-<!--   -->
-</a><a name="between(E, E, javax.persistence.metamodel.PluralAttribute)">
+<a name="range(javax.persistence.metamodel.PluralAttribute)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>between</h4>
-<pre>public&nbsp;&lt;E extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;? super E&gt;&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&nbsp;between(E&nbsp;from,
-                                                            E&nbsp;to,
-                                                            javax.persistence.metamodel.PluralAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,?,E&gt;&nbsp;attribute)</pre>
+<h4>range</h4>
+<pre>public&nbsp;&lt;TO&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;&nbsp;range(javax.persistence.metamodel.PluralAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,?,TO&gt;&nbsp;attribute)</pre>
+</li>
+</ul>
+<a name="rangeOn(javax.persistence.metamodel.SingularAttribute)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>rangeOn</h4>
+<pre>public&nbsp;&lt;TO extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;TO&gt;&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;&nbsp;rangeOn(javax.persistence.metamodel.SingularAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO&gt;&nbsp;attribute)</pre>
+</li>
+</ul>
+<a name="rangeOn(javax.persistence.metamodel.PluralAttribute)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>rangeOn</h4>
+<pre>public&nbsp;&lt;TO extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;TO&gt;&gt;&nbsp;<a href="../../../../jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,TO,<a href="../../../../jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a>&lt;<a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>&gt;&gt;&nbsp;rangeOn(javax.persistence.metamodel.PluralAttribute&lt;? super <a href="../../../../jpasearch/repository/query/builder/SearchBuilder.html" title="type parameter in SearchBuilder">FROM</a>,?,TO&gt;&nbsp;attribute)</pre>
 </li>
 </ul>
 <a name="fullText(javax.persistence.metamodel.SingularAttribute)">

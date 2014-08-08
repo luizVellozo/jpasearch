@@ -104,6 +104,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/OrderByBuilder.html#and(javax.persistence.metamodel.PluralAttribute)">and(PluralAttribute&lt;? super TO, ?, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/OrderByBuilder.html" title="class in jpasearch.repository.query.builder">OrderByBuilder</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#and()">and()</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/RootSelectorsBuilder.html#and()">and()</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RootSelectorsBuilder.html" title="class in jpasearch.repository.query.builder">RootSelectorsBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/selector/TermSelector.html#and()">and()</a></span> - Method in class jpasearch.repository.query.selector.<a href="./jpasearch/repository/query/selector/TermSelector.html" title="class in jpasearch.repository.query.selector">TermSelector</a></dt>
@@ -132,9 +134,7 @@
 </a>
 <h2 class="title">B</h2>
 <dl>
-<dt><span class="strong"><a href="./jpasearch/repository/query/builder/SearchBuilder.html#between(E, E, javax.persistence.metamodel.SingularAttribute)">between(E, E, SingularAttribute&lt;? super FROM, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./jpasearch/repository/query/builder/SearchBuilder.html#between(E, E, javax.persistence.metamodel.PluralAttribute)">between(E, E, PluralAttribute&lt;? super FROM, ?, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a></dt>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#between(TO, TO)">between(TO, TO)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/SelectorBuilder.html#between(E, E, javax.persistence.metamodel.SingularAttribute)">between(E, E, SingularAttribute&lt;? super TO, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/SelectorBuilder.html" title="class in jpasearch.repository.query.builder">SelectorBuilder</a></dt>
 <dd>&nbsp;</dd>
@@ -273,6 +273,14 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/SelectorBuilder.html#equalsTo(TO...)">equalsTo(TO...)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/SelectorBuilder.html" title="class in jpasearch.repository.query.builder">SelectorBuilder</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#excludingBounds()">excludingBounds()</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#excludingHigherBound()">excludingHigherBound()</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#excludingLowerBound()">excludingLowerBound()</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#excludingNull()">excludingNull()</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a name="_F_">
 <!--   -->
@@ -300,6 +308,10 @@
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/FetchesBuilder.html#FetchesBuilder(jpasearch.repository.query.builder.SearchBuilder)">FetchesBuilder(SearchBuilder&lt;FROM&gt;)</a></span> - Constructor for class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/FetchesBuilder.html" title="class in jpasearch.repository.query.builder">FetchesBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/FetchesBuilder.html#FetchesBuilder(jpasearch.repository.query.builder.SearchBuilder, java.util.Set)">FetchesBuilder(SearchBuilder&lt;FROM&gt;, Set&lt;Path&lt;FROM, ?&gt;&gt;)</a></span> - Constructor for class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/FetchesBuilder.html" title="class in jpasearch.repository.query.builder">FetchesBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeBuilder.html#finallyOn(javax.persistence.metamodel.SingularAttribute)">finallyOn(SingularAttribute&lt;? super TO, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeBuilder.html#finallyOn(javax.persistence.metamodel.PluralAttribute)">finallyOn(PluralAttribute&lt;? super TO, ?, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/GenericRepository.html#find(jpasearch.repository.query.SearchParameters)">find(SearchParameters&lt;E&gt;)</a></span> - Method in interface jpasearch.repository.<a href="./jpasearch/repository/GenericRepository.html" title="interface in jpasearch.repository">GenericRepository</a></dt>
 <dd>
@@ -504,6 +516,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/selector/Range.html#includeNull(java.lang.Boolean)">includeNull(Boolean)</a></span> - Method in class jpasearch.repository.query.selector.<a href="./jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#includingNull()">includingNull()</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/selector/Selectors.html#isAndMode()">isAndMode()</a></span> - Method in class jpasearch.repository.query.selector.<a href="./jpasearch/repository/query/selector/Selectors.html" title="class in jpasearch.repository.query.selector">Selectors</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/selector/Range.html#isBetween()">isBetween()</a></span> - Method in class jpasearch.repository.query.selector.<a href="./jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a></dt>
@@ -597,6 +611,8 @@
 </a>
 <h2 class="title">L</h2>
 <dl>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#lessThan(TO)">lessThan(TO)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/SelectorBuilder.html#like(TO...)">like(TO...)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/SelectorBuilder.html" title="class in jpasearch.repository.query.builder">SelectorBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/selector/Range.html#lowerBound(D)">lowerBound(D)</a></span> - Method in class jpasearch.repository.query.selector.<a href="./jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a></dt>
@@ -614,6 +630,8 @@
 <dt><a href="./jpasearch/repository/util/MetamodelUtil.html" title="class in jpasearch.repository.util"><span class="strong">MetamodelUtil</span></a> - Class in <a href="./jpasearch/repository/util/package-summary.html">jpasearch.repository.util</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/util/MetamodelUtil.html#MetamodelUtil()">MetamodelUtil()</a></span> - Constructor for class jpasearch.repository.util.<a href="./jpasearch/repository/util/MetamodelUtil.html" title="class in jpasearch.repository.util">MetamodelUtil</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#moreThan(TO)">moreThan(TO)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="_N_">
@@ -740,6 +758,10 @@
 </a>
 <h2 class="title">R</h2>
 <dl>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/SearchBuilder.html#range(javax.persistence.metamodel.SingularAttribute)">range(SingularAttribute&lt;? super FROM, TO&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/SearchBuilder.html#range(javax.persistence.metamodel.PluralAttribute)">range(PluralAttribute&lt;? super FROM, ?, TO&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="./jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector"><span class="strong">Range</span></a>&lt;<a href="./jpasearch/repository/query/selector/Range.html" title="type parameter in Range">E</a>,<a href="./jpasearch/repository/query/selector/Range.html" title="type parameter in Range">D</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&gt; - Class in <a href="./jpasearch/repository/query/selector/package-summary.html">jpasearch.repository.query.selector</a></dt>
 <dd>
 <div class="block">Range support for <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a> types.</div>
@@ -757,6 +779,26 @@
 <dd>
 <div class="block">Constructs a new Range.</div>
 </dd>
+<dt><a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">RangeBuilder</span></a>&lt;<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="type parameter in RangeBuilder">F</a>,<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="type parameter in RangeBuilder">FROM</a>,<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="type parameter in RangeBuilder">TO</a>,<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="type parameter in RangeBuilder">B</a> extends <a href="./jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">SelectorsBuilder</a>&lt;<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="type parameter in RangeBuilder">F</a>,?,<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="type parameter in RangeBuilder">B</a>&gt;&gt; - Class in <a href="./jpasearch/repository/query/builder/package-summary.html">jpasearch.repository.query.builder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeBuilder.html#RangeBuilder(B, jpasearch.repository.query.Path)">RangeBuilder(B, Path&lt;F, TO&gt;)</a></span> - Constructor for class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeBuilder.html#RangeBuilder(B, javax.persistence.metamodel.PluralAttribute)">RangeBuilder(B, PluralAttribute&lt;? super F, ?, TO&gt;)</a></span> - Constructor for class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeBuilder.html#RangeBuilder(B, javax.persistence.metamodel.SingularAttribute)">RangeBuilder(B, SingularAttribute&lt;? super F, TO&gt;)</a></span> - Constructor for class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">RangeFinalBuilder</span></a>&lt;<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="type parameter in RangeFinalBuilder">F</a>,<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="type parameter in RangeFinalBuilder">FROM</a>,<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="type parameter in RangeFinalBuilder">TO</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="type parameter in RangeFinalBuilder">TO</a>&gt;,<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="type parameter in RangeFinalBuilder">B</a> extends <a href="./jpasearch/repository/query/builder/SelectorsBuilder.html" title="class in jpasearch.repository.query.builder">SelectorsBuilder</a>&lt;<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="type parameter in RangeFinalBuilder">F</a>,?,<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="type parameter in RangeFinalBuilder">B</a>&gt;&gt; - Class in <a href="./jpasearch/repository/query/builder/package-summary.html">jpasearch.repository.query.builder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#RangeFinalBuilder(B, jpasearch.repository.query.Path)">RangeFinalBuilder(B, Path&lt;F, TO&gt;)</a></span> - Constructor for class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#RangeFinalBuilder(B, javax.persistence.metamodel.PluralAttribute)">RangeFinalBuilder(B, PluralAttribute&lt;? super F, ?, TO&gt;)</a></span> - Constructor for class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html#RangeFinalBuilder(B, javax.persistence.metamodel.SingularAttribute)">RangeFinalBuilder(B, SingularAttribute&lt;? super F, TO&gt;)</a></span> - Constructor for class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeFinalBuilder.html" title="class in jpasearch.repository.query.builder">RangeFinalBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/SearchBuilder.html#rangeOn(javax.persistence.metamodel.SingularAttribute)">rangeOn(SingularAttribute&lt;? super FROM, TO&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/SearchBuilder.html#rangeOn(javax.persistence.metamodel.PluralAttribute)">rangeOn(PluralAttribute&lt;? super FROM, ?, TO&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/SearchBuilder.html" title="class in jpasearch.repository.query.builder">SearchBuilder</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/selector/Range.html#resetRange()">resetRange()</a></span> - Method in class jpasearch.repository.query.selector.<a href="./jpasearch/repository/query/selector/Range.html" title="class in jpasearch.repository.query.selector">Range</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./jpasearch/repository/query/builder/ResultBuilder.html" title="class in jpasearch.repository.query.builder"><span class="strong">ResultBuilder</span></a>&lt;<a href="./jpasearch/repository/query/builder/ResultBuilder.html" title="type parameter in ResultBuilder">F</a>,<a href="./jpasearch/repository/query/builder/ResultBuilder.html" title="type parameter in ResultBuilder">FROM</a>,<a href="./jpasearch/repository/query/builder/ResultBuilder.html" title="type parameter in ResultBuilder">TO</a>&gt; - Class in <a href="./jpasearch/repository/query/builder/package-summary.html">jpasearch.repository.query.builder</a></dt>
@@ -946,6 +988,10 @@
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/FetchBuilder.html#to(javax.persistence.metamodel.SingularAttribute)">to(SingularAttribute&lt;? super TO, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/FetchBuilder.html" title="class in jpasearch.repository.query.builder">FetchBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/FetchBuilder.html#to(javax.persistence.metamodel.PluralAttribute)">to(PluralAttribute&lt;? super TO, ?, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/FetchBuilder.html" title="class in jpasearch.repository.query.builder">FetchBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeBuilder.html#to(javax.persistence.metamodel.SingularAttribute)">to(SingularAttribute&lt;? super TO, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./jpasearch/repository/query/builder/RangeBuilder.html#to(javax.persistence.metamodel.PluralAttribute)">to(PluralAttribute&lt;? super TO, ?, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/RangeBuilder.html" title="class in jpasearch.repository.query.builder">RangeBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./jpasearch/repository/query/builder/ResultBuilder.html#to(javax.persistence.metamodel.SingularAttribute)">to(SingularAttribute&lt;? super TO, E&gt;)</a></span> - Method in class jpasearch.repository.query.builder.<a href="./jpasearch/repository/query/builder/ResultBuilder.html" title="class in jpasearch.repository.query.builder">ResultBuilder</a></dt>
 <dd>&nbsp;</dd>

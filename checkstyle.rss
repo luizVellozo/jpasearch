@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2014 jpasearch</copyright>
     <item>
-      <title>File: 44,
-             Errors: 1442,
+      <title>File: 46,
+             Errors: 1539,
              Warnings: 0,
              Infos: 0
       </title>
@@ -154,6 +154,20 @@ under the License.
                 </td>
                 <td>
                   38
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.builder.RangeFinalBuilder.java">jpasearch/repository/query/builder/RangeFinalBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  53
                 </td>
               </tr>
                           <tr>
@@ -335,7 +349,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  18
+                  20
                 </td>
               </tr>
                           <tr>
@@ -363,7 +377,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  91
+                  93
                 </td>
               </tr>
                           <tr>
@@ -518,6 +532,20 @@ under the License.
                 </td>
                 <td>
                   22
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://jpasearch.github.io/jpasearch/checkstyle.html#jpasearch.repository.query.builder.RangeBuilder.java">jpasearch/repository/query/builder/RangeBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  40
                 </td>
               </tr>
                           <tr>

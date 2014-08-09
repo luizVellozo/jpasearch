@@ -137,9 +137,13 @@ public class ByPropertySelectorUtil {
                 for (Object selection : selected) {
                     ids.add(((Identifiable<?>) selection).getId());
                 }
-                selectorPredicates.add(path.get("id").in(ids));
-            } else {
+                path = path.get("id");
+                selected = ids;
+            }
+            if (selected.size() > 1) {
                 selectorPredicates.add(path.in(selected));
+            } else {
+                selectorPredicates.add(builder.equal(path, selected.get(0)));
             }
         }
         Predicate predicate = jpaUtil.orPredicate(builder, selectorPredicates);

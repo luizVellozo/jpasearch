@@ -9,7 +9,7 @@ import jpasearch.repository.query.selector.Range;
 /**
  * @author speralta
  */
-public class RangeFinalBuilder<F, FROM, TO extends Comparable<TO>, B extends SelectorsBuilder<F, ?, B>> extends AbstractPathBuilder<B, F, FROM, TO> {
+public class RangeFinalBuilder<F, FROM, TO extends Comparable<? super TO>, B extends SelectorsBuilder<F, ?, B>> extends AbstractPathBuilder<B, F, FROM, TO> {
 
     private Boolean includeNull = null;
     private boolean includeLowerBound = true;

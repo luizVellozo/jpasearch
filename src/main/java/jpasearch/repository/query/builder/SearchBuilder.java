@@ -89,11 +89,11 @@ public class SearchBuilder<FROM> implements Serializable {
         return new RangeBuilder<>(rootSelectorsBuilder, attribute);
     }
 
-    public <TO extends Comparable<TO>> RangeFinalBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>> rangeOn(SingularAttribute<? super FROM, TO> attribute) {
+    public <TO extends Comparable<? super TO>> RangeFinalBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>> rangeOn(SingularAttribute<? super FROM, TO> attribute) {
         return new RangeFinalBuilder<>(rootSelectorsBuilder, attribute);
     }
 
-    public <TO extends Comparable<TO>> RangeFinalBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>> rangeOn(PluralAttribute<? super FROM, ?, TO> attribute) {
+    public <TO extends Comparable<? super TO>> RangeFinalBuilder<FROM, FROM, TO, RootSelectorsBuilder<FROM>> rangeOn(PluralAttribute<? super FROM, ?, TO> attribute) {
         return new RangeFinalBuilder<>(rootSelectorsBuilder, attribute);
     }
 

@@ -27,7 +27,7 @@ public abstract class JpaSimpleRepository<E extends Identifiable<PK>, PK extends
     public final E save(E entity) {
         E result = getEntityManager().merge(entity);
         logger.debug("Entity merged {}.", result);
-        postSave(entity);
+        postSave(result);
         return result;
     }
 
@@ -36,7 +36,7 @@ public abstract class JpaSimpleRepository<E extends Identifiable<PK>, PK extends
         E toRemove = getEntityManager().find(getType(), entity.getId());
         getEntityManager().remove(toRemove);
         logger.debug("Entity removed {}.", toRemove);
-        postDelete(entity);
+        postDelete(toRemove);
     }
 
     // Could be overriden

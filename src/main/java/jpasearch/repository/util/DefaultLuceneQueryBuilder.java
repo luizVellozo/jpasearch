@@ -36,7 +36,7 @@ public class DefaultLuceneQueryBuilder implements LuceneQueryBuilder {
                 if (isNotBlank(selected)) {
                     String[] values = selected.split(PUNCTUATION);
                     for (String value : values) {
-                        if (isNotBlank(value)) {
+                        if (isNotBlank(value) && (value.length() >= 2)) {
                             List<String> fields = termSelector.getPaths();
                             BooleanJunction<?> valueContext = builder.bool();
 

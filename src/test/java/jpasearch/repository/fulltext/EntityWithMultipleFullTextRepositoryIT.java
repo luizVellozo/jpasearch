@@ -57,10 +57,43 @@ public class EntityWithMultipleFullTextRepositoryIT {
         assertThat(entityWithMultipleFullTextRepository.find(findByValue(testValue))).containsExactly(entityWithMultipleFullText);
     }
 
-    private SearchParameters<EntityWithMultipleFullText> findByValue(String value) {
+    @Test
+    public void testAnd() {
+        final String testValue1 = "abc";
+        final String testValue2 = "def";
+
+        assertThat(entityWithMultipleFullTextRepository.findCount(findByValue(testValue1, testValue2))).isEqualTo(0);
+
+        EntityWithMultipleFullText entityWithMultipleFullText = new EntityWithMultipleFullText();
+        entityWithMultipleFullText.setValue1(testValue1);
+        entityWithMultipleFullText.setValue2(testValue2);
+        entityWithMultipleFullText = entityWithMultipleFullTextRepository.save(entityWithMultipleFullText);
+
+        EntityWithMultipleFullText entityWithMultipleFullText2 = new EntityWithMultipleFullText();
+        entityWithMultipleFullText2.setValue1(testValue1);
+        entityWithMultipleFullText2.setValue2("toto");
+        entityWithMultipleFullText2 = entityWithMultipleFullTextRepository.save(entityWithMultipleFullText2);
+
+        EntityWithMultipleFullText entityWithMultipleFullText3 = new EntityWithMultipleFullText();
+        entityWithMultipleFullText3.setValue1("toto");
+        entityWithMultipleFullText3.setValue2(testValue2);
+        entityWithMultipleFullText3 = entityWithMultipleFullTextRepository.save(entityWithMultipleFullText3);
+
+        FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(entityManager);
+        fullTextEntityManager.index(entityWithMultipleFullText);
+        fullTextEntityManager.index(entityWithMultipleFullText2);
+        fullTextEntityManager.index(entityWithMultipleFullText3);
+        fullTextEntityManager.flushToIndexes();
+        fullTextEntityManager.flush();
+
+        assertThat(entityWithMultipleFullTextRepository.find(findByValue(testValue1, testValue2))).containsExactly(entityWithMultipleFullText);
+    }
+
+    private SearchParameters<EntityWithMultipleFullText> findByValue(String... value) {
         return new SearchBuilder<EntityWithMultipleFullText>() //
                 .fullText(EntityWithMultipleFullText_.value1) //
                 .andOn(EntityWithMultipleFullText_.value2) //
+                .andMode() //
                 .search(value) //
                 .build();
     }

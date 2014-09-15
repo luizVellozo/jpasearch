@@ -16,6 +16,7 @@ public class TermSelectorBuilder<FROM, PARENT extends SelectorsBuilder<FROM, GRA
 
     private final List<Path<FROM, ?>> paths = new ArrayList<>();
     private Integer searchSimilarity = null;
+    private boolean orMode = true;
 
     public TermSelectorBuilder(PARENT parent) {
         super(parent);
@@ -34,10 +35,16 @@ public class TermSelectorBuilder<FROM, PARENT extends SelectorsBuilder<FROM, GRA
         return this;
     }
 
+    public TermSelectorBuilder<FROM, PARENT, GRANDPARENT> andMode() {
+        this.orMode = false;
+        return this;
+    }
+
     public PARENT search(String... selected) {
         TermSelector<FROM> termSelector = new TermSelector<FROM>(paths);
         termSelector.selected(selected);
         termSelector.setSearchSimilarity(searchSimilarity);
+        termSelector.setOrMode(orMode);
         return toParent().add(termSelector);
     }
 
@@ -61,6 +68,11 @@ public class TermSelectorBuilder<FROM, PARENT extends SelectorsBuilder<FROM, GRA
     protected TermSelectorBuilder<FROM, PARENT, GRANDPARENT> searchSimilarity(TermSelectorPathBuilder<FROM, ?, ?, PARENT, GRANDPARENT> termSelectorPathBuilder, Integer searchSimilarity) {
         addPath(termSelectorPathBuilder);
         return searchSimilarity(searchSimilarity);
+    }
+
+    protected TermSelectorBuilder<FROM, PARENT, GRANDPARENT> andMode(TermSelectorPathBuilder<FROM, ?, ?, PARENT, GRANDPARENT> termSelectorPathBuilder) {
+        addPath(termSelectorPathBuilder);
+        return andMode();
     }
 
     private void addPath(TermSelectorPathBuilder<FROM, ?, ?, PARENT, GRANDPARENT> termSelectorPathBuilder) {

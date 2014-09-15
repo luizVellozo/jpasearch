@@ -31,6 +31,10 @@ public class TermSelectorPathBuilder<F, FROM, TO, PARENT extends SelectorsBuilde
         return getParent().searchSimilarity(this, searchSimilarity);
     }
 
+    public TermSelectorBuilder<F, PARENT, GRANDPARENT> andMode() {
+        return getParent().andMode(this);
+    }
+
     public PARENT search(String... selected) {
         return getParent().search(this, selected);
     }

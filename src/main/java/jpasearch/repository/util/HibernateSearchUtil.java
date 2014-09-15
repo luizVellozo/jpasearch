@@ -56,6 +56,7 @@ public class HibernateSearchUtil {
             return null;
         }
 
+        logger.debug("Query: {}.", query.toString());
         FullTextQuery ftq = fullTextEntityManager.createFullTextQuery( //
                 query, type);
         ftq.setProjection("id");

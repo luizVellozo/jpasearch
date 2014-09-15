@@ -10,7 +10,6 @@ import javax.inject.Singleton;
 
 import jpasearch.repository.query.selector.TermSelector;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.search.Query;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.query.dsl.BooleanJunction;
@@ -22,7 +21,7 @@ import org.hibernate.search.query.dsl.WildcardContext;
 @Singleton
 public class DefaultLuceneQueryBuilder implements LuceneQueryBuilder {
 
-    private static final String PUNCTUATION = "\\p{Punct}";
+    private static final String PUNCTUATION = "\\p{Punct}|\\p{Space}";
 
     @Override
     public <T> Query build(FullTextEntityManager fullTextEntityManager, TermSelector<T> termSelector, Class<? extends T> type) {
@@ -35,44 +34,46 @@ public class DefaultLuceneQueryBuilder implements LuceneQueryBuilder {
             BooleanJunction<?> termContext = builder.bool();
             for (String selected : termSelector.getSelected()) {
                 if (isNotBlank(selected)) {
-                    String value = StringUtils.join(selected.split(PUNCTUATION), " ");
-                    if (isNotBlank(value)) {
-                        List<String> fields = termSelector.getPaths();
-                        BooleanJunction<?> valueContext = builder.bool();
+                    String[] values = selected.split(PUNCTUATION);
+                    for (String value : values) {
+                        if (isNotBlank(value)) {
+                            List<String> fields = termSelector.getPaths();
+                            BooleanJunction<?> valueContext = builder.bool();
 
-                        // fuzzy search
-                        if (termSelector.getSearchSimilarity() != null) {
-                            valueContext.should(builder.keyword().fuzzy() //
-                                    .withEditDistanceUpTo(termSelector.getSearchSimilarity()) //
+                            // fuzzy search
+                            if (termSelector.getSearchSimilarity() != null) {
+                                valueContext.should(builder.keyword().fuzzy() //
+                                        .withEditDistanceUpTo(termSelector.getSearchSimilarity()) //
+                                        .onFields(fields.toArray(new String[fields.size()])) //
+                                        .matching(value).createQuery());
+                            }
+
+                            // keyword search
+                            valueContext.should(builder.keyword() //
                                     .onFields(fields.toArray(new String[fields.size()])) //
                                     .matching(value).createQuery());
-                        }
 
-                        // keyword search
-                        valueContext.should(builder.keyword() //
-                                .onFields(fields.toArray(new String[fields.size()])) //
-                                .matching(value).createQuery());
-
-                        // wildcard search
-                        // no #onFields on wildcardContext
-                        WildcardContext wildcardContext = builder.keyword().wildcard();
-                        TermMatchingContext termMatchingContext = null;
-                        for (String field : fields) {
-                            if (termMatchingContext != null) {
-                                termMatchingContext = termMatchingContext.andField(field);
-                            } else {
-                                termMatchingContext = wildcardContext.onField(field);
+                            // wildcard search
+                            // no #onFields on wildcardContext
+                            WildcardContext wildcardContext = builder.keyword().wildcard();
+                            TermMatchingContext termMatchingContext = null;
+                            for (String field : fields) {
+                                if (termMatchingContext != null) {
+                                    termMatchingContext = termMatchingContext.andField(field);
+                                } else {
+                                    termMatchingContext = wildcardContext.onField(field);
+                                }
                             }
-                        }
-                        valueContext.should(termMatchingContext. //
-                                matching("*" + value + "*").createQuery());
+                            valueContext.should(termMatchingContext. //
+                                    matching("*" + value + "*").createQuery());
 
-                        if (termSelector.isOrMode()) {
-                            termContext.should(valueContext.createQuery());
-                        } else {
-                            termContext.must(valueContext.createQuery());
+                            if (termSelector.isOrMode()) {
+                                termContext.should(valueContext.createQuery());
+                            } else {
+                                termContext.must(valueContext.createQuery());
+                            }
+                            hasTerms = true;
                         }
-                        hasTerms = true;
                     }
                 }
             }

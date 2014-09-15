@@ -4,7 +4,7 @@
   <groupId>io.github.jpasearch</groupId>
   <artifactId>jpasearch</artifactId>
   <packaging>jar</packaging>
-  <version>0.2.4-SNAPSHOT</version>
+  <version>0.2.4</version>
   <name>JPA Search</name>
   <description>Generic repository for jpa entities</description>
   <url>https://jpasearch.github.io/jpasearch</url>
@@ -23,7 +23,7 @@
     <url>https://github.com/jpasearch/jpasearch</url>
     <connection>scm:git:https://github.com/jpasearch/jpasearch.git</connection>
     <developerConnection>scm:git:git@github.com:jpasearch/jpasearch.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>jpasearch-0.2.4</tag>
   </scm>
   <issueManagement>
     <system>GitHub</system>

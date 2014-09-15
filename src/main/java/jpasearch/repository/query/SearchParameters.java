@@ -7,6 +7,9 @@ import java.util.Set;
 
 import jpasearch.repository.query.selector.Selectors;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 /**
  * @author speralta
  */
@@ -74,6 +77,11 @@ public class SearchParameters<FROM> implements Serializable {
 
     public boolean isUseDistinct() {
         return useDistinct;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
 }

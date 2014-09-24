@@ -2,6 +2,9 @@ package jpasearch.repository.query.selector;
 
 import jpasearch.repository.query.Path;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 /**
  * Range support for {@link Comparable} types.
  */
@@ -198,5 +201,10 @@ public class Range<E, D extends Comparable> implements SingleSelector<E, D, Rang
     public Range<E, D> includeHigherBound(boolean includeHigherBound) {
         setIncludeHigherBound(includeHigherBound);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

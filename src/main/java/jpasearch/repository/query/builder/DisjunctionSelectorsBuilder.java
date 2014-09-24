@@ -7,12 +7,14 @@ import jpasearch.repository.query.selector.Selectors;
  */
 public class DisjunctionSelectorsBuilder<FROM, PARENT> extends SelectorsBuilder<FROM, PARENT, DisjunctionSelectorsBuilder<FROM, PARENT>> {
 
-    public DisjunctionSelectorsBuilder(PARENT parent, Selectors<FROM> propertySelectors) {
-        super(parent, propertySelectors);
+    public DisjunctionSelectorsBuilder(PARENT parent, Selectors<FROM> selectors) {
+        super(parent, selectors);
+        selectors.or();
     }
 
     public DisjunctionSelectorsBuilder(PARENT parent) {
         super(parent);
+        selectors.or();
     }
 
     @Override

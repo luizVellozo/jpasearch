@@ -22,7 +22,7 @@ public class ConjunctionSelectorsBuilder<FROM, PARENT> extends SelectorsBuilder<
 
     public DisjunctionSelectorsBuilder<FROM, ConjunctionSelectorsBuilder<FROM, PARENT>> disjunction() {
         DisjunctionSelectorsBuilder<FROM, ConjunctionSelectorsBuilder<FROM, PARENT>> disjunction = new DisjunctionSelectorsBuilder<FROM, ConjunctionSelectorsBuilder<FROM, PARENT>>(this);
-        selectors.add(disjunction.getSelectors().or());
+        selectors.add(disjunction.getSelectors());
         return disjunction;
     }
 

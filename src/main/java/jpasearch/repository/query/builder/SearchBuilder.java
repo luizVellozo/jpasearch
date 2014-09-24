@@ -53,7 +53,7 @@ public class SearchBuilder<FROM> implements Serializable {
     public SearchParameters<FROM> build() {
         return new SearchParameters<FROM>(paginationBuilder.getFirstResult(), //
                 paginationBuilder.getMaxResults(), //
-                rootSelectorsBuilder.selectors, //
+                rootSelectorsBuilder.getSelectors(), //
                 fetchesBuilder.getFetches(), //
                 ordersByBuilder.getOrders(), //
                 extraParameters, //

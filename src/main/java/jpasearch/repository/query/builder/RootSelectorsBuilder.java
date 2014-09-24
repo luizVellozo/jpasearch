@@ -18,7 +18,7 @@ public class RootSelectorsBuilder<FROM> extends SelectorsBuilder<FROM, SearchBui
 
     public DisjunctionSelectorsBuilder<FROM, RootSelectorsBuilder<FROM>> disjunction() {
         DisjunctionSelectorsBuilder<FROM, RootSelectorsBuilder<FROM>> disjunction = new DisjunctionSelectorsBuilder<FROM, RootSelectorsBuilder<FROM>>(this);
-        selectors.add(disjunction.getSelectors().or());
+        selectors.add(disjunction.getSelectors());
         return disjunction;
     }
 

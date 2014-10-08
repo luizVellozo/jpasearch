@@ -3,7 +3,7 @@ jpasearch [![Build Status](https://travis-ci.org/jpasearch/jpasearch.png?branch=
 
 Generic repository for jpa entities
 
-A near complete rewrite of [jpa-query-by-example](github.com/https://github.com/jaxio/jpa-query-by-example) of Jaxio/SpringFuse.
+A near complete rewrite of [jpa-query-by-example](https://github.com/jaxio/jpa-query-by-example) of Jaxio/SpringFuse.
 
 ### Support
 Please use GitHub issues and Pull Requests for support.

@@ -60,7 +60,7 @@ public class EntityWithFullTextIntegerRepositoryIT {
     private SearchParameters<EntityWithFullTextInteger> findByValue(Integer value) {
         return new SearchBuilder<EntityWithFullTextInteger>() //
                 .fullText(EntityWithFullTextInteger_.value) //
-                .search(value.toString()) //
+                .search(value) //
                 .build();
     }
 

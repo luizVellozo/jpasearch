@@ -39,6 +39,10 @@ public class TermSelectorPathBuilder<F, FROM, TO, PARENT extends SelectorsBuilde
         return getParent().search(this, selected);
     }
 
+    public PARENT search(Object... selected) {
+        return getParent().search(this, selected);
+    }
+
     public <NEWTO> TermSelectorPathBuilder<F, F, NEWTO, PARENT, GRANDPARENT> andOn(SingularAttribute<? super F, NEWTO> attribute) {
         return getParent().andOn(this, attribute);
     }

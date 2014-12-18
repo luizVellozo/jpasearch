@@ -11,11 +11,12 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import jpasearch.repository.query.SearchParameters;
+import jpasearch.repository.query.selector.ObjectTermSelector;
 import jpasearch.repository.query.selector.PropertySelector;
 import jpasearch.repository.query.selector.Range;
 import jpasearch.repository.query.selector.Selector;
 import jpasearch.repository.query.selector.Selectors;
-import jpasearch.repository.query.selector.TermSelector;
+import jpasearch.repository.query.selector.StringTermSelector;
 
 /**
  * @author speralta
@@ -43,8 +44,10 @@ public class BySelectorUtil {
                 predicates.add(byPropertySelectorUtil.byPropertySelectors(root, builder, (PropertySelector<? super E, ?>) selector));
             } else if (selector instanceof Range) {
                 predicates.add(byRangeUtil.byRange(root, builder, (Range<E, ?>) selector));
-            } else if (selector instanceof TermSelector) {
-                predicates.add(byFullTextUtil.byFullText(root, builder, (TermSelector<E>) selector));
+            } else if (selector instanceof StringTermSelector) {
+                predicates.add(byFullTextUtil.byFullText(root, builder, (StringTermSelector<E>) selector));
+            } else if (selector instanceof ObjectTermSelector) {
+                predicates.add(byFullTextUtil.byFullText(root, builder, (ObjectTermSelector<E>) selector));
             }
         }
         if (selectors.isAndMode()) {

@@ -5,9 +5,10 @@ import javax.persistence.metamodel.SingularAttribute;
 
 import jpasearch.repository.query.Path;
 import jpasearch.repository.query.SearchMode;
+import jpasearch.repository.query.selector.ObjectTermSelector;
 import jpasearch.repository.query.selector.PropertySelector;
 import jpasearch.repository.query.selector.Range;
-import jpasearch.repository.query.selector.TermSelector;
+import jpasearch.repository.query.selector.StringTermSelector;
 
 /**
  * @author speralta
@@ -64,7 +65,11 @@ public class SelectorBuilder<F, FROM, TO, B extends SelectorsBuilder<F, ?, B>> e
     }
 
     public B fullText(String... selected) {
-        return getParent().add(new TermSelector<>(getPath()).notMode(not).selected(selected));
+        return getParent().add(new StringTermSelector<>(getPath()).notMode(not).selected(selected));
+    }
+
+    public B fullText(Object... selected) {
+        return getParent().add(new ObjectTermSelector<>(getPath()).notMode(not).selected(selected));
     }
 
     public <E extends Comparable<E>> B between(E from, E to, SingularAttribute<? super TO, E> attribute) {

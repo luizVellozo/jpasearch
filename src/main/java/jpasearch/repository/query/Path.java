@@ -5,16 +5,15 @@ import java.io.Serializable;
 import javax.persistence.metamodel.PluralAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 
-import jpasearch.repository.query.selector.PropertySelector;
-import jpasearch.repository.query.selector.TermSelector;
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- * Holder class for path used by the {@link OrderBy}, {@link PropertySelector},
- * {@link TermSelector} and {@link SearchParameters}.
+ * Holder class for path used by the {@link OrderBy},
+ * {@link jpasearch.repository.query.selector.PropertySelector},
+ * {@link jpasearch.repository.query.selector.TermSelector} and
+ * {@link SearchParameters}.
  */
 public class Path<FROM, TO> implements Serializable {
     private static final long serialVersionUID = 201403271745L;

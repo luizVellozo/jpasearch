@@ -7,7 +7,8 @@ import javax.persistence.metamodel.PluralAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 
 import jpasearch.repository.query.Path;
-import jpasearch.repository.query.selector.TermSelector;
+import jpasearch.repository.query.selector.ObjectTermSelector;
+import jpasearch.repository.query.selector.StringTermSelector;
 
 /**
  * @author speralta
@@ -41,7 +42,15 @@ public class TermSelectorBuilder<FROM, PARENT extends SelectorsBuilder<FROM, GRA
     }
 
     public PARENT search(String... selected) {
-        TermSelector<FROM> termSelector = new TermSelector<FROM>(paths);
+        StringTermSelector<FROM> termSelector = new StringTermSelector<>(paths);
+        termSelector.selected(selected);
+        termSelector.setSearchSimilarity(searchSimilarity);
+        termSelector.setOrMode(orMode);
+        return toParent().add(termSelector);
+    }
+
+    public PARENT search(Object... selected) {
+        ObjectTermSelector<FROM> termSelector = new ObjectTermSelector<>(paths);
         termSelector.selected(selected);
         termSelector.setSearchSimilarity(searchSimilarity);
         termSelector.setOrMode(orMode);
@@ -61,6 +70,11 @@ public class TermSelectorBuilder<FROM, PARENT extends SelectorsBuilder<FROM, GRA
     }
 
     protected PARENT search(TermSelectorPathBuilder<FROM, ?, ?, PARENT, GRANDPARENT> termSelectorPathBuilder, String... selected) {
+        addPath(termSelectorPathBuilder);
+        return search(selected);
+    }
+
+    protected PARENT search(TermSelectorPathBuilder<FROM, ?, ?, PARENT, GRANDPARENT> termSelectorPathBuilder, Object... selected) {
         addPath(termSelectorPathBuilder);
         return search(selected);
     }

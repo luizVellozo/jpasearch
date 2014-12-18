@@ -13,6 +13,8 @@ import javax.inject.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import jpasearch.repository.query.selector.ObjectTermSelector;
+import jpasearch.repository.query.selector.StringTermSelector;
 import jpasearch.repository.query.selector.TermSelector;
 
 import org.apache.lucene.search.Query;
@@ -31,34 +33,17 @@ public class HibernateSearchUtil {
     private LuceneQueryBuilder luceneQueryBuilder;
 
     @SuppressWarnings("unchecked")
-    public <T> List<T> find(Class<? extends T> type, TermSelector<T> termSelector) {
+    public <T> List<T> find(Class<? extends T> type, TermSelector<T, ?> termSelector) {
         logger.debug("Searching {} with term {}.", new Object[] { type.getSimpleName(), termSelector });
-        FullTextEntityManager fullTextEntityManager = getFullTextEntityManager(entityManager);
-        Query query = luceneQueryBuilder.build(fullTextEntityManager, termSelector, type);
-
-        if (query == null) {
-            return null;
-        }
-
-        FullTextQuery ftq = fullTextEntityManager.createFullTextQuery( //
-                query, type);
+        FullTextQuery ftq = getQuery(type, termSelector);
         ftq.limitExecutionTimeTo(500, TimeUnit.MILLISECONDS);
         return ftq.getResultList();
     }
 
     @SuppressWarnings("unchecked")
-    public <T> List<Serializable> findId(Class<? extends T> type, TermSelector<T> termSelector) {
+    public <T> List<Serializable> findId(Class<? extends T> type, TermSelector<T, ?> termSelector) {
         logger.debug("Searching {} id with term {}.", new Object[] { type.getSimpleName(), termSelector });
-        FullTextEntityManager fullTextEntityManager = getFullTextEntityManager(entityManager);
-        Query query = luceneQueryBuilder.build(fullTextEntityManager, termSelector, type);
-
-        if (query == null) {
-            return null;
-        }
-
-        logger.debug("Query: {}.", query.toString());
-        FullTextQuery ftq = fullTextEntityManager.createFullTextQuery( //
-                query, type);
+        FullTextQuery ftq = getQuery(type, termSelector);
         ftq.setProjection("id");
         ftq.limitExecutionTimeTo(500, TimeUnit.MILLISECONDS);
         List<Serializable> ids = new ArrayList<>();
@@ -69,13 +54,35 @@ public class HibernateSearchUtil {
         return ids;
     }
 
+    @SuppressWarnings("unchecked")
+    private <T> FullTextQuery getQuery(Class<? extends T> type, TermSelector<T, ?> termSelector) {
+        FullTextEntityManager fullTextEntityManager = getFullTextEntityManager(entityManager);
+        Query query;
+        if (termSelector instanceof StringTermSelector) {
+            query = luceneQueryBuilder.build(fullTextEntityManager, (StringTermSelector<T>) termSelector, type);
+        } else if (termSelector instanceof ObjectTermSelector) {
+            query = luceneQueryBuilder.build(fullTextEntityManager, (ObjectTermSelector<T>) termSelector, type);
+        } else {
+            throw new RuntimeException("Unknown TermSelector: " + termSelector.getClass().getName());
+        }
+
+        if (query == null) {
+            return null;
+        }
+
+        logger.debug("Query: {}.", query.toString());
+        FullTextQuery ftq = fullTextEntityManager.createFullTextQuery( //
+                query, type);
+        return ftq;
+    }
+
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Inject
-    public void setBuilder(LuceneQueryBuilder luceneQueryBuilder) {
+    public void setLuceneQueryBuilder(LuceneQueryBuilder luceneQueryBuilder) {
         this.luceneQueryBuilder = luceneQueryBuilder;
     }
 

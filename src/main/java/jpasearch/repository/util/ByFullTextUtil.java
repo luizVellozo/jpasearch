@@ -20,7 +20,7 @@ public class ByFullTextUtil {
     private HibernateSearchUtil hibernateSearchUtil;
     private JpaUtil jpaUtil;
 
-    public <T> Predicate byFullText(Root<T> root, CriteriaBuilder builder, TermSelector<T> termSelector) {
+    public <T> Predicate byFullText(Root<T> root, CriteriaBuilder builder, TermSelector<T, ?> termSelector) {
         if (!termSelector.isNotEmpty()) {
             return null;
         }
@@ -33,7 +33,7 @@ public class ByFullTextUtil {
 
     }
 
-    private <T> Predicate onOther(Root<T> root, CriteriaBuilder builder, TermSelector<T> termSelector) {
+    private <T> Predicate onOther(Root<T> root, CriteriaBuilder builder, TermSelector<T, ?> termSelector) {
         List<? extends T> found = hibernateSearchUtil.find(root.getJavaType(), termSelector);
         if (found == null) {
             return null;
@@ -49,7 +49,7 @@ public class ByFullTextUtil {
         return jpaUtil.orPredicate(builder, predicates);
     }
 
-    private <T> Predicate onIdentifiable(Root<T> root, CriteriaBuilder builder, TermSelector<T> termSelector) {
+    private <T> Predicate onIdentifiable(Root<T> root, CriteriaBuilder builder, TermSelector<T, ?> termSelector) {
         List<Serializable> ids = hibernateSearchUtil.findId(root.getJavaType(), termSelector);
         if (ids == null) {
             return null;

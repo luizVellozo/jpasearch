@@ -10,24 +10,25 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSelector<FROM>> {
+public class TermSelector<FROM, TO> implements SingleSelector<FROM, TO, TermSelector<FROM, TO>> {
+
     private static final long serialVersionUID = 201308010800L;
     private final List<Path<FROM, ?>> paths;
-    private List<String> selected = new ArrayList<>();
+    private List<TO> selected = new ArrayList<>();
     private boolean orMode = true;
     private Integer searchSimilarity = null;
     private boolean notMode = false;
 
-    public TermSelector(Path<FROM, ?> path) {
+    TermSelector(Path<FROM, ?> path) {
         paths = new ArrayList<>();
         paths.add(path);
     }
 
-    public TermSelector(List<Path<FROM, ?>> paths) {
+    TermSelector(List<Path<FROM, ?>> paths) {
         this.paths = new ArrayList<>(paths);
     }
 
-    private TermSelector(TermSelector<FROM> toCopy) {
+    private TermSelector(TermSelector<FROM, TO> toCopy) {
         paths = new ArrayList<>(toCopy.paths);
         selected = new ArrayList<>(toCopy.selected);
         orMode = toCopy.orMode;
@@ -35,8 +36,8 @@ public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSele
     }
 
     @Override
-    public TermSelector<FROM> copy() {
-        return new TermSelector<FROM>(this);
+    public TermSelector<FROM, TO> copy() {
+        return new TermSelector<FROM, TO>(this);
     }
 
     public List<String> getPaths() {
@@ -63,12 +64,12 @@ public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSele
         this.orMode = orMode;
     }
 
-    public TermSelector<FROM> or() {
+    public TermSelector<FROM, TO> or() {
         setOrMode(true);
         return this;
     }
 
-    public TermSelector<FROM> and() {
+    public TermSelector<FROM, TO> and() {
         setOrMode(false);
         return this;
     }
@@ -76,22 +77,23 @@ public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSele
     /**
      * Get the possible candidates for property.
      */
-    public List<String> getSelected() {
+    public List<TO> getSelected() {
         return selected;
     }
 
-    public void setSelected(String selected) {
+    public void setSelected(TO selected) {
         this.selected = Arrays.asList(selected);
     }
 
     /**
      * Set the possible candidates for property.
      */
-    public void setSelected(List<String> selected) {
+    public void setSelected(List<TO> selected) {
         this.selected = selected;
     }
 
-    public TermSelector<FROM> selected(String... selected) {
+    @SuppressWarnings("unchecked")
+    public TermSelector<FROM, TO> selected(TO... selected) {
         setSelected(Arrays.asList(selected));
         return this;
     }
@@ -100,8 +102,10 @@ public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSele
         if ((selected == null) || selected.isEmpty()) {
             return false;
         }
-        for (String word : selected) {
-            if (StringUtils.isNotBlank(word)) {
+        for (TO word : selected) {
+            if ((word instanceof String) && StringUtils.isNotBlank((String) word)) {
+                return true;
+            } else if (word != null) {
                 return true;
             }
         }
@@ -122,7 +126,7 @@ public class TermSelector<FROM> implements SingleSelector<FROM, String, TermSele
         this.notMode = notMode;
     }
 
-    public TermSelector<FROM> notMode(boolean notMode) {
+    public TermSelector<FROM, TO> notMode(boolean notMode) {
         setNotMode(notMode);
         return this;
     }
